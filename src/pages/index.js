@@ -10,6 +10,9 @@ const IndexPage = ({ data }) => {
         <div key={node.id}>
           <h2>{node.frontmatter.location}</h2>
           <p>{node.frontmatter.title}</p>
+          <p>{node.frontmatter.date}</p>
+          <p>{node.frontmatter.time}</p>
+          <p>{node.rawMarkdownBody}</p>
         </div>
       ))}
       <Link to="/about">About</Link>
