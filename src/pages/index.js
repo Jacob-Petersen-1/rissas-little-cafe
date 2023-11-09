@@ -1,27 +1,25 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
+import { MainLayout } from "../components"
 
-const IndexPage = ({ data }) => {
+const HomePage = ({ data }) => {
   console.log(data)
   return (
-    <div>
-      <h1>Home</h1>
-      {data.events.edges.map(({ node }) => (
-        <div key={node.id}>
-          <h2>{node.frontmatter.location}</h2>
-          <p>{node.frontmatter.title}</p>
-          <p>{node.frontmatter.date}</p>
-          <p>{node.frontmatter.time}</p>
-          <p>{node.rawMarkdownBody}</p>
-        </div>
-      ))}
-      <Link to="/about">About</Link>
-    </div>
+    <MainLayout>
+      <h1>Home Page</h1>
+      <ul>
+        {data.events.edges.map(({ node }) => (
+          <li key={node.id}>
+            <Link to={`/events/${node.id}`}>{node.frontmatter.title}</Link>
+          </li>
+        ))}
+      </ul>
+    </MainLayout>
   )
 }
 export const Head = () => <head title="Home" />
 
-export default IndexPage
+export default HomePage
 
 export const query = graphql`
   query {
