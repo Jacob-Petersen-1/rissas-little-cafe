@@ -48,6 +48,13 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-google-fonts",
+      options: {
+        fonts: ["Playfair Display:400,700", "Raleway:400,700"],
+        display: "swap",
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `rissa-cafe`,

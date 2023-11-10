@@ -5,11 +5,7 @@ import { MainLayout, LandingHero } from "../components";
 
 const HomePage = ({ data }) => {
   console.log(data);
-  return (
-    <MainLayout>
-      <LandingHero />
-    </MainLayout>
-  );
+  return <MainLayout>{/* <LandingHero /> */}</MainLayout>;
 };
 export const Head = () => <head title="Home" />;
 

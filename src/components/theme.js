@@ -6,7 +6,7 @@ const theme = createTheme({
       sm: 600, // Small devices (mobile)
       md: 960, // Medium devices (tablets)
       lg: 1280, // Large devices (desktops)
-      xl: 1920, // Extra large devices (large desktops)
+      xl: 1920, // Extra-large devices (large desktops)
     },
   },
   palette: {
@@ -25,29 +25,33 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Raleway, sans-serif",
+    fontFamily: [
+      "Playfair Display", // Default font for headings
+      "Raleway", // Default font for body text
+      "sans-serif",
+    ].join(","),
     h1: {
-      fontSize: "2.5rem",
+      fontFamily: "Playfair Display",
+      fontSize: "1.5rem",
       fontWeight: 700,
-      color: "#000", // Black heading text
     },
     h2: {
-      fontSize: "2rem",
+      fontFamily: "Playfair Display",
+      fontSize: "1.3rem",
       fontWeight: 600,
-      color: "#000", // Black heading text
     },
     h3: {
-      fontSize: "1.8rem",
+      fontFamily: "Playfair Display",
+      fontSize: "1.2rem",
       fontWeight: 600,
-      color: "#000", // Black heading text
     },
     body1: {
+      fontFamily: "Raleway",
       fontSize: "1rem",
-      color: "#000", // Black body text
     },
     body2: {
+      fontFamily: "Raleway",
       fontSize: "0.9rem",
-      color: "#000", // Black body text
     },
   },
   shape: {

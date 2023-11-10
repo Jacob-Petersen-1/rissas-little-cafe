@@ -10,17 +10,23 @@ const StyledAppBar = styled(AppBar)(({ theme }) => ({
 
 const StyledLink = styled(Link)(({ theme }) => ({
   textTransform: "uppercase",
-  fontSize: "1.3rem",
+  fontSize: theme.typography.h3.fontSize,
+  fontWeight: theme.typography.h3.fontWeight,
   color: theme.palette.text.primary,
   textDecoration: "none",
   paddingBottom: 5,
   alignSelf: "center",
-  margin: theme.spacing(3),
+  margin: theme.spacing(8),
   "&:hover": {
     borderBottom: `2px solid ${theme.palette.link.hover}`,
   },
   [theme.breakpoints.down("md")]: {
     fontSize: "1rem",
+    margin: theme.spacing(4),
+  },
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "0.8rem",
+    margin: theme.spacing(2),
   },
 }));
 

@@ -6,10 +6,11 @@ import { NavBar } from "../../NavBar";
 
 //TODO: Add pageLinks to CMS system
 const pageLinks = [
-  { link: "/", name: "home" },
-  { link: "/services", name: "services" },
-  { link: "/events", name: "events" },
-  { link: "/contact", name: "contact" },
+  { to: "/", label: "home" },
+  { to: "/services", label: "services" },
+  { to: "/", label: "logo", isImage: true },
+  { to: "/events", label: "events" },
+  { t0: "/contact", label: "contact" },
 ];
 
 const MainLayout = ({ children }) => {

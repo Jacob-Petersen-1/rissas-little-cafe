@@ -5,26 +5,19 @@ import { ContentContainer, StyledAppBar, StyledLink } from "./NavBar.styles";
 import {
   useMediaQuery,
   useTheme,
-  Hidden,
   Menu,
   MenuItem,
-  Toolbar,
-  Icon,
   IconButton,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
 const NavBar = ({ pageLinks }) => {
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [anchorEl, setAnchorEl] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const handleMenuOpen = () => {
-    setAnchorEl(true);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(false);
+  const handleIconClick = () => {
+    setAnchorEl(!anchorEl);
   };
 
   return (
@@ -44,7 +37,7 @@ const NavBar = ({ pageLinks }) => {
                   quality={80}
                 />
               </Link>
-              <IconButton onClick={handleMenuOpen}>
+              <IconButton onClick={handleIconClick}>
                 <MenuIcon
                   aria-controls="mobile-menu-open"
                   aria-haspopup="true"
@@ -58,52 +51,53 @@ const NavBar = ({ pageLinks }) => {
               </IconButton>
               <Menu
                 id="mobile-menu"
-                anchorEl={anchorEl}
                 keepMounted
                 open={anchorEl}
-                onClose={handleMenuClose}
+                onClose={handleIconClick}
                 transformOrigin={{ vertical: "top", horizontal: "right" }}
                 anchorOrigin={{ vertical: "top", horizontal: "right" }}
-                sx={{ marginTop: 12, marginLeft: 1 }}
+                sx={{ marginTop: 12, marginLeft: 1.5 }}
               >
-                {pageLinks?.map((link) => (
-                  <MenuItem
-                    key={link.name}
-                    onClick={handleMenuClose}
-                    sx={{ color: theme.palette.text.primary }}
-                  >
-                    <StyledLink to={link.link}>{link.name}</StyledLink>
-                  </MenuItem>
-                ))}
+                {pageLinks?.map((link) =>
+                  !link?.isImage ? (
+                    <MenuItem
+                      key={link?.label}
+                      onClick={handleIconClick}
+                      sx={{
+                        color: theme.palette.text.primary,
+                      }}
+                    >
+                      <StyledLink to={link?.to}>{link?.label}</StyledLink>
+                    </MenuItem>
+                  ) : null
+                )}
               </Menu>
             </>
           ) : (
             <>
-              <Hidden smDown>
-                <StyledLink to="/" label="home">
-                  Home
-                </StyledLink>
-                <StyledLink to="/about" label="home">
-                  About
-                </StyledLink>
-                <Link to="/" label="home">
-                  <StaticImage
-                    src="../../../static/images/logo.svg"
-                    alt="logo"
-                    layout="fixed"
-                    loading="eager"
-                    width={150}
-                    height={150}
-                    quality={80}
-                  />
-                </Link>
-                <StyledLink to="/events" label="events">
-                  Events
-                </StyledLink>
-                <StyledLink to="/contact" label="contact">
-                  Services
-                </StyledLink>
-              </Hidden>
+              {pageLinks?.map((link) =>
+                link?.isImage ? (
+                  <Link key={link?.label} to={link?.to} label={link?.label}>
+                    <StaticImage
+                      src="../../../static/images/logo.svg"
+                      alt="logo"
+                      layout="fixed"
+                      loading="eager"
+                      width={175}
+                      height={165}
+                      quality={80}
+                    />
+                  </Link>
+                ) : (
+                  <StyledLink
+                    key={link?.label}
+                    to={link?.to}
+                    label={link?.label}
+                  >
+                    {link?.label}
+                  </StyledLink>
+                )
+              )}
             </>
           )}
         </ContentContainer>
