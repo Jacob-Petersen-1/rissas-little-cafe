@@ -7,6 +7,9 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+
+require("dotenv").config();
+
 module.exports = {
   siteMetadata: {
     title: `Rissa Cafe`,
@@ -35,6 +38,16 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-cloudinary`,
+      options: {
+        cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+        apiKey: process.env.CLOUDINARY_API_KEY,
+        apiSecret: process.env.CLOUDINARY_API_SECRET,
+        resourceType: `image`,
+        prefix: `cafe`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `rissa-cafe`,
@@ -49,4 +62,4 @@ module.exports = {
       },
     },
   ],
-}
+};
