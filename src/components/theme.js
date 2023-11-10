@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/material"
+import { createTheme } from "@mui/material";
 
 const theme = createTheme({
   breakpoints: {
@@ -17,11 +17,11 @@ const theme = createTheme({
       main: "#fff", // White as the secondary color
     },
     text: {
-      primary: "#000", // Black text
+      primary: "#333", // Black text
       secondary: "#fff", // White text
     },
     link: {
-      hover: "#008080",
+      hover: "#b6d4cf", // Light blue on hover
     },
   },
   typography: {
@@ -53,6 +53,6 @@ const theme = createTheme({
   shape: {
     borderRadius: 8,
   },
-})
+});
 
-export default theme
+export default theme;

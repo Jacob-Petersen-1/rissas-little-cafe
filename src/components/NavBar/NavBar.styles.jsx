@@ -1,26 +1,37 @@
-import styled from "@mui/material/styles/styled"
-import { Link } from "gatsby"
-import { AppBar } from "@mui/material"
+import styled from "@mui/material/styles/styled";
+import { Link } from "gatsby";
+import { AppBar, Box } from "@mui/material";
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
   backgroundColor: "transparent",
+  maxWidth: "100%",
   boxShadow: "none",
-}))
+}));
 
 const StyledLink = styled(Link)(({ theme }) => ({
-  fontFamily: theme.typography.fontFamily,
-  fontWeight: "bold",
+  textTransform: "uppercase",
+  fontSize: "1.3rem",
   color: theme.palette.text.primary,
   textDecoration: "none",
-  marginRight: theme.spacing(2),
+  paddingBottom: 5,
+  alignSelf: "center",
+  margin: theme.spacing(3),
   "&:hover": {
-    color: theme.palette.link.main,
+    borderBottom: `2px solid ${theme.palette.link.hover}`,
   },
-}))
+  [theme.breakpoints.down("md")]: {
+    fontSize: "1rem",
+  },
+}));
 
-const StyledLogo = styled("img")(() => ({
-  height: 150,
-  width: 150,
-}))
+const ContentContainer = styled(Box)(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  borderBottom: `1px solid rgba(0, 0, 0, 0.1)`,
+  [theme.breakpoints.down("sm")]: {
+    justifyContent: "space-between",
+  },
+}));
 
-export { StyledAppBar, StyledLink, StyledLogo }
+export { StyledAppBar, StyledLink, ContentContainer };

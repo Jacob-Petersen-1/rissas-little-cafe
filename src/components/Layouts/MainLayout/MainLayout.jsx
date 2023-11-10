@@ -1,8 +1,8 @@
-import React from "react"
-import { ThemeProvider } from "@mui/material/styles"
-import { CssBaseline, Container } from "@mui/material"
-import theme from "../../theme"
-import { NavBar } from "../../NavBar"
+import React from "react";
+import { ThemeProvider } from "@mui/material/styles";
+import { CssBaseline, Container } from "@mui/material";
+import theme from "../../theme";
+import { NavBar } from "../../NavBar";
 
 const MainLayout = ({ children }) => {
   return (
@@ -10,12 +10,10 @@ const MainLayout = ({ children }) => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <NavBar />
-        <Container maxWidth="lg">
-          <main>{children}</main>
-        </Container>
+        {children}
       </ThemeProvider>
     </>
-  )
-}
+  );
+};
 
-export default MainLayout
+export default MainLayout;

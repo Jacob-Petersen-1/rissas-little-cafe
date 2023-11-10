@@ -9,13 +9,17 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `Rissa Cafe`,
+    description: `Catering business that specializes in homemade treats and drinks.`,
+    author: `Jacob Petersen`,
+    siteUrl: `https://rissaslittlecafecatering.netlify.app/`,
   },
   plugins: [
+    "gatsby-plugin-netlify-cms",
     `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    "gatsby-transformer-remark",
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -30,10 +34,6 @@ module.exports = {
         path: `${__dirname}/static/images`,
       },
     },
-    "gatsby-plugin-netlify-cms",
-    "gatsby-transformer-remark",
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
