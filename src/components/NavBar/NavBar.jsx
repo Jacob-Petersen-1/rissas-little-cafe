@@ -77,7 +77,11 @@ const NavBar = ({ pageLinks }) => {
             <>
               {pageLinks?.map((link) =>
                 link?.isImage ? (
-                  <Link key={link?.label} to={link?.to} label={link?.label}>
+                  <Link
+                    key={link?.label}
+                    to={link?.to || "/"}
+                    label={link?.label}
+                  >
                     <StaticImage
                       src="../../../static/images/logo.svg"
                       alt="logo"
@@ -91,7 +95,7 @@ const NavBar = ({ pageLinks }) => {
                 ) : (
                   <StyledLink
                     key={link?.label}
-                    to={link?.to}
+                    to={link?.to || "/"}
                     label={link?.label}
                   >
                     {link?.label}

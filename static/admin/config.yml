@@ -26,5 +26,6 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Position", name: "position", widget: "number" }
       - { label: "Headline", name: "headline", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }

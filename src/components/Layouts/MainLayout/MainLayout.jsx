@@ -20,8 +20,10 @@ const MainLayout = ({ children }) => {
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <NavBar pageLinks={pageLinks} />
-        {children}
+        <Container maxWidth="xl">
+          <NavBar pageLinks={pageLinks} />
+          <Box sx={{ marginTop: 15 }}>{children}</Box>
+        </Container>
       </ThemeProvider>
     </>
   );

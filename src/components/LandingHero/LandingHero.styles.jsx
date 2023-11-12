@@ -21,13 +21,7 @@ const StyledLandingHeroImageContainer = styled(Box)(({ theme }) => ({
   margin: theme.spacing(1),
 }));
 
-const StyledLandingHeroImage = styled(GatsbyImage)(({ theme }) => ({
-  width: "100%",
-  height: "100%",
-  maxHeight: 500,
-  objectFit: "cover",
-  transition: "all 0.3s ease-in-out",
-}));
+const StyledLandingHeroImage = styled(GatsbyImage)(({ theme }) => ({}));
 
 const HeroBlock = styled(Box)(({ theme }) => ({
   display: "flex",

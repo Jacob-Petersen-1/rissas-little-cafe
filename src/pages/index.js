@@ -15,16 +15,6 @@ const HomePage = ({ data }) => {
 
   console.log("combinedData", combinedData);
 
-  // const landingHero = {
-  //   title: landingContent[0]?.frontmatter?.title,
-  //   headline: landingContent[0]?.frontmatter?.headline,
-  //   body: landingContent[0]?.frontmatter?.body,
-  //   image: cloudinaryMedia[3]?.gatsbyImageData,
-  // };
-
-  // console.log("landingContent", landingContent);
-  // console.log("cloudinaryMedia", cloudinaryMedia);
-
   return (
     <MainLayout>
       <LandingHero landingContent={combinedData} />
@@ -45,6 +35,7 @@ export const query = graphql`
           frontmatter {
             title
             headline
+            position
             body
           }
         }
@@ -54,7 +45,11 @@ export const query = graphql`
       edges {
         node {
           id
-          gatsbyImageData
+          gatsbyImageData(
+            layout: FULL_WIDTH
+            aspectRatio: 2.5
+            placeholder: BLURRED
+          )
         }
       }
     }
