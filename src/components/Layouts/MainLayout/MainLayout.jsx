@@ -3,6 +3,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline, Container, Box } from "@mui/material";
 import theme from "../../theme";
 import { NavBar } from "../../NavBar";
+import { ContentContainer } from "./MainLayout.styles";
 
 //TODO: Add pageLinks to CMS system
 const pageLinks = [
@@ -22,7 +23,7 @@ const MainLayout = ({ children }) => {
         <CssBaseline />
         <Container maxWidth="xl">
           <NavBar pageLinks={pageLinks} />
-          <Box sx={{ marginTop: 15 }}>{children}</Box>
+          <ContentContainer>{children}</ContentContainer>
         </Container>
       </ThemeProvider>
     </>

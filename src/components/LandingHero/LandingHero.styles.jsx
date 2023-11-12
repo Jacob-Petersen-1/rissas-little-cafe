@@ -1,66 +1,73 @@
 import styled from "@mui/material/styles/styled";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { Box } from "@mui/material";
+import { Box, Paper } from "@mui/material";
 
-const StyledLandingHero = styled(Box)(({ theme }) => ({
-  width: "100%",
+const HeroSlide = styled(Paper)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-  backgroundColor: "#f2f2f2",
-}));
-
-const StyledLandingHeroContent = styled(Box)(() => ({
-  maxWidth: 900,
+  width: "100%",
+  height: 1000,
+  [theme.breakpoints.down("md")]: {
+    height: 500,
+  },
+  [theme.breakpoints.down("sm")]: {
+    height: 400,
+  },
 }));
 
 const StyledLandingHeroImageContainer = styled(Box)(({ theme }) => ({
-  height: "100%",
   width: "100%",
-  margin: theme.spacing(1),
 }));
 
 const StyledLandingHeroImage = styled(GatsbyImage)(({ theme }) => ({}));
 
+const StyledLandingHeroContent = styled(Box)(({ theme }) => ({
+  maxWidth: 900,
+  [theme.breakpoints.up("sm")]: {
+    margin: " 0 auto",
+    textAlign: "center",
+    alignItems: "center",
+  },
+}));
+
 const HeroBlock = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  alignItems: "center",
   justifyContent: "center",
-  margin: theme.spacing(5),
+  margin: theme.spacing(3, 0, 5, 0),
   [theme.breakpoints.down("sm")]: {
-    margin: theme.spacing(2),
+    margin: theme.spacing(1, 1, 1, 0),
   },
 }));
 
 const HeroHeaderText = styled(Box)(({ theme }) => ({
   fontSize: "2.5rem",
   textTransform: "uppercase",
-  textAlign: "center",
   fontWeight: theme.typography.h1.fontWeight,
   textDecoration: "underline",
   textDecorationColor: theme.palette.link.hover,
-  margin: theme.spacing(2),
+  marginBottom: theme.spacing(2),
   [theme.breakpoints.down("md")]: {
-    fontSize: "1.5rem",
-    textAlign: "left",
-    alignSelf: "flex-start",
-    marginLeft: 0,
+    margin: theme.spacing(1, 0, 0, 2),
+    fontSize: "2rem",
+  },
+  [theme.breakpoints.down("sm")]: {
+    margin: theme.spacing(1, 0, 0, 2),
+    fontSize: "1rem",
   },
 }));
 
 const HeroBodyText = styled(Box)(({ theme }) => ({
   fontSize: theme.typography.body1.fontSize,
   fontWeight: theme.typography.body1.fontWeight,
-  alignSelf: "center",
-  [theme.breakpoints.down("sm")]: {
+  [theme.breakpoints.down("md")]: {
+    margin: theme.spacing(1, 0, 1, 2),
     fontSize: theme.typography.body2.fontSize,
   },
 }));
 
 export {
-  StyledLandingHero,
+  HeroSlide,
   StyledLandingHeroContent,
   StyledLandingHeroImageContainer,
   StyledLandingHeroImage,

@@ -2,20 +2,20 @@ import React from "react";
 import { getImage } from "gatsby-plugin-image";
 import Carousel from "react-material-ui-carousel";
 import {
-  StyledLandingHero,
   StyledLandingHeroImageContainer,
   StyledLandingHeroContent,
   StyledLandingHeroImage,
   HeroBlock,
   HeroHeaderText,
   HeroBodyText,
+  HeroSlide,
 } from "./LandingHero.styles";
 
 const LandingHero = ({ landingContent }) => {
   return (
-    <Carousel>
+    <Carousel animation="slide" interval={8000}>
       {landingContent?.reverse().map((content) => (
-        <StyledLandingHero key={content.position}>
+        <HeroSlide variant="outlined" key={content.position}>
           <StyledLandingHeroImageContainer>
             <StyledLandingHeroImage
               image={getImage(content?.cloudinaryData?.gatsbyImageData)}
@@ -36,7 +36,7 @@ const LandingHero = ({ landingContent }) => {
               ) : null}
             </HeroBlock>
           </StyledLandingHeroContent>
-        </StyledLandingHero>
+        </HeroSlide>
       ))}
     </Carousel>
   );

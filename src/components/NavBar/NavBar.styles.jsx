@@ -17,13 +17,13 @@ const StyledLink = styled(Link)(({ theme }) => ({
   textDecoration: "none",
   paddingBottom: 5,
   alignSelf: "center",
-  margin: theme.spacing(8),
+  margin: theme.spacing(5),
   "&:hover": {
     borderBottom: `2px solid ${theme.palette.link.hover}`,
   },
   [theme.breakpoints.down("md")]: {
     fontSize: "1rem",
-    margin: theme.spacing(4),
+    margin: theme.spacing(3),
   },
   [theme.breakpoints.down("sm")]: {
     fontSize: "0.8rem",
@@ -36,7 +36,7 @@ const ContentContainer = styled(Box)(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
   borderBottom: `1px solid rgba(0, 0, 0, 0.1)`,
-  [theme.breakpoints.down("sm")]: {
+  [theme.breakpoints.down("md")]: {
     justifyContent: "space-between",
   },
 }));

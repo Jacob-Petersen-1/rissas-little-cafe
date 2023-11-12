@@ -8,16 +8,19 @@ import {
   Menu,
   MenuItem,
   IconButton,
+  Hidden,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
 const NavBar = ({ pageLinks }) => {
-  const [anchorEl, setAnchorEl] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-  const handleIconClick = () => {
-    setAnchorEl(!anchorEl);
+  const handleIconClick = (event) => {
+    setOpen(!open);
+    setAnchorEl(event.currentTarget);
   };
 
   return (
@@ -52,11 +55,11 @@ const NavBar = ({ pageLinks }) => {
               <Menu
                 id="mobile-menu"
                 keepMounted
-                open={anchorEl}
+                open={open}
+                anchorEl={anchorEl}
                 onClose={handleIconClick}
                 transformOrigin={{ vertical: "top", horizontal: "right" }}
                 anchorOrigin={{ vertical: "top", horizontal: "right" }}
-                sx={{ marginLeft: 1.5 }}
               >
                 {pageLinks?.map((link) =>
                   !link?.isImage ? (
@@ -67,7 +70,9 @@ const NavBar = ({ pageLinks }) => {
                         color: theme.palette.text.primary,
                       }}
                     >
-                      <StyledLink to={link?.to}>{link?.label}</StyledLink>
+                      <StyledLink to={link?.to || "/"}>
+                        {link?.label}
+                      </StyledLink>
                     </MenuItem>
                   ) : null
                 )}
@@ -75,33 +80,35 @@ const NavBar = ({ pageLinks }) => {
             </>
           ) : (
             <>
-              {pageLinks?.map((link) =>
-                link?.isImage ? (
-                  <Link
-                    key={link?.label}
-                    to={link?.to || "/"}
-                    label={link?.label}
-                  >
-                    <StaticImage
-                      src="../../../static/images/logo.svg"
-                      alt="logo"
-                      layout="fixed"
-                      loading="eager"
-                      width={175}
-                      height={150}
-                      quality={80}
-                    />
-                  </Link>
-                ) : (
-                  <StyledLink
-                    key={link?.label}
-                    to={link?.to || "/"}
-                    label={link?.label}
-                  >
-                    {link?.label}
-                  </StyledLink>
-                )
-              )}
+              <Hidden mdDown>
+                {pageLinks?.map((link) =>
+                  link?.isImage ? (
+                    <Link
+                      key={link?.label}
+                      to={link?.to || "/"}
+                      label={link?.label}
+                    >
+                      <StaticImage
+                        src="../../../static/images/logo.svg"
+                        alt="logo"
+                        layout="fixed"
+                        loading="eager"
+                        width={175}
+                        height={150}
+                        quality={80}
+                      />
+                    </Link>
+                  ) : (
+                    <StyledLink
+                      key={link?.label}
+                      to={link?.to || "/"}
+                      label={link?.label}
+                    >
+                      {link?.label}
+                    </StyledLink>
+                  )
+                )}
+              </Hidden>
             </>
           )}
         </ContentContainer>

@@ -8,16 +8,30 @@ const HomePage = ({ data }) => {
   const { edges: cloudinaryMediaArray } = allCloudinaryMedia || [];
   const landingText = landingContentArray?.map((edge) => edge.node) || [];
   const landingMedia = cloudinaryMediaArray?.map((edge) => edge.node) || [];
-  const combinedData = landingText.map((content, index) => ({
-    ...content.frontmatter,
-    cloudinaryData: landingMedia[index],
-  }));
 
-  console.log("combinedData", combinedData);
+  const matchContentWithMedia = (content, media) => {
+    const combinedData = [];
+    content.forEach((contentItem) => {
+      media.forEach((mediaItem) => {
+        if (contentItem.frontmatter.imageUrl === mediaItem.cloudinaryData.url) {
+          combinedData.push({
+            ...contentItem.frontmatter,
+            cloudinaryData: mediaItem,
+          });
+        }
+      });
+    });
+    return combinedData;
+  };
+
+  const combinedLandingContent = matchContentWithMedia(
+    landingText,
+    landingMedia
+  );
 
   return (
     <MainLayout>
-      <LandingHero landingContent={combinedData} />
+      <LandingHero landingContent={combinedLandingContent} />
     </MainLayout>
   );
 };
@@ -36,6 +50,7 @@ export const query = graphql`
             title
             headline
             position
+            imageUrl
             body
           }
         }
@@ -50,6 +65,9 @@ export const query = graphql`
             aspectRatio: 2.5
             placeholder: BLURRED
           )
+          cloudinaryData {
+            url
+          }
         }
       }
     }
