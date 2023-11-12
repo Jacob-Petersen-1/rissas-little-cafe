@@ -7,8 +7,10 @@ import { NavBar } from "../../NavBar";
 //TODO: Add pageLinks to CMS system
 const pageLinks = [
   { to: "/", label: "home" },
+  { to: "/about", label: "about" },
   { to: "/services", label: "services" },
   { to: "/", label: "logo", isImage: true },
+  { to: "/orders", label: "orders" },
   { to: "/events", label: "events" },
   { t0: "/contact", label: "contact" },
 ];
@@ -19,7 +21,7 @@ const MainLayout = ({ children }) => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <NavBar pageLinks={pageLinks} />
-        <Box sx={{ marginTop: 13 }}>{children}</Box>
+        {children}
       </ThemeProvider>
     </>
   );

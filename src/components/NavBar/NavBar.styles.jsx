@@ -6,6 +6,7 @@ const StyledAppBar = styled(AppBar)(({ theme }) => ({
   backgroundColor: theme.palette.secondary.main,
   maxWidth: "100%",
   boxShadow: "none",
+  marginBottom: theme.spacing(3),
 }));
 
 const StyledLink = styled(Link)(({ theme }) => ({

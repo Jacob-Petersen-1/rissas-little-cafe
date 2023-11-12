@@ -27,5 +27,4 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Headline", name: "headline", widget: "string" }
-      - { label: "Position", name: "position", widget: "number" }
       - { label: "Body", name: "body", widget: "markdown" }

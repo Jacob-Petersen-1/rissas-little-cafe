@@ -1,11 +1,13 @@
 import React from "react";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { HeroHeader } from "../HeroHeader";
+import { getImage } from "gatsby-plugin-image";
 import {
   StyledLandingHero,
   StyledLandingHeroImageContainer,
   StyledLandingHeroContent,
   StyledLandingHeroImage,
+  HeroBlock,
+  HeroHeaderText,
+  HeroBodyText,
 } from "./LandingHero.styles";
 
 const LandingHero = ({ image, label, heroHeadline, heroBodyText }) => {
@@ -16,14 +18,18 @@ const LandingHero = ({ image, label, heroHeadline, heroBodyText }) => {
           image={getImage(image)}
           alt={label}
           placeholder="blurred"
-          layout="fullWidth"
           quality={80}
-          objectFit="contain"
+          objectFit="cover"
           formats={["auto", "webp", "avif"]}
         />
       </StyledLandingHeroImageContainer>
       <StyledLandingHeroContent>
-        <HeroHeader heroHeadline={heroHeadline} heroBodyText={heroBodyText} />
+        <HeroBlock>
+          {heroHeadline ? (
+            <HeroHeaderText>{heroHeadline}</HeroHeaderText>
+          ) : null}
+          {heroBodyText ? <HeroBodyText>{heroBodyText}</HeroBodyText> : null}
+        </HeroBlock>
       </StyledLandingHeroContent>
     </StyledLandingHero>
   );

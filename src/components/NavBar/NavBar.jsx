@@ -56,7 +56,7 @@ const NavBar = ({ pageLinks }) => {
                 onClose={handleIconClick}
                 transformOrigin={{ vertical: "top", horizontal: "right" }}
                 anchorOrigin={{ vertical: "top", horizontal: "right" }}
-                sx={{ marginTop: 5, marginLeft: 1.5 }}
+                sx={{ marginLeft: 1.5 }}
               >
                 {pageLinks?.map((link) =>
                   !link?.isImage ? (

@@ -12,7 +12,7 @@ const HomePage = ({ data }) => {
     title: landingContent[0]?.frontmatter?.title,
     headline: landingContent[0]?.frontmatter?.headline,
     body: landingContent[0]?.frontmatter?.body,
-    image: cloudinaryMedia[1]?.gatsbyImageData,
+    image: cloudinaryMedia[3]?.gatsbyImageData,
   };
 
   return (
@@ -34,14 +34,12 @@ export const query = graphql`
   query HomePageQuery {
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/content/landing/" } }
-      sort: { fields: [frontmatter___position], order: ASC }
     ) {
       edges {
         node {
           frontmatter {
             title
             headline
-            position
             body
           }
         }
@@ -51,7 +49,7 @@ export const query = graphql`
       edges {
         node {
           id
-          gatsbyImageData(layout: FIXED, height: 800, width: 800)
+          gatsbyImageData
         }
       }
     }
