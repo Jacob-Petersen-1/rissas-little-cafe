@@ -20,7 +20,7 @@ collections:
       - { label: "Description", name: "description", widget: "markdown" }
   - name: landing
     preview: true
-    label: Home
+    label: Home Images
     folder: content/landing
     create: true
     slug: "{{slug}}"

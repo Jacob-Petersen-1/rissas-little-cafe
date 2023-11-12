@@ -6,23 +6,28 @@ const HomePage = ({ data }) => {
   const { allMarkdownRemark, allCloudinaryMedia } = data || {};
   const { edges: landingContentArray } = allMarkdownRemark || [];
   const { edges: cloudinaryMediaArray } = allCloudinaryMedia || [];
-  const landingContent = landingContentArray?.map((edge) => edge.node) || [];
-  const cloudinaryMedia = cloudinaryMediaArray?.map((edge) => edge.node) || [];
-  const landingHero = {
-    title: landingContent[0]?.frontmatter?.title,
-    headline: landingContent[0]?.frontmatter?.headline,
-    body: landingContent[0]?.frontmatter?.body,
-    image: cloudinaryMedia[3]?.gatsbyImageData,
-  };
+  const landingText = landingContentArray?.map((edge) => edge.node) || [];
+  const landingMedia = cloudinaryMediaArray?.map((edge) => edge.node) || [];
+  const combinedData = landingText.map((content, index) => ({
+    ...content.frontmatter,
+    cloudinaryData: landingMedia[index],
+  }));
+
+  console.log("combinedData", combinedData);
+
+  // const landingHero = {
+  //   title: landingContent[0]?.frontmatter?.title,
+  //   headline: landingContent[0]?.frontmatter?.headline,
+  //   body: landingContent[0]?.frontmatter?.body,
+  //   image: cloudinaryMedia[3]?.gatsbyImageData,
+  // };
+
+  // console.log("landingContent", landingContent);
+  // console.log("cloudinaryMedia", cloudinaryMedia);
 
   return (
     <MainLayout>
-      <LandingHero
-        label={landingHero?.title}
-        image={landingHero?.image}
-        heroHeadline={landingHero?.headline}
-        heroBodyText={landingHero?.body}
-      />
+      <LandingHero landingContent={combinedData} />
     </MainLayout>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import { getImage } from "gatsby-plugin-image";
+import Carousel from "react-material-ui-carousel";
 import {
   StyledLandingHero,
   StyledLandingHeroImageContainer,
@@ -10,28 +11,34 @@ import {
   HeroBodyText,
 } from "./LandingHero.styles";
 
-const LandingHero = ({ image, label, heroHeadline, heroBodyText }) => {
+const LandingHero = ({ landingContent }) => {
   return (
-    <StyledLandingHero>
-      <StyledLandingHeroImageContainer>
-        <StyledLandingHeroImage
-          image={getImage(image)}
-          alt={label}
-          placeholder="blurred"
-          quality={80}
-          objectFit="cover"
-          formats={["auto", "webp", "avif"]}
-        />
-      </StyledLandingHeroImageContainer>
-      <StyledLandingHeroContent>
-        <HeroBlock>
-          {heroHeadline ? (
-            <HeroHeaderText>{heroHeadline}</HeroHeaderText>
-          ) : null}
-          {heroBodyText ? <HeroBodyText>{heroBodyText}</HeroBodyText> : null}
-        </HeroBlock>
-      </StyledLandingHeroContent>
-    </StyledLandingHero>
+    <Carousel>
+      {landingContent.map((content, index) => (
+        <StyledLandingHero key={index}>
+          <StyledLandingHeroImageContainer>
+            <StyledLandingHeroImage
+              image={getImage(content?.cloudinaryData?.gatsbyImageData)}
+              alt={content.label}
+              placeholder="blurred"
+              quality={80}
+              objectFit="cover"
+              formats={["auto", "webp", "avif"]}
+            />
+          </StyledLandingHeroImageContainer>
+          <StyledLandingHeroContent>
+            <HeroBlock>
+              {content?.headline ? (
+                <HeroHeaderText>{content.headline}</HeroHeaderText>
+              ) : null}
+              {content.body ? (
+                <HeroBodyText>{content.body}</HeroBodyText>
+              ) : null}
+            </HeroBlock>
+          </StyledLandingHeroContent>
+        </StyledLandingHero>
+      ))}
+    </Carousel>
   );
 };
 
