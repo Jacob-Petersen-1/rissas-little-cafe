@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import { AppBar, Box } from "@mui/material";
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
-  backgroundColor: "transparent",
+  backgroundColor: theme.palette.secondary.main,
   maxWidth: "100%",
   boxShadow: "none",
 }));

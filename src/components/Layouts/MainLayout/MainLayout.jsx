@@ -1,6 +1,6 @@
 import React from "react";
 import { ThemeProvider } from "@mui/material/styles";
-import { CssBaseline, Container } from "@mui/material";
+import { CssBaseline, Container, Box } from "@mui/material";
 import theme from "../../theme";
 import { NavBar } from "../../NavBar";
 
@@ -19,7 +19,7 @@ const MainLayout = ({ children }) => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <NavBar pageLinks={pageLinks} />
-        {children}
+        <Box sx={{ marginTop: 13 }}>{children}</Box>
       </ThemeProvider>
     </>
   );

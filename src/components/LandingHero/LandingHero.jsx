@@ -1,25 +1,30 @@
 import React from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { HeroHeader } from "../HeroHeader";
 import {
   StyledLandingHero,
-  StyledLandingHeroContent,
   StyledLandingHeroImageContainer,
+  StyledLandingHeroContent,
+  StyledLandingHeroImage,
 } from "./LandingHero.styles";
 
-const LandingHero = ({ image, label }) => {
+const LandingHero = ({ image, label, heroHeadline, heroBodyText }) => {
   return (
     <StyledLandingHero>
       <StyledLandingHeroImageContainer>
-        <GatsbyImage
-          src={image}
+        <StyledLandingHeroImage
+          image={getImage(image)}
           alt={label}
           placeholder="blurred"
           layout="fullWidth"
           quality={80}
+          objectFit="contain"
           formats={["auto", "webp", "avif"]}
         />
       </StyledLandingHeroImageContainer>
-      <StyledLandingHeroContent></StyledLandingHeroContent>
+      <StyledLandingHeroContent>
+        <HeroHeader heroHeadline={heroHeadline} heroBodyText={heroBodyText} />
+      </StyledLandingHeroContent>
     </StyledLandingHero>
   );
 };

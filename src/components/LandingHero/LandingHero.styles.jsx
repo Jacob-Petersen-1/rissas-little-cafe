@@ -1,49 +1,36 @@
 import styled from "@mui/material/styles/styled";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Box } from "@mui/material";
-import BackgroundImage from "gatsby-background-image";
 
 const StyledLandingHero = styled(Box)(() => ({
+  width: "100%",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  padding: "0 1rem",
+  backgroundColor: "#f2f2f2",
 }));
 
 const StyledLandingHeroContent = styled(Box)(() => ({
   maxWidth: 800,
-  margin: "0 auto",
-  textAlign: "center",
 }));
 
-const StyledLandingHeroImageContainer = styled(Box)(() => ({
-  top: 0,
-  left: 0,
+const StyledLandingHeroImageContainer = styled(Box)(({ theme }) => ({
+  minHeight: 100,
   height: "100%",
   width: "100%",
+  margin: theme.spacing(1),
 }));
 
-const HeroText = styled(Box)(() => ({
-  color: "#fff",
-  zIndex: 1,
-}));
-
-const StyledBackgroundImage = styled(BackgroundImage)(({ theme }) => ({
+const StyledLandingHeroImage = styled(GatsbyImage)(({ theme }) => ({
+  height: 300,
   width: "100%",
-  height: "100%",
-  opacity: "1 !important",
-  backgroundSize: "cover",
-  background: `linear-gradient(
-    90.26deg,
-    rgba(3, 113, 227, 0.9) 17.75%,
-    rgba(238, 169, 64, 0.61) 99.89%
-  )`,
+  objectFit: "contain",
 }));
 
 export {
   StyledLandingHero,
   StyledLandingHeroContent,
   StyledLandingHeroImageContainer,
-  HeroText,
-  StyledBackgroundImage,
+  StyledLandingHeroImage,
 };

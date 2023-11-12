@@ -22,7 +22,7 @@ const NavBar = ({ pageLinks }) => {
 
   return (
     <>
-      <StyledAppBar position="static">
+      <StyledAppBar position="fixed">
         <ContentContainer>
           {isMobile ? (
             <>
@@ -56,7 +56,7 @@ const NavBar = ({ pageLinks }) => {
                 onClose={handleIconClick}
                 transformOrigin={{ vertical: "top", horizontal: "right" }}
                 anchorOrigin={{ vertical: "top", horizontal: "right" }}
-                sx={{ marginTop: 12, marginLeft: 1.5 }}
+                sx={{ marginTop: 5, marginLeft: 1.5 }}
               >
                 {pageLinks?.map((link) =>
                   !link?.isImage ? (
@@ -84,7 +84,7 @@ const NavBar = ({ pageLinks }) => {
                       layout="fixed"
                       loading="eager"
                       width={175}
-                      height={165}
+                      height={150}
                       quality={80}
                     />
                   </Link>

@@ -47,11 +47,11 @@ const theme = createTheme({
     },
     body1: {
       fontFamily: "Raleway",
-      fontSize: "1rem",
+      fontSize: ".889rem",
     },
     body2: {
       fontFamily: "Raleway",
-      fontSize: "0.9rem",
+      fontSize: "0.669rem",
     },
   },
   shape: {
