@@ -1,6 +1,7 @@
 import * as React from "react";
 import { graphql } from "gatsby";
-import { MainLayout, LandingHero } from "../components";
+import combineContent from "../../utils/combineContent";
+import { MainLayout, LandingHero, SocialMediaSection } from "../components";
 
 const HomePage = ({ data }) => {
   const { allMarkdownRemark, allCloudinaryMedia } = data || {};
@@ -8,30 +9,15 @@ const HomePage = ({ data }) => {
   const { edges: cloudinaryMediaArray } = allCloudinaryMedia || [];
   const landingText = landingContentArray?.map((edge) => edge.node) || [];
   const landingMedia = cloudinaryMediaArray?.map((edge) => edge.node) || [];
+  const combinedLandingContent =
+    combineContent(landingText, landingMedia) || [];
 
-  const matchContentWithMedia = (content, media) => {
-    const combinedData = [];
-    content.forEach((contentItem) => {
-      media.forEach((mediaItem) => {
-        if (contentItem.frontmatter.imageUrl === mediaItem.cloudinaryData.url) {
-          combinedData.push({
-            ...contentItem.frontmatter,
-            cloudinaryData: mediaItem,
-          });
-        }
-      });
-    });
-    return combinedData;
-  };
-
-  const combinedLandingContent = matchContentWithMedia(
-    landingText,
-    landingMedia
-  );
+  console.log(combinedLandingContent);
 
   return (
     <MainLayout>
       <LandingHero landingContent={combinedLandingContent} />
+      <SocialMediaSection />
     </MainLayout>
   );
 };

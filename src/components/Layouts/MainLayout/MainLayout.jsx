@@ -21,10 +21,8 @@ const MainLayout = ({ children }) => {
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Container maxWidth="xl">
-          <NavBar pageLinks={pageLinks} />
-          <ContentContainer>{children}</ContentContainer>
-        </Container>
+        <NavBar pageLinks={pageLinks} />
+        <ContentContainer>{children}</ContentContainer>
       </ThemeProvider>
     </>
   );

@@ -6,7 +6,7 @@ const HeroSlide = styled(Paper)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   width: "100%",
-  height: 1000,
+  height: 900,
   [theme.breakpoints.down("md")]: {
     height: 500,
   },
@@ -19,7 +19,10 @@ const StyledLandingHeroImageContainer = styled(Box)(({ theme }) => ({
   width: "100%",
 }));
 
-const StyledLandingHeroImage = styled(GatsbyImage)(({ theme }) => ({}));
+const StyledLandingHeroImage = styled(GatsbyImage)(({ theme }) => ({
+  borderRadius: theme.shape.borderRadius,
+  width: "100%",
+}));
 
 const StyledLandingHeroContent = styled(Box)(({ theme }) => ({
   maxWidth: 900,
@@ -42,6 +45,7 @@ const HeroBlock = styled(Box)(({ theme }) => ({
 
 const HeroHeaderText = styled(Box)(({ theme }) => ({
   fontSize: "2.5rem",
+  fontFamily: theme.typography.h3.fontFamily,
   textTransform: "uppercase",
   fontWeight: theme.typography.h1.fontWeight,
   textDecoration: "underline",

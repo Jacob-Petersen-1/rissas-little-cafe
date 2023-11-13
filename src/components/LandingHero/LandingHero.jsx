@@ -14,14 +14,14 @@ import {
 const LandingHero = ({ landingContent }) => {
   return (
     <Carousel animation="slide" interval={8000}>
-      {landingContent?.reverse().map((content) => (
-        <HeroSlide variant="outlined" key={content.position}>
+      {landingContent?.reverse().map((content, index) => (
+        <HeroSlide variant="outlined" key={content?.position || index}>
           <StyledLandingHeroImageContainer>
             <StyledLandingHeroImage
               image={getImage(content?.cloudinaryData?.gatsbyImageData)}
               alt={content?.title || "Landing Hero Image"}
               placeholder="blurred"
-              quality={80}
+              quality={90}
               objectFit="cover"
               formats={["auto", "webp", "avif"]}
             />

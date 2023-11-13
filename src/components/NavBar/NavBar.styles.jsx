@@ -11,6 +11,7 @@ const StyledAppBar = styled(AppBar)(({ theme }) => ({
 
 const StyledLink = styled(Link)(({ theme }) => ({
   textTransform: "uppercase",
+  fontFamily: theme.typography.h3.fontFamily,
   fontSize: theme.typography.h3.fontSize,
   fontWeight: theme.typography.h3.fontWeight,
   color: theme.palette.text.primary,

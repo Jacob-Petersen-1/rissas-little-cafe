@@ -29,6 +29,7 @@ const theme = createTheme({
       "Playfair Display", // Default font for headings
       "Raleway", // Default font for body text
       "sans-serif",
+      "Agbalumo",
     ].join(","),
     h1: {
       fontFamily: "Playfair Display",
@@ -41,7 +42,7 @@ const theme = createTheme({
       fontWeight: 600,
     },
     h3: {
-      fontFamily: "Playfair Display",
+      fontFamily: "Agbalumo",
       fontSize: "1.2rem",
       fontWeight: 600,
     },
