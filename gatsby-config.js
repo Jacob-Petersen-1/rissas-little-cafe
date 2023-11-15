@@ -12,10 +12,11 @@ require("dotenv").config();
 
 module.exports = {
   siteMetadata: {
-    title: `Rissa Cafe`,
-    description: `Catering business that specializes in homemade treats and drinks.`,
+    title: `Rissa's Little Cafe - Catering with Homegoods`,
+    description: `Welcome to Rissa's Little Cafe, where we offer catering with homegoods. Explore our delicious menu and follow us on social media for the latest updates.`,
     author: `Jacob Petersen`,
     siteUrl: `https://rissaslittlecafecatering.netlify.app/`,
+    image: `https://res.cloudinary.com/dielbqrvv/image/upload/v1700027284/cafe/facebookLogo_r07idf.jpg`,
   },
   plugins: [
     "gatsby-plugin-netlify-cms",
