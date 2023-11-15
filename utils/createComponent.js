@@ -32,13 +32,13 @@ function createComponentFiles(componentName) {
   // Create the component file
   fs.writeFileSync(
     componentPath,
-    `import React from 'react';\n\nconst ${componentName} = () => {\n  return (\n    <>\n      {/* ${componentName} component */}\n    </>\n  );\n};\n\nexport default ${componentName};`
+    `import React from 'react';\nimport PropTypes from 'prop-types';\nimport { ${componentName}Container } from './${componentName}.styles';\n\nconst ${componentName} = () => {\n  return (\n    <>\n      <${componentName}Container>\n        {/* Your component content goes here */}\n      </${componentName}Container>\n    </>\n  );\n};\n\n${componentName}.propTypes = {};\n\nexport default ${componentName};`
   );
 
   // Create the styles file
   fs.writeFileSync(
     stylesPath,
-    'import styled from "@mui/material/styles/styled"'
+    `import styled from "@mui/material/styles/styled";\n import {Box} from '@mui/material' \n\nconst ${componentName}Container = styled(Box)(({ theme }) => ({ \n display: "flex", \n}));\n\nexport { ${componentName}Container };`
   );
 
   console.log(`Component "${componentName}" created successfully.`);

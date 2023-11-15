@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { getImage } from "gatsby-plugin-image";
 import { Grid, Box } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -38,11 +39,11 @@ const SocialMediaSection = ({
                   Follow Us on Social Media
                 </SocialMediaSectionText>
                 <Link href={instagramLink} target="_blank" rel="noreferrer">
-                  <InstagramIcon sx={{ fontSize: 30, color: "red" }} />
+                  <InstagramIcon sx={{ fontSize: 30, color: "#E4405F" }} />
                   <Handle>{instagramHandle}</Handle>
                 </Link>
                 <Link href={facebookLink} target="_blank" rel="noreferrer">
-                  <FacebookIcon sx={{ fontSize: 30, color: "blue" }} />
+                  <FacebookIcon sx={{ fontSize: 30, color: "#1877f2" }} />
                   <Handle>{facebookHandle}</Handle>
                 </Link>
               </Box>
@@ -75,6 +76,38 @@ const SocialMediaSection = ({
       </SocialMediaSectionContainer>
     </>
   );
+};
+
+SocialMediaSection.defaultProps = {
+  instagramHandle: "Default Handle",
+  facebookHandle: "Default Handle",
+  instagramLink: "https://www.instagram.com/",
+  facebookLink: "https://www.facebook.com/",
+  socialImages: [
+    {
+      id: "1",
+      title: "Default Social Media Image",
+      gatsbyImageData: {
+        layout: "fullWidth",
+        placeholder: "blurred",
+        formats: ["auto", "webp", "avif"],
+      },
+    },
+  ],
+};
+
+SocialMediaSection.propTypes = {
+  instagramHandle: PropTypes.string,
+  facebookHandle: PropTypes.string,
+  instagramLink: PropTypes.string,
+  facebookLink: PropTypes.string,
+  socialImages: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      title: PropTypes.string,
+      gatsbyImageData: PropTypes.object,
+    })
+  ),
 };
 
 export default SocialMediaSection;

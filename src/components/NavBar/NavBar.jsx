@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import { ContentContainer, StyledAppBar, StyledLink } from "./NavBar.styles";
@@ -115,6 +116,28 @@ const NavBar = ({ pageLinks }) => {
       </StyledAppBar>
     </>
   );
+};
+
+NavBar.defaultProps = {
+  pageLinks: [
+    { to: "/", label: "home" },
+    { to: "/about", label: "about" },
+    { to: "/services", label: "services" },
+    { to: "/", label: "logo", isImage: true },
+    { to: "/orders", label: "orders" },
+    { to: "/events", label: "events" },
+    { t0: "/contact", label: "contact" },
+  ],
+};
+
+NavBar.propTypes = {
+  pageLinks: PropTypes.arrayOf(
+    PropTypes.shape({
+      to: PropTypes.string,
+      label: PropTypes.string,
+      isImage: PropTypes.bool,
+    })
+  ),
 };
 
 export default NavBar;

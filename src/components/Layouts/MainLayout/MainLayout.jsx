@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import theme from "../../theme";
@@ -26,6 +27,14 @@ const MainLayout = ({ children }) => {
       </ThemeProvider>
     </>
   );
+};
+
+MainLayout.defaultProps = {
+  children: null,
+};
+
+MainLayout.propTypes = {
+  children: PropTypes.node,
 };
 
 export default MainLayout;
