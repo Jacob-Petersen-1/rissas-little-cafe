@@ -37,8 +37,8 @@ const theme = createTheme({
       fontWeight: 700,
     },
     h2: {
-      fontFamily: "Playfair Display",
-      fontSize: "1.3rem",
+      fontFamily: "Agbalumo",
+      fontSize: "1.5rem",
       fontWeight: 600,
     },
     h3: {

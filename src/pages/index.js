@@ -1,23 +1,34 @@
 import * as React from "react";
 import { graphql } from "gatsby";
+import { Container } from "@mui/material";
 import combineContent from "../../utils/combineContent";
 import { MainLayout, LandingHero, SocialMediaSection } from "../components";
 
 const HomePage = ({ data }) => {
-  const { allMarkdownRemark, allCloudinaryMedia } = data || {};
+  const { allMarkdownRemark, allCloudinaryMedia, socialMediaPhotos } =
+    data || {};
   const { edges: landingContentArray } = allMarkdownRemark || [];
   const { edges: cloudinaryMediaArray } = allCloudinaryMedia || [];
   const landingText = landingContentArray?.map((edge) => edge.node) || [];
-  const landingMedia = cloudinaryMediaArray?.map((edge) => edge.node) || [];
+  const imageCarosel = cloudinaryMediaArray?.map((edge) => edge.node) || [];
+  const socialMedia = socialMediaPhotos?.edges.map((edge) => edge.node) || [];
   const combinedLandingContent =
-    combineContent(landingText, landingMedia) || [];
-
-  console.log(combinedLandingContent);
+    combineContent(landingText, imageCarosel) || [];
 
   return (
     <MainLayout>
       <LandingHero landingContent={combinedLandingContent} />
-      <SocialMediaSection />
+      <Container maxWidth="xl">
+        <SocialMediaSection
+          instagramHandle={"@rissaslittlecafe"}
+          facebookHandle={"Risa's Little Cafe"}
+          instagramLink={
+            "https://instagram.com/rissaslittlecafe?igshid=MWx5bzd5NW1ndHJpZQ=="
+          }
+          facebookLink="https://www.facebook.com/rissaslittlecafe/photos"
+          socialImages={socialMedia}
+        />
+      </Container>
     </MainLayout>
   );
 };
@@ -54,6 +65,22 @@ export const query = graphql`
           cloudinaryData {
             url
           }
+        }
+      }
+    }
+    socialMediaPhotos: allCloudinaryMedia(
+      filter: { folder: { regex: "/cafe/instagram/" } }
+    ) {
+      edges {
+        node {
+          id
+          gatsbyImageData(
+            layout: FIXED
+            aspectRatio: 1
+            placeholder: BLURRED
+            width: 150
+            height: 150
+          )
         }
       }
     }

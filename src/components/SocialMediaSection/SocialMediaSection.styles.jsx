@@ -7,15 +7,12 @@ const SocialMediaSectionContainer = styled(Box)(({ theme }) => ({
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  margin: theme.spacing(5, 0, 5, 0),
+  margin: theme.spacing(3, 0, 0, 0),
+  paddingBottom: theme.spacing(3),
 }));
 
 const SocialMediaSectionContent = styled(Box)(({ theme }) => ({
-  display: "flex",
-  flexDirection: "row",
-  justifyContent: "center",
-  alignItems: "center",
-  margin: theme.spacing(5, 0, 5, 0),
+  margin: "0 auto",
 }));
 
 const SocialMediaSectionText = styled(Box)(({ theme }) => ({
@@ -28,17 +25,55 @@ const SocialMediaSectionText = styled(Box)(({ theme }) => ({
   marginBottom: theme.spacing(2),
   [theme.breakpoints.down("md")]: {
     margin: theme.spacing(1, 0, 0, 2),
-    fontSize: "2rem",
-  },
-  [theme.breakpoints.down("sm")]: {
-    margin: theme.spacing(1, 0, 0, 2),
-    fontSize: "1rem",
+    fontSize: "1.5rem",
   },
 }));
 
 const SocialMediaThumnail = styled(GatsbyImage)(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
+  border: `.5px solid rgba(0, 0, 0, 0.5)`,
   width: "100%",
+  height: "100%",
+}));
+
+const SocialMediaWrapper = styled(Box)(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "flex-end",
+}));
+
+const Link = styled("a")(({ theme }) => ({
+  margin: theme.spacing(1, 0, 0, 4),
+  display: "flex",
+  alignItems: "center",
+  color: theme.palette.link.main,
+  textDecoration: "none",
+}));
+
+const ImageLink = styled("a")(({ theme }) => ({
+  position: "relative",
+  overflow: "hidden",
+  display: "block",
+
+  "& img": {
+    transition: "transform 2s ease-out",
+
+    "&:hover": {
+      transform: "scale(1.1)",
+    },
+  },
+}));
+
+const Handle = styled(Box)(({ theme }) => ({
+  marginLeft: theme.spacing(1),
+  color: theme.palette.primary.main,
+  fontSize: theme.typography.h3.fontSize,
+  fontFamily: theme.typography.h3.fontFamily,
+  textDecoration: "underline",
+  "&:hover": {
+    textDecoration: "underline",
+    textDecorationColor: theme.palette.link.hover,
+  },
 }));
 
 export {
@@ -46,4 +81,8 @@ export {
   SocialMediaSectionContent,
   SocialMediaSectionText,
   SocialMediaThumnail,
+  SocialMediaWrapper,
+  Link,
+  ImageLink,
+  Handle,
 };

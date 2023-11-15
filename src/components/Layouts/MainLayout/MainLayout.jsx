@@ -1,6 +1,6 @@
 import React from "react";
 import { ThemeProvider } from "@mui/material/styles";
-import { CssBaseline, Container, Box } from "@mui/material";
+import { CssBaseline } from "@mui/material";
 import theme from "../../theme";
 import { NavBar } from "../../NavBar";
 import { ContentContainer } from "./MainLayout.styles";

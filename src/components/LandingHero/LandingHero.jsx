@@ -13,7 +13,17 @@ import {
 
 const LandingHero = ({ landingContent }) => {
   return (
-    <Carousel animation="slide" interval={8000}>
+    <Carousel
+      animation="slide"
+      interval={8000}
+      indicatorContainerProps={{
+        style: {
+          position: "absolute",
+          bottom: 5,
+          zIndex: 10,
+        },
+      }}
+    >
       {landingContent?.reverse().map((content, index) => (
         <HeroSlide variant="outlined" key={content?.position || index}>
           <StyledLandingHeroImageContainer>

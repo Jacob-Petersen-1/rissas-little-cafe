@@ -4,5 +4,8 @@ position: 4
 headline: "Delicious Boba Tea"
 imageUrl: http://res.cloudinary.com/dielbqrvv/image/upload/v1699641234/cafe/landing/2.jpg
 body: |
-  Embark on a culinary journey where gourmet expertise meets the comfort of home, all served up curbside. Our food truck is not just about satisfying your taste buds; it's a roaming celebration of flavor and familiarity. From corporate events to weddings, our mobile kitchen brings the perfect blend of professional catering and hometown charm to your doorstep. Treat your guests to a unique experience where delectable dishes and warm hospitality converge on the streets, creating unforgettable moments one bite at a time. Elevate your event with the convenience of a food truck and the soulful touch of a hometown feast on wheels
+  At Rissa's Little Cafe, we're all about bringing the fun to your cup. Our team of boba enthusiasts crafts each drink with love, blending flavors that'll make your taste buds dance.
+  🌈 Flavor Fiesta Dive into a world of taste with our range of boba teas. From classic blends to adventurous fusions, there's something for every mood.
+
+  🍬 Chewy Goodness Our tapioca pearls? Pure chewy perfection. Cooked just right, they're the heart of our drinks, making each sip a delightful bite.
 ---
