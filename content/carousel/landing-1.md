@@ -1,7 +1,7 @@
 ---
 title: Hot Chocolate
 position: 1
-headline: Delicious Hot Chocolate
-image: ../../static/images/defaultImage.jpg
+headline: Experience Hot Chocolate Bliss
+image: https://res.cloudinary.com/dielbqrvv/image/upload/c_crop,w_1920,h_1080,ar_16:9,g_auto/v1700530840/cafe/carousel/carousel-3.jpg
 ---
-Embark on a culinary journey where gourmet expertise meets the comfort of home, all served up curbside. Our food truck is not just about satisfying your taste buds; it's a roaming celebration of flavor and familiarity. From corporate events to weddings, our mobile kitchen brings the perfect blend of professional catering and hometown charm to your doorstep. Treat your guests to a unique experience where delectable dishes and warm hospitality converge on the streets, creating unforgettable moments one bite at a time. Elevate your event with the convenience of a food truck and the soulful touch of a hometown feast on wheels
+**Indulge** in the warmth of rich, velvety hot chocolate at Rissa's Cafe Food Truck. Picture a cozy winter day, a whimsical food truck, and the enticing aroma of decadent cocoa. Our hot chocolate isn't just a drink; it's an extravaganza – a swirl of flavors topped with clouds of whipped cream and chocolate shavings. Rissa's Cafe on wheels brings spontaneous treats to your day, celebrating the joy of hot chocolate for all ages. Life is too short for ordinary – treat yourself to a sip of happiness at Rissa's Cafe!
