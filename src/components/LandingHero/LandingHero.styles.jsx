@@ -1,8 +1,7 @@
 import styled from "@mui/material/styles/styled";
-import { GatsbyImage } from "gatsby-plugin-image";
-import { Box, Paper } from "@mui/material";
+import { Box } from "@mui/material";
 
-const HeroSlide = styled(Paper)(({ theme }) => ({
+const HeroSlide = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   width: "100%",
@@ -15,32 +14,9 @@ const HeroSlide = styled(Paper)(({ theme }) => ({
   },
 }));
 
-const StyledLandingHeroImageContainer = styled(Box)(({ theme }) => ({
+const StyledLandingHeroImage = styled("img")(({ theme }) => ({
   width: "100%",
-}));
-
-const StyledLandingHeroImage = styled(GatsbyImage)(({ theme }) => ({
-  borderRadius: theme.shape.borderRadius,
-  width: "100%",
-}));
-
-const StyledLandingHeroContent = styled(Box)(({ theme }) => ({
-  maxWidth: 900,
-  [theme.breakpoints.up("sm")]: {
-    margin: " 0 auto",
-    textAlign: "center",
-    alignItems: "center",
-  },
-}));
-
-const HeroBlock = styled(Box)(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  margin: theme.spacing(3, 0, 5, 0),
-  [theme.breakpoints.down("sm")]: {
-    margin: theme.spacing(1, 1, 1, 0),
-  },
+  maxHeight: "60%",
 }));
 
 const HeroHeaderText = styled(Box)(({ theme }) => ({
@@ -52,30 +28,21 @@ const HeroHeaderText = styled(Box)(({ theme }) => ({
   textDecorationColor: theme.palette.link.hover,
   marginBottom: theme.spacing(2),
   [theme.breakpoints.down("md")]: {
-    margin: theme.spacing(1, 0, 0, 2),
     fontSize: "2rem",
   },
   [theme.breakpoints.down("sm")]: {
-    margin: theme.spacing(1, 0, 0, 2),
+    marginBottom: theme.spacing(1),
     fontSize: "1rem",
   },
 }));
 
 const HeroBodyText = styled(Box)(({ theme }) => ({
-  fontSize: theme.typography.body1.fontSize,
+  fontSize: "1.5rem",
   fontWeight: theme.typography.body1.fontWeight,
+  lineHeight: theme.typography.body1.lineHeight,
   [theme.breakpoints.down("md")]: {
-    margin: theme.spacing(1, 0, 1, 2),
     fontSize: theme.typography.body2.fontSize,
   },
 }));
 
-export {
-  HeroSlide,
-  StyledLandingHeroContent,
-  StyledLandingHeroImageContainer,
-  StyledLandingHeroImage,
-  HeroBlock,
-  HeroHeaderText,
-  HeroBodyText,
-};
+export { HeroSlide, StyledLandingHeroImage, HeroHeaderText, HeroBodyText };

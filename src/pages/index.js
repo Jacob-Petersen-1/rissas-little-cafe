@@ -2,23 +2,17 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
 import { Container } from "@mui/material";
-import combineContent from "../../utils/combineContent";
 import { MainLayout, LandingHero, SocialMediaSection } from "../components";
 
 const HomePage = ({ data }) => {
   console.log("data", data);
-  const { allMarkdownRemark, allCloudinaryMedia, socialMediaPhotos, site } =
-    data || {};
+  const { carouselData, socialMediaPhotos, site } = data || {};
   const { siteMetadata } = site || {};
   const { title, description, siteUrl, image } = siteMetadata || {};
-  const { edges: landingContentArray } = allMarkdownRemark || [];
-  const { edges: cloudinaryMediaArray } = allCloudinaryMedia || [];
-  const landingText = landingContentArray?.map((edge) => edge.node) || [];
-  const imageCarosel = cloudinaryMediaArray?.map((edge) => edge.node) || [];
-  const socialMedia = socialMediaPhotos?.edges.map((edge) => edge.node) || [];
-  const combinedLandingContent =
-    combineContent(landingText, imageCarosel) || [];
+  const carouselContent = carouselData?.edges?.map((edge) => edge.node) || [];
+  const socialMedia = socialMediaPhotos?.edges?.map((edge) => edge.node) || [];
 
+  console.log("carouselContent", carouselContent);
   return (
     <>
       <Helmet>
@@ -46,7 +40,7 @@ const HomePage = ({ data }) => {
         <meta name="twitter:image" content={image} />
       </Helmet>
       <MainLayout>
-        <LandingHero landingContent={combinedLandingContent} />
+        <LandingHero landingContent={carouselContent} />
         <Container maxWidth="xl">
           <SocialMediaSection
             instagramHandle={"@rissaslittlecafe"}
@@ -75,7 +69,7 @@ export const query = graphql`
         image
       }
     }
-    allMarkdownRemark(
+    carouselData: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/content/carousel/" } }
     ) {
       edges {
@@ -84,7 +78,9 @@ export const query = graphql`
             title
             headline
             position
+            image
           }
+          html
         }
       }
     }

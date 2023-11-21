@@ -1,12 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { getImage } from "gatsby-plugin-image";
 import Carousel from "react-material-ui-carousel";
+import { Card, CardContent } from "@mui/material";
 import {
-  StyledLandingHeroImageContainer,
-  StyledLandingHeroContent,
   StyledLandingHeroImage,
-  HeroBlock,
   HeroHeaderText,
   HeroBodyText,
   HeroSlide,
@@ -14,39 +11,21 @@ import {
 
 const LandingHero = ({ landingContent }) => {
   return (
-    <Carousel
-      animation="slide"
-      interval={8000}
-      indicatorContainerProps={{
-        style: {
-          position: "absolute",
-          bottom: 5,
-          zIndex: 10,
-        },
-      }}
-    >
-      {landingContent?.reverse().map((content, index) => (
-        <HeroSlide variant="outlined" key={content?.position || index}>
-          <StyledLandingHeroImageContainer>
-            <StyledLandingHeroImage
-              image={getImage(content?.cloudinaryData?.gatsbyImageData)}
-              alt={content?.title || "Landing Hero Image"}
-              placeholder="blurred"
-              quality={90}
-              objectFit="cover"
-              formats={["auto", "webp", "avif"]}
-            />
-          </StyledLandingHeroImageContainer>
-          <StyledLandingHeroContent>
-            <HeroBlock>
-              {content?.headline ? (
-                <HeroHeaderText>{content.headline}</HeroHeaderText>
-              ) : null}
-              {content.body ? (
-                <HeroBodyText>{content.body}</HeroBodyText>
-              ) : null}
-            </HeroBlock>
-          </StyledLandingHeroContent>
+    <Carousel animation="fade" interval={8000}>
+      {landingContent?.reverse().map(({ frontmatter, html }, index) => (
+        <HeroSlide variant="outlined" key={frontmatter?.position || index}>
+          <StyledLandingHeroImage
+            src={frontmatter?.image}
+            alt={frontmatter?.headline}
+          />
+          <CardContent>
+            {frontmatter?.headline && (
+              <HeroHeaderText>{frontmatter.headline}</HeroHeaderText>
+            )}
+            {html && (
+              <HeroBodyText dangerouslySetInnerHTML={{ __html: html }} />
+            )}
+          </CardContent>
         </HeroSlide>
       ))}
     </Carousel>
