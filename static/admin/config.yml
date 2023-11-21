@@ -7,9 +7,10 @@ public_folder: ../../static/images/
 
 media_library:
   name: cloudinary
-  cloud_name: dielbqrvv
-  # public api key
-  api_key: 515688223637771
+  config:
+    cloud_name: dielbqrvv
+    # public api key
+    api_key: 515688223637771
 
 collections:
   - name: events
