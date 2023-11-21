@@ -84,7 +84,6 @@ export const query = graphql`
             title
             headline
             position
-            body
           }
         }
       }
