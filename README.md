@@ -7,9 +7,11 @@ Follow these steps to get the project up and running on your local machine:
 
 ### Clone the Repository:
 
-``git clone https://github.com/your-username/rissas-little-cafe.git
-cd rissas-little-cafe``
-Install Dependencies:
+```
+git clone https://github.com/Jacob-Petersen-1/rissas-little-cafe.git
+cd rissas-little-cafe
+```
+#### Install Dependencies:
 `yarn install`
 
 ### Set Up Cloudinary:
@@ -17,25 +19,26 @@ Install Dependencies:
 Obtain your Cloudinary API key and secret.
 Create a .env file in the project root and add the following:
 
-``CLOUDINARY_API_KEY=your-api-key
+```
+CLOUDINARY_API_KEY=your-api-key
 CLOUDINARY_API_SECRET=your-api-secret
-CLOUDINARY_CLOUD_NAME=your-cloud-name``
-
+CLOUDINARY_CLOUD_NAME=your-cloud-name
+```
 ### Run the Development Server:
 
-`yarn start`
+- ```yarn start```
 Open Your Browser:
 Open your browser and navigate to http://localhost:8000 to see Rissa's Little Cafe in action!
 
 ### Project Structure
-src/: This directory contains the main source code for the Gatsby project.
-content/: Store your content, such as images and markdown files, here.
-static/: Static files that need to be served as-is (e.g., favicons, images).
+- src/: This directory contains the main source code for the Gatsby project.
+- content/: Store your content, such as images and markdown files, here.
+- static/: Static files that need to be served as-is (e.g., favicons, images).
 
 ### Custom Commands
 I've included a handy custom command to streamline component initialization:
 
 #### Initialize a New Component:
-`yarn init:component`
-This command prompts you to enter the name of the new component and sets up the basic structure for you.
+```yarn init:component```
+- This command prompts you to enter the name of the new component and sets up the basic structure for you.
 
