@@ -19,16 +19,14 @@ module.exports = {
     image: `https://res.cloudinary.com/dielbqrvv/image/upload/v1700027284/cafe/facebookLogo_r07idf.jpg`,
   },
   plugins: [
-    "gatsby-plugin-netlify-cms",
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     "gatsby-transformer-remark",
     `gatsby-transformer-sharp`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-plugin-netlify-cms`,
       options: {
-        name: `md`,
-        path: `${__dirname}/content`,
+        modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
     {
@@ -36,6 +34,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/static/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `carousel`,
+        path: `${__dirname}/content/carousel`,
       },
     },
     {
@@ -54,6 +59,7 @@ module.exports = {
         transformTypes: [`CloudinaryMedia`],
       },
     },
+
     {
       resolve: "gatsby-plugin-google-fonts",
       options: {
