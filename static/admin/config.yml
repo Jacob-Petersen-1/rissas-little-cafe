@@ -18,14 +18,20 @@ collections:
       - { label: "Time", name: "time", widget: "string" }
       - { label: "Location", name: "location", widget: "string" }
       - { label: "Description", name: "description", widget: "markdown" }
-  - name: landing
+  - name: carousel
     preview: true
     label: Home Images
-    folder: content/landing
+    folder: content/carousel
     create: true
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Position", name: "position", widget: "number" }
       - { label: "Headline", name: "headline", widget: "string" }
+      - {
+          label: "Image",
+          name: "image",
+          widget: "image",
+          media_library: { name: "cloudinary" },
+        }
       - { label: "Body", name: "body", widget: "markdown" }

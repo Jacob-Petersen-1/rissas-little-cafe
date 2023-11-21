@@ -6,6 +6,7 @@ import combineContent from "../../utils/combineContent";
 import { MainLayout, LandingHero, SocialMediaSection } from "../components";
 
 const HomePage = ({ data }) => {
+  console.log("data", data);
   const { allMarkdownRemark, allCloudinaryMedia, socialMediaPhotos, site } =
     data || {};
   const { siteMetadata } = site || {};
@@ -71,10 +72,11 @@ export const query = graphql`
         title
         description
         siteUrl
+        image
       }
     }
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/content/landing/" } }
+      filter: { fileAbsolutePath: { regex: "/content/carousel/" } }
     ) {
       edges {
         node {
@@ -82,23 +84,8 @@ export const query = graphql`
             title
             headline
             position
-            imageUrl
+            image
             body
-          }
-        }
-      }
-    }
-    allCloudinaryMedia(filter: { folder: { regex: "/cafe/landing/" } }) {
-      edges {
-        node {
-          id
-          gatsbyImageData(
-            layout: FULL_WIDTH
-            aspectRatio: 2.5
-            placeholder: BLURRED
-          )
-          cloudinaryData {
-            url
           }
         }
       }
