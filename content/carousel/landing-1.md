@@ -1,5 +1,5 @@
 ---
-title: Expert
+title: Hot Chocolate
 position: 1
 headline: Delicious Hot Chocolate
 image: ../../static/images/defaultImage.jpg
