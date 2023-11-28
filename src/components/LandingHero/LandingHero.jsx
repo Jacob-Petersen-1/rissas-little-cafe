@@ -6,7 +6,6 @@ import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import { HeroHeaderText, HeroBodyText, HeroSlide } from "./LandingHero.styles";
 
 const LandingHero = ({ landingContent }) => {
-  console.log(landingContent);
   return (
     <Carousel
       animation="fade"
@@ -66,6 +65,7 @@ LandingHero.defaultProps = {
           formats: ["auto", "webp", "avif"],
         },
       },
+      html: "<p>Default HTML</p>",
     },
   ],
 };
@@ -76,6 +76,7 @@ LandingHero.propTypes = {
       headline: PropTypes.string,
       body: PropTypes.string,
       position: PropTypes.number,
+      html: PropTypes.string,
       cloudinaryData: PropTypes.shape({
         gatsbyImageData: PropTypes.object,
       }),

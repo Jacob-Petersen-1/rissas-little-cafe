@@ -18,10 +18,6 @@ const HomePage = ({ data }) => {
     media: carouselImageContent,
   });
 
-  console.log("combinedCarouselContent", combinedCarouselContent);
-  console.log("caroselContent", carouselContent);
-  console.log("carouselImages", carouselImages);
-
   return (
     <>
       <Helmet>
