@@ -1,9 +1,13 @@
 import * as React from "react";
-import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
 import { Container } from "@mui/material";
 import combineContent from "../../utils/combineContent";
-import { MainLayout, LandingHero, SocialMediaSection } from "../components";
+import {
+  MainLayout,
+  LandingHero,
+  SocialMediaSection,
+  Seo,
+} from "../components";
 
 const HomePage = ({ data }) => {
   const { carouselData, carouselImages, socialMediaPhotos, site } = data || {};
@@ -20,30 +24,12 @@ const HomePage = ({ data }) => {
 
   return (
     <>
-      <Helmet>
-        <title>{title}</title>
-        <meta
-          name="description"
-          content={description || "Rissa's Little Cafe"}
-        />
-        <meta name="keywords" content={description || "Rissa's Little Cafe"} />
-        <meta property="og:title" content={title || "Rissa's Little Cafe"} />
-        <meta
-          property="og:description"
-          content={description || "Rissa's Little Cafe"}
-        />
-        <meta property="og:image" content={image} />
-        <meta property="og:url" content={siteUrl} />
-        <meta property="og:type" content="website" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title || "Rissa's Little Cafe"} />
-        <meta
-          name="twitter:description"
-          content={description || "Rissa's Little Cafe"}
-        />
-        <meta name="twitter:image" content={image} />
-      </Helmet>
+      <Seo
+        title={title}
+        description={description}
+        siteUrl={siteUrl}
+        image={image}
+      />
       <MainLayout>
         <LandingHero landingContent={combinedCarouselContent} />
         <Container maxWidth="xl">
