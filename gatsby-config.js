@@ -16,7 +16,7 @@ module.exports = {
     description: `Welcome to Rissa's Little Cafe, where we offer catering with homegoods. Explore our delicious menu and follow us on social media for the latest updates.`,
     author: `Jacob Petersen`,
     siteUrl: `https://rissaslittlecafecatering.netlify.app/`,
-    image: `https://res.cloudinary.com/dielbqrvv/image/upload/v1700027284/cafe/facebookLogo_r07idf.jpg`,
+    image: `${__dirname}/static/images/defaultImage.jpg`,
   },
   plugins: [
     `gatsby-plugin-image`,

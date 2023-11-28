@@ -2,17 +2,26 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
 import { Container } from "@mui/material";
+import combineContent from "../../utils/combineContent";
 import { MainLayout, LandingHero, SocialMediaSection } from "../components";
 
 const HomePage = ({ data }) => {
-  console.log("data", data);
-  const { carouselData, socialMediaPhotos, site } = data || {};
+  const { carouselData, carouselImages, socialMediaPhotos, site } = data || {};
   const { siteMetadata } = site || {};
   const { title, description, siteUrl, image } = siteMetadata || {};
   const carouselContent = carouselData?.edges?.map((edge) => edge.node) || [];
+  const carouselImageContent =
+    carouselImages?.edges?.map((edge) => edge.node) || [];
   const socialMedia = socialMediaPhotos?.edges?.map((edge) => edge.node) || [];
+  const combinedCarouselContent = combineContent({
+    content: carouselContent,
+    media: carouselImageContent,
+  });
 
-  console.log("carouselContent", carouselContent);
+  console.log("combinedCarouselContent", combinedCarouselContent);
+  console.log("caroselContent", carouselContent);
+  console.log("carouselImages", carouselImages);
+
   return (
     <>
       <Helmet>
@@ -40,7 +49,7 @@ const HomePage = ({ data }) => {
         <meta name="twitter:image" content={image} />
       </Helmet>
       <MainLayout>
-        <LandingHero landingContent={carouselContent} />
+        <LandingHero landingContent={combinedCarouselContent} />
         <Container maxWidth="xl">
           <SocialMediaSection
             instagramHandle={"@rissaslittlecafe"}
@@ -81,6 +90,22 @@ export const query = graphql`
             image
           }
           html
+        }
+      }
+    }
+    carouselImages: allCloudinaryMedia(
+      filter: { folder: { regex: "/cafe/carousel/" } }
+    ) {
+      edges {
+        node {
+          cloudinaryData {
+            secure_url
+          }
+          gatsbyImageData(
+            layout: FULL_WIDTH
+            placeholder: BLURRED
+            aspectRatio: 1.5
+          )
         }
       }
     }

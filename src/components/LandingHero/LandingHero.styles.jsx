@@ -5,18 +5,13 @@ const HeroSlide = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   width: "100%",
-  height: 900,
+  height: "60%",
   [theme.breakpoints.down("md")]: {
-    height: 500,
+    height: "50%",
   },
   [theme.breakpoints.down("sm")]: {
-    height: 400,
+    height: "40%",
   },
-}));
-
-const StyledLandingHeroImage = styled("img")(({ theme }) => ({
-  width: "100%",
-  maxHeight: "60%",
 }));
 
 const HeroHeaderText = styled(Box)(({ theme }) => ({
@@ -45,4 +40,4 @@ const HeroBodyText = styled(Box)(({ theme }) => ({
   },
 }));
 
-export { HeroSlide, StyledLandingHeroImage, HeroHeaderText, HeroBodyText };
+export { HeroSlide, HeroHeaderText, HeroBodyText };

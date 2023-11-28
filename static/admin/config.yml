@@ -11,6 +11,16 @@ media_library:
     cloud_name: dielbqrvv
     # public api key
     api_key: 515688223637771
+    default_transformations:
+      secure: true
+      cdn_subdomain: true
+      use_secure_url: true
+      quality: 80
+      crop: fill
+      gravity: auto
+      fetch_format: auto
+      responsive: true
+      breakpoints: [320, 640, 768, 1024, 1280]
 
 collections:
   - name: events

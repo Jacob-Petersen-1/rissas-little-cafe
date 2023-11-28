@@ -5,7 +5,7 @@
  * @param {Array<Object>} media - Array of media objects.
  * @returns {Array<Object>} Combined data array with matched content and media.
  */
-export default function combineContent(content, media) {
+export default function combineContent({ content, media }) {
   /**
    * @typedef {Object} CombinedDataItem
    * @property {Object} frontmatter - The frontmatter from the content object.
@@ -28,13 +28,15 @@ export default function combineContent(content, media) {
       /**
        * Check if the image URLs match.
        */
-      if (contentItem.frontmatter.imageUrl === mediaItem.cloudinaryData.url) {
+      if (
+        contentItem.frontmatter.image === mediaItem.cloudinaryData.secure_url
+      ) {
         /**
          * Combine data and push to the combinedData array.
          * @type {CombinedDataItem}
          */
         const combinedItem = {
-          ...contentItem.frontmatter,
+          ...contentItem,
           cloudinaryData: mediaItem,
         };
 
