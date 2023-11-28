@@ -1,16 +1,13 @@
 import styled from "@mui/material/styles/styled";
-import { Box } from "@mui/material";
+import { Box, CardContent } from "@mui/material";
 
 const HeroSlide = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   width: "100%",
-  height: "60%",
+  height: "100%",
   [theme.breakpoints.down("md")]: {
     height: "50%",
-  },
-  [theme.breakpoints.down("sm")]: {
-    height: "40%",
   },
 }));
 
@@ -40,4 +37,15 @@ const HeroBodyText = styled(Box)(({ theme }) => ({
   },
 }));
 
-export { HeroSlide, HeroHeaderText, HeroBodyText };
+const SlideContent = styled(CardContent)(({ theme }) => ({
+  height: 400,
+  overflowY: "auto",
+  [theme.breakpoints.down("md")]: {
+    height: 300,
+  },
+  [theme.breakpoints.down("sm")]: {
+    height: 200,
+  },
+}));
+
+export { HeroSlide, HeroHeaderText, HeroBodyText, SlideContent };
