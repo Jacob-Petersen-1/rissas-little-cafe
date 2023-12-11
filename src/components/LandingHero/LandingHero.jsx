@@ -7,7 +7,10 @@ import {
   HeroBodyText,
   HeroSlide,
   SlideContent,
+  ExpandMore,
 } from "./LandingHero.styles";
+
+// TODO: Make Component More Reusable
 
 const LandingHero = ({ landingContent }) => {
   return (
@@ -29,6 +32,7 @@ const LandingHero = ({ landingContent }) => {
               {html && (
                 <HeroBodyText dangerouslySetInnerHTML={{ __html: html }} />
               )}
+              <ExpandMore />
             </SlideContent>
           </HeroSlide>
         ))}

@@ -32,17 +32,7 @@ const HomePage = ({ data }) => {
       />
       <MainLayout>
         <LandingHero landingContent={combinedCarouselContent} />
-        <Container maxWidth="xl">
-          <SocialMediaSection
-            instagramHandle={"@rissaslittlecafe"}
-            facebookHandle={"Risa's Little Cafe"}
-            instagramLink={
-              "https://instagram.com/rissaslittlecafe?igshid=MWx5bzd5NW1ndHJpZQ=="
-            }
-            facebookLink="https://www.facebook.com/rissaslittlecafe/photos"
-            socialImages={socialMedia}
-          />
-        </Container>
+        <Container maxWidth="xl"></Container>
       </MainLayout>
     </>
   );
@@ -86,9 +76,7 @@ export const query = graphql`
           gatsbyImageData(
             layout: FULL_WIDTH
             placeholder: BLURRED
-            aspectRatio: 2.5
-            breakpoints: [200, 340, 520, 890, 1200]
-            sizes: "(max-width: 200px) 200px, (max-width: 340px) 340px, (max-width: 520px) 520px, (max-width: 890px) 890px, (max-width: 1200px) 1200px, 2000px"
+            aspectRatio: 1.65
           )
         }
       }
