@@ -47,3 +47,14 @@ collections:
       - { label: "Headline", name: "headline", widget: "string" }
       - { label: "Image", name: "image", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown" }
+  - name: about
+    preview: false
+    label: About
+    folder: content/about
+    create: true
+    slug: "{{slug}}"
+        fields:
+      - { label: "About", name: "about", widget: "markdown" }
+      - { label: "Image", name: "image", widget: "image" }
+    
+    

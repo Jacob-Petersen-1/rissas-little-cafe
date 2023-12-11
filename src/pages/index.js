@@ -11,16 +11,17 @@ import {
 
 const HomePage = ({ data }) => {
   const { carouselData, carouselImages, socialMediaPhotos, site } = data || {};
+  console.log(socialMediaPhotos);
   const { siteMetadata } = site || {};
   const { title, description, siteUrl, image } = siteMetadata || {};
   const carouselContent = carouselData?.edges?.map((edge) => edge.node) || [];
   const carouselImageContent =
     carouselImages?.edges?.map((edge) => edge.node) || [];
-  const socialMedia = socialMediaPhotos?.edges?.map((edge) => edge.node) || [];
   const combinedCarouselContent = combineContent({
     content: carouselContent,
     media: carouselImageContent,
   });
+  const socialMedia = socialMediaPhotos?.edges?.map((edge) => edge.node) || [];
 
   return (
     <>
