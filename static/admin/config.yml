@@ -53,8 +53,6 @@ collections:
     folder: content/about
     create: true
     slug: "{{slug}}"
-        fields:
+    fields:
       - { label: "About", name: "about", widget: "markdown" }
       - { label: "Image", name: "image", widget: "image" }
-    
-    
