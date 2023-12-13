@@ -5,16 +5,19 @@ import combineContent from "../../utils/combineContent";
 import {
   MainLayout,
   LandingHero,
+  SectionDivider,
   SocialMediaSection,
+  AboutSection,
   Seo,
 } from "../components";
 
 const HomePage = ({ data }) => {
-  const { carouselData, carouselImages, socialMediaPhotos, site } = data || {};
-  console.log(socialMediaPhotos);
+  const { carouselData, aboutData, carouselImages, socialMediaPhotos, site } =
+    data || {};
   const { siteMetadata } = site || {};
   const { title, description, siteUrl, image } = siteMetadata || {};
   const carouselContent = carouselData?.edges?.map((edge) => edge.node) || [];
+  const aboutContent = aboutData?.edges?.[0]?.node?.frontmatter || {};
   const carouselImageContent =
     carouselImages?.edges?.map((edge) => edge.node) || [];
   const combinedCarouselContent = combineContent({
@@ -33,7 +36,14 @@ const HomePage = ({ data }) => {
       />
       <MainLayout>
         <LandingHero landingContent={combinedCarouselContent} />
-        <Container maxWidth="xl"></Container>
+        <Container maxWidth="xl">
+          <SectionDivider headline="about us" />
+          <AboutSection
+            headline={aboutContent?.title}
+            aboutImage={aboutContent?.image}
+            aboutText={aboutContent?.about}
+          />
+        </Container>
       </MainLayout>
     </>
   );
@@ -66,6 +76,20 @@ export const query = graphql`
         }
       }
     }
+    aboutData: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/content/about/" } }
+      limit: 1
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            about
+            image
+          }
+        }
+      }
+    }
     carouselImages: allCloudinaryMedia(
       filter: { folder: { regex: "/cafe/carousel/" } }
     ) {
@@ -77,7 +101,7 @@ export const query = graphql`
           gatsbyImageData(
             layout: FULL_WIDTH
             placeholder: BLURRED
-            aspectRatio: 1.65
+            aspectRatio: 1.5
           )
         }
       }
