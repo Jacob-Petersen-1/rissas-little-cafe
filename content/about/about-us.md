@@ -1,5 +1,9 @@
 ---
 title: About Us
+instagram: "@rissaslittlecafe"
+instagramLink: https://www.instagram.com/rissaslittlecafe/
+facebook: "@Rissa's Little Cafe"
+facebookLink: https://www.facebook.com/rissaslittlecafe
 about: >-
   Hey there! 👋 I'm Marissa Evon, the heart and soul behind the deliciousness
   happening at Rissa's Cafe Catering. Let me give you a little peek into what
