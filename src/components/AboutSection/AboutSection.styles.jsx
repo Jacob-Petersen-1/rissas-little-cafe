@@ -1,28 +1,20 @@
 import styled from "@mui/material/styles/styled";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 
 const AboutSectionContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
-  justifyContent: "center",
   flexDirection: "row",
-  [theme.breakpoints.down("sm")]: {
+  [theme.breakpoints.down("md")]: {
     flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
   },
 }));
 
 const AboutSectionSocials = styled(Box)(({ theme }) => ({
   display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
   flexDirection: "column",
-  [theme.breakpoints.down("sm")]: {
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-  },
+  alignItems: "center",
+  marginRight: theme.spacing(4),
 }));
 
 const AboutSectionImage = styled("img")(({ theme }) => ({
@@ -64,7 +56,6 @@ const Link = styled("a")(({ theme }) => ({
 }));
 
 const Handle = styled(Box)(({ theme }) => ({
-  marginLeft: theme.spacing(0.5),
   color: theme.palette.primary.main,
   fontSize: theme.typography.body1.fontSize,
   fontFamily: theme.typography.h3.fontFamily,

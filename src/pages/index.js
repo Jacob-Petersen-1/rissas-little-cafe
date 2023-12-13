@@ -14,8 +14,17 @@ const HomePage = ({ data }) => {
   const { carouselData, aboutData, carouselImages, site } = data || {};
   const { siteMetadata } = site || {};
   const { title, description, siteUrl, image } = siteMetadata || {};
-  const carouselContent = carouselData?.edges?.map((edge) => edge.node) || [];
   const aboutContent = aboutData?.edges?.[0]?.node?.frontmatter || {};
+  const {
+    title: aboutTitle,
+    instagram,
+    instagramLink,
+    facebook,
+    facebookLink,
+    about,
+    image: aboutImage,
+  } = aboutContent || {};
+  const carouselContent = carouselData?.edges?.map((edge) => edge.node) || [];
   const carouselImageContent =
     carouselImages?.edges?.map((edge) => edge.node) || [];
   const combinedCarouselContent = combineContent({
@@ -35,11 +44,14 @@ const HomePage = ({ data }) => {
         <LandingHero landingContent={combinedCarouselContent} />
         <Container maxWidth="xl">
           <SectionDivider headline="about us" />
-
           <AboutSection
-            headline={aboutContent?.title}
-            aboutImage={aboutContent?.image}
-            aboutText={aboutContent?.about}
+            headline={aboutTitle}
+            aboutImage={aboutImage}
+            aboutText={about}
+            instagramHandle={instagram}
+            instagramLink={instagramLink}
+            facebookHandle={facebook}
+            facebookLink={facebookLink}
           />
         </Container>
       </MainLayout>
@@ -82,6 +94,10 @@ export const query = graphql`
         node {
           frontmatter {
             title
+            facebook
+            facebookLink
+            instagram
+            instagramLink
             about
             image
           }

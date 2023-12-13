@@ -3,6 +3,7 @@ import Markdown from "react-markdown";
 import PropTypes from "prop-types";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import { Box } from "@mui/material";
 import {
   AboutSectionContainer,
   AboutSectionImage,
@@ -26,18 +27,27 @@ const AboutSection = ({
       <AboutSectionContainer>
         <AboutSectionSocials>
           <AboutSectionImage src={aboutImage} alt={headline} />
-          {instagramHandle && instagramLink && (
-            <Link href={instagramLink} target="_blank" rel="noreferrer">
-              <InstagramIcon sx={{ fontSize: 30, color: "#E4405F" }} />
-              <Handle>{instagramHandle}</Handle>
-            </Link>
-          )}
-          {facebookHandle && facebookLink && (
-            <Link href={facebookLink} target="_blank" rel="noreferrer">
-              <FacebookIcon sx={{ fontSize: 30, color: "#1877f2" }} />
-              <Handle>{facebookHandle}</Handle>
-            </Link>
-          )}
+          <Box
+            sx={{
+              display: "flex",
+              marginTop: "1rem",
+              width: "100%",
+              justifyContent: "space-around",
+            }}
+          >
+            {instagramHandle && instagramLink && (
+              <Link href={instagramLink} target="_blank" rel="noreferrer">
+                <InstagramIcon sx={{ fontSize: "1.5rem", color: "#E4405F" }} />
+                <Handle>{instagramHandle}</Handle>
+              </Link>
+            )}
+            {facebookHandle && facebookLink && (
+              <Link href={facebookLink} target="_blank" rel="noreferrer">
+                <FacebookIcon sx={{ fontSize: "1.5rem", color: "#1877f2" }} />
+                <Handle>{facebookHandle}</Handle>
+              </Link>
+            )}
+          </Box>
         </AboutSectionSocials>
         <AboutSectionText>
           <Markdown>{aboutText}</Markdown>
