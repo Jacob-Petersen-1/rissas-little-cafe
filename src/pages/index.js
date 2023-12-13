@@ -43,6 +43,14 @@ const HomePage = ({ data }) => {
             aboutImage={aboutContent?.image}
             aboutText={aboutContent?.about}
           />
+          <SectionDivider headline="Follow Us On Social" />
+          <SocialMediaSection
+            socialImages={socialMedia}
+            facebookHandle="@Rissa's Little Cafe"
+            instagramHandle="@rissaslittlecafe"
+            facebookLink="https://www.facebook.com/rissaslittlecafe"
+            instagramLink="https://www.instagram.com/rissaslittlecafe/"
+          />
         </Container>
       </MainLayout>
     </>
@@ -101,13 +109,14 @@ export const query = graphql`
           gatsbyImageData(
             layout: FULL_WIDTH
             placeholder: BLURRED
-            aspectRatio: 1.5
+            aspectRatio: 2
           )
         }
       }
     }
     socialMediaPhotos: allCloudinaryMedia(
       filter: { folder: { regex: "/cafe/instagram/" } }
+      limit: 4
     ) {
       edges {
         node {

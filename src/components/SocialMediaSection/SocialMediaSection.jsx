@@ -35,9 +35,6 @@ const SocialMediaSection = ({
                   justifyContent: "flex-start",
                 }}
               >
-                <SocialMediaSectionText>
-                  Follow Us on Social Media
-                </SocialMediaSectionText>
                 <Link href={instagramLink} target="_blank" rel="noreferrer">
                   <InstagramIcon sx={{ fontSize: 30, color: "#E4405F" }} />
                   <Handle>{instagramHandle}</Handle>

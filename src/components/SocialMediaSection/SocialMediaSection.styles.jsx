@@ -7,8 +7,6 @@ const SocialMediaSectionContainer = styled(Box)(({ theme }) => ({
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  margin: theme.spacing(3, 0, 0, 0),
-  paddingBottom: theme.spacing(3),
 }));
 
 const SocialMediaSectionContent = styled(Box)(({ theme }) => ({
@@ -24,14 +22,12 @@ const SocialMediaSectionText = styled(Box)(({ theme }) => ({
   textDecorationColor: theme.palette.link.hover,
   marginBottom: theme.spacing(2),
   [theme.breakpoints.down("md")]: {
-    margin: theme.spacing(1, 0, 0, 2),
     fontSize: "1.5rem",
   },
 }));
 
 const SocialMediaThumnail = styled(GatsbyImage)(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
-  border: `.5px solid rgba(0, 0, 0, 0.5)`,
   width: "100%",
   height: "100%",
 }));
@@ -43,7 +39,7 @@ const SocialMediaWrapper = styled(Box)(({ theme }) => ({
 }));
 
 const Link = styled("a")(({ theme }) => ({
-  margin: theme.spacing(1, 0, 0, 4),
+  margin: theme.spacing(0, 0, 0, 4),
   display: "flex",
   alignItems: "center",
   color: theme.palette.link.main,
@@ -65,7 +61,7 @@ const ImageLink = styled("a")(({ theme }) => ({
 }));
 
 const Handle = styled(Box)(({ theme }) => ({
-  marginLeft: theme.spacing(1),
+  marginLeft: theme.spacing(0.5),
   color: theme.palette.primary.main,
   fontSize: theme.typography.h3.fontSize,
   fontFamily: theme.typography.h3.fontFamily,

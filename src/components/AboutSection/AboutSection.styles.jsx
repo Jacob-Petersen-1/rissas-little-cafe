@@ -27,6 +27,7 @@ const AboutSectionImage = styled("img")(({ theme }) => ({
 
 const AboutSectionText = styled(Box)(({ theme }) => ({
   flexGrow: 1,
+  textAlign: "center",
   fontSize: theme.typography.body1.fontSize,
   fontWeight: theme.typography.body1.fontWeight,
   lineHeight: theme.typography.body1.lineHeight,

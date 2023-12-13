@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { StaticImage } from "gatsby-plugin-image";
 import {
   SectionDividerContainer,
   SectionHeadline,
