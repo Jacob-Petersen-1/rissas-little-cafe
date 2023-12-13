@@ -55,5 +55,9 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Instagram", name: "instagram", widget: "string" }
+      - { label: "InstagramLink", name: "instagramLink", widget: "string" }
+      - { label: "Facebook", name: "facebook", widget: "string" }
+      - { label: "FacebookLink", name: "facebookLink", widget: "string" }
       - { label: "About", name: "about", widget: "markdown" }
       - { label: "Image", name: "image", widget: "image" }

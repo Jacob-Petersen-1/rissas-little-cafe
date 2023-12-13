@@ -3,10 +3,22 @@ import { Box, Typography } from "@mui/material";
 
 const AboutSectionContainer = styled(Box)(({ theme }) => ({
   display: "flex",
-  flexDirection: "row",
   alignItems: "center",
   justifyContent: "center",
-  [theme.breakpoints.down("md")]: {
+  flexDirection: "row",
+  [theme.breakpoints.down("sm")]: {
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+}));
+
+const AboutSectionSocials = styled(Box)(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  flexDirection: "column",
+  [theme.breakpoints.down("sm")]: {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
@@ -15,10 +27,11 @@ const AboutSectionContainer = styled(Box)(({ theme }) => ({
 
 const AboutSectionImage = styled("img")(({ theme }) => ({
   maxWidth: "100%",
-  height: 500,
-  width: 500,
+  height: 400,
+  width: 400,
+  borderRadius: "50%",
   marginRight: theme.spacing(2),
-  [theme.breakpoints.down("md")]: {
+  [theme.breakpoints.down("sm")]: {
     height: 300,
     width: "100%",
     marginRight: 0,
@@ -27,7 +40,7 @@ const AboutSectionImage = styled("img")(({ theme }) => ({
 
 const AboutSectionText = styled(Box)(({ theme }) => ({
   flexGrow: 1,
-  textAlign: "center",
+  alignSelf: "flex-start",
   fontSize: theme.typography.body1.fontSize,
   fontWeight: theme.typography.body1.fontWeight,
   lineHeight: theme.typography.body1.lineHeight,
@@ -43,4 +56,30 @@ const AboutSectionText = styled(Box)(({ theme }) => ({
   },
 }));
 
-export { AboutSectionContainer, AboutSectionImage, AboutSectionText };
+const Link = styled("a")(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  color: theme.palette.link.main,
+  textDecoration: "none",
+}));
+
+const Handle = styled(Box)(({ theme }) => ({
+  marginLeft: theme.spacing(0.5),
+  color: theme.palette.primary.main,
+  fontSize: theme.typography.body1.fontSize,
+  fontFamily: theme.typography.h3.fontFamily,
+  textDecoration: "underline",
+  "&:hover": {
+    textDecoration: "underline",
+    textDecorationColor: theme.palette.link.hover,
+  },
+}));
+
+export {
+  AboutSectionContainer,
+  AboutSectionImage,
+  AboutSectionSocials,
+  AboutSectionText,
+  Link,
+  Handle,
+};

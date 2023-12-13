@@ -22,7 +22,7 @@ const SectionHeadline = styled(Box)(({ theme }) => ({
 }));
 
 const StyledDivider = styled(Divider)(({ theme }) => ({
-  width: "90%",
+  width: "100%",
   height: 3,
   backgroundColor: theme.palette.link.hover,
 }));
