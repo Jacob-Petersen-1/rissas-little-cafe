@@ -1,5 +1,6 @@
 // Components
 export { AboutSection } from "./AboutSection";
+export { EventCalendar } from "./EventCalendar";
 export { LandingHero } from "./LandingHero";
 export { NavBar } from "./NavBar";
 export { SectionDivider } from "./SectionDivider";

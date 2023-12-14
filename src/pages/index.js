@@ -2,10 +2,11 @@ import * as React from "react";
 import { graphql } from "gatsby";
 import { Container } from "@mui/material";
 import {
-  MainLayout,
-  LandingHero,
-  SectionDivider,
   AboutSection,
+  EventCalendar,
+  LandingHero,
+  MainLayout,
+  SectionDivider,
   Seo,
 } from "../components";
 
@@ -47,6 +48,8 @@ const HomePage = ({ data }) => {
             facebookHandle={facebook}
             facebookLink={facebookLink}
           />
+          <SectionDivider headline="upcoming events" />
+          <EventCalendar />
         </Container>
       </MainLayout>
     </>

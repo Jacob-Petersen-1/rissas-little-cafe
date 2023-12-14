@@ -31,7 +31,8 @@ exports.onCreateNode = async ({
 }) => {
   if (
     node.internal.type === "MarkdownRemark" &&
-    node.frontmatter.image !== null
+    node.frontmatter.image !== null &&
+    node.frontmatter.image !== undefined
   ) {
     const fileNode = await createRemoteFileNode({
       url: node.frontmatter.image,
