@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Box } from "@mui/material";
 import {
   SectionDividerContainer,
   SectionHeadline,
@@ -10,6 +11,7 @@ const SectionDivider = ({ headline }) => {
   return (
     <>
       <SectionDividerContainer>
+        <StyledDivider />
         <SectionHeadline>{headline}</SectionHeadline>
         <StyledDivider />
       </SectionDividerContainer>

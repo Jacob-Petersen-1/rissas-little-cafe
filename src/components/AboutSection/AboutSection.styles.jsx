@@ -16,6 +16,9 @@ const AboutSectionSocials = styled(Box)(({ theme }) => ({
   flexDirection: "column",
   alignItems: "center",
   marginRight: theme.spacing(4),
+  [theme.breakpoints.down("sm")]: {
+    marginRight: 0,
+  },
 }));
 
 const AboutSectionImage = styled(GatsbyImage)(({ theme }) => ({
