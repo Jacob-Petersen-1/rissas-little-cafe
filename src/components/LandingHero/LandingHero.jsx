@@ -8,6 +8,7 @@ import {
   HeroSlide,
   SlideContent,
   ExpandMore,
+  HeroImage,
 } from "./LandingHero.styles";
 
 // TODO: Make Component More Reusable
@@ -15,27 +16,24 @@ import {
 const LandingHero = ({ landingContent }) => {
   return (
     <Carousel animation="fade" interval={8000} indicators={false}>
-      {landingContent
-        ?.reverse()
-        .map(({ frontmatter, html, cloudinaryData }, index) => (
-          <HeroSlide variant="outlined" key={frontmatter?.position || index}>
-            <GatsbyImage
-              image={getImage(cloudinaryData?.gatsbyImageData)}
-              alt="Landing Hero Image"
-              objectFit="contain"
-            />
+      {landingContent?.reverse().map(({ frontmatter, html, image }, index) => (
+        <HeroSlide variant="outlined" key={frontmatter?.position || index}>
+          <HeroImage
+            image={getImage(image?.childImageSharp?.gatsbyImageData)}
+            alt="Landing Hero Image"
+          />
 
-            <SlideContent>
-              {frontmatter?.headline && (
-                <HeroHeaderText>{frontmatter.headline}</HeroHeaderText>
-              )}
-              {html && (
-                <HeroBodyText dangerouslySetInnerHTML={{ __html: html }} />
-              )}
-              <ExpandMore />
-            </SlideContent>
-          </HeroSlide>
-        ))}
+          <SlideContent>
+            {frontmatter?.headline && (
+              <HeroHeaderText>{frontmatter.headline}</HeroHeaderText>
+            )}
+            {html && (
+              <HeroBodyText dangerouslySetInnerHTML={{ __html: html }} />
+            )}
+            <ExpandMore />
+          </SlideContent>
+        </HeroSlide>
+      ))}
     </Carousel>
   );
 };
@@ -48,7 +46,7 @@ LandingHero.defaultProps = {
       headline: "Default Headline",
       body: "Default Body",
       position: 1,
-      cloudinaryData: {
+      image: {
         gatsbyImageData: {
           layout: "fullWidth",
           placeholder: "blurred",
@@ -56,6 +54,13 @@ LandingHero.defaultProps = {
         },
       },
       html: "<p>Default HTML</p>",
+      image: {
+        gatsbyImageData: {
+          layout: "fullWidth",
+          placeholder: "blurred",
+          formats: ["auto", "webp", "avif"],
+        },
+      },
     },
   ],
 };

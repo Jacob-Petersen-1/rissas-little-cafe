@@ -1,5 +1,6 @@
 import styled from "@mui/material/styles/styled";
 import { Box, CardContent } from "@mui/material";
+import { GatsbyImage } from "gatsby-plugin-image";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { keyframes } from "@mui/material";
 
@@ -22,6 +23,17 @@ const HeroSlide = styled(Box)(({ theme }) => ({
   height: "100%",
   [theme.breakpoints.down("md")]: {
     height: "50%",
+  },
+}));
+
+const HeroImage = styled(GatsbyImage)(({ theme }) => ({
+  height: 700,
+  width: "100%",
+  [theme.breakpoints.down("md")]: {
+    height: 400,
+  },
+  [theme.breakpoints.down("sm")]: {
+    height: 300,
   },
 }));
 
@@ -79,4 +91,11 @@ const ExpandMore = styled(ExpandMoreIcon)(({ theme }) => ({
   },
 }));
 
-export { HeroSlide, HeroHeaderText, HeroBodyText, SlideContent, ExpandMore };
+export {
+  HeroSlide,
+  HeroImage,
+  HeroHeaderText,
+  HeroBodyText,
+  SlideContent,
+  ExpandMore,
+};

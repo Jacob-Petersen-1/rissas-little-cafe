@@ -1,6 +1,7 @@
 import React from "react";
 import Markdown from "react-markdown";
 import PropTypes from "prop-types";
+import { getImage } from "gatsby-plugin-image";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import { Box } from "@mui/material";
@@ -26,7 +27,10 @@ const AboutSection = ({
     <>
       <AboutSectionContainer>
         <AboutSectionSocials>
-          <AboutSectionImage src={aboutImage} alt={headline} />
+          <AboutSectionImage
+            image={getImage(aboutImage?.childImageSharp?.gatsbyImageData)}
+            alt={headline}
+          />
           <Box
             sx={{
               display: "flex",
@@ -62,10 +66,9 @@ AboutSection.propTypes = {
   facebookHandle: PropTypes.string,
   instagramLink: PropTypes.string,
   facebookLink: PropTypes.string,
-  aboutImage: PropTypes.string.isRequired,
+  aboutImage: PropTypes.object.isRequired,
   aboutText: PropTypes.string.isRequired,
   headline: PropTypes.string.isRequired,
-  children: PropTypes.node,
 };
 
 AboutSection.defaultProps = {

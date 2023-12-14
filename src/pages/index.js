@@ -1,7 +1,6 @@
 import * as React from "react";
 import { graphql } from "gatsby";
-import { Container, Box } from "@mui/material";
-import combineContent from "../../utils/combineContent";
+import { Container } from "@mui/material";
 import {
   MainLayout,
   LandingHero,
@@ -11,10 +10,13 @@ import {
 } from "../components";
 
 const HomePage = ({ data }) => {
-  const { carouselData, aboutData, carouselImages, site } = data || {};
+  const { carouselData, aboutData, site } = data || {};
   const { siteMetadata } = site || {};
   const { title, description, siteUrl, image } = siteMetadata || {};
-  const aboutContent = aboutData?.edges?.[0]?.node?.frontmatter || {};
+  const carouselContent = carouselData?.edges?.map((edge) => edge.node) || [];
+  const aboutContent = aboutData?.edges?.[0]?.node || {};
+  const { frontmatter: aboutFrontmatter, image: aboutImage } =
+    aboutContent || {};
   const {
     title: aboutTitle,
     instagram,
@@ -22,15 +24,7 @@ const HomePage = ({ data }) => {
     facebook,
     facebookLink,
     about,
-    image: aboutImage,
-  } = aboutContent || {};
-  const carouselContent = carouselData?.edges?.map((edge) => edge.node) || [];
-  const carouselImageContent =
-    carouselImages?.edges?.map((edge) => edge.node) || [];
-  const combinedCarouselContent = combineContent({
-    content: carouselContent,
-    media: carouselImageContent,
-  });
+  } = aboutFrontmatter || {};
 
   return (
     <>
@@ -41,7 +35,7 @@ const HomePage = ({ data }) => {
         image={image}
       />
       <MainLayout>
-        <LandingHero landingContent={combinedCarouselContent} />
+        <LandingHero landingContent={carouselContent} />
         <Container maxWidth="xl">
           <SectionDivider headline="about us" />
           <AboutSection
@@ -80,7 +74,16 @@ export const query = graphql`
             title
             headline
             position
-            image
+          }
+          image {
+            childImageSharp {
+              gatsbyImageData(
+                layout: FULL_WIDTH
+                aspectRatio: 1.5
+                placeholder: BLURRED
+                quality: 80
+              )
+            }
           }
           html
         }
@@ -99,26 +102,16 @@ export const query = graphql`
             instagram
             instagramLink
             about
-            image
           }
-        }
-      }
-    }
-    carouselImages: allCloudinaryMedia(
-      filter: { folder: { regex: "/cafe/carousel/" } }
-    ) {
-      edges {
-        node {
-          cloudinaryData {
-            secure_url
+          image {
+            childImageSharp {
+              gatsbyImageData(
+                layout: FULL_WIDTH
+                placeholder: BLURRED
+                quality: 80
+              )
+            }
           }
-          gatsbyImageData(
-            layout: CONSTRAINED
-            placeholder: BLURRED
-            breakpoints: [300, 500, 700, 900, 1200, 1600]
-            sizes: "(max-width: 300px) 280px, (max-width: 500px) 480px, (max-width: 700px) 680px, (max-width: 900px) 880px, (max-width: 1200px) 1180px, 1600px"
-            aspectRatio: 2
-          )
         }
       }
     }

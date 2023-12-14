@@ -1,4 +1,5 @@
 import styled from "@mui/material/styles/styled";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Box } from "@mui/material";
 
 const AboutSectionContainer = styled(Box)(({ theme }) => ({
@@ -17,15 +18,14 @@ const AboutSectionSocials = styled(Box)(({ theme }) => ({
   marginRight: theme.spacing(4),
 }));
 
-const AboutSectionImage = styled("img")(({ theme }) => ({
-  maxWidth: "100%",
-  height: 400,
-  width: 400,
+const AboutSectionImage = styled(GatsbyImage)(({ theme }) => ({
   borderRadius: "50%",
   marginRight: theme.spacing(2),
+  height: 500,
+  width: 500,
   [theme.breakpoints.down("sm")]: {
     height: 300,
-    width: "100%",
+    width: 300,
     marginRight: 0,
   },
 }));
