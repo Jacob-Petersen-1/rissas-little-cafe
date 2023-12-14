@@ -21,21 +21,9 @@ const HeroSlide = styled(Box)(({ theme }) => ({
   flexDirection: "column",
   width: "100%",
   height: "100%",
-  [theme.breakpoints.down("md")]: {
-    height: "50%",
-  },
 }));
 
-const HeroImage = styled(GatsbyImage)(({ theme }) => ({
-  height: 700,
-  width: "100%",
-  [theme.breakpoints.down("md")]: {
-    height: 400,
-  },
-  [theme.breakpoints.down("sm")]: {
-    height: 300,
-  },
-}));
+const HeroImage = styled(GatsbyImage)(({ theme }) => ({}));
 
 const HeroHeaderText = styled(Box)(({ theme }) => ({
   color: theme.palette.text.secondary,
@@ -74,6 +62,7 @@ const SlideContent = styled(CardContent)(({ theme }) => ({
   alignItems: "center",
   backgroundColor: "rgba(0, 0, 0, 0.4)",
   position: "absolute",
+  padding: theme.spacing(0, 10, 0, 10),
 }));
 
 const ExpandMore = styled(ExpandMoreIcon)(({ theme }) => ({
