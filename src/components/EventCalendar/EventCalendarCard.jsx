@@ -38,7 +38,7 @@ const EventCalendarCard = ({
           <EventDescription>
             <EventLabel>Location:</EventLabel> {location}
             <span>
-              <IconButton onClick={handleCopyLocation}>
+              <IconButton aria-label="Copy" onClick={handleCopyLocation}>
                 <ContentCopy />
               </IconButton>
             </span>

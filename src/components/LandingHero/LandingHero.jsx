@@ -9,7 +9,6 @@ import {
   HeroBodyText,
   HeroSlide,
   SlideContent,
-  ExpandMore,
   HeroImage,
 } from "./LandingHero.styles";
 
@@ -17,12 +16,13 @@ import {
 
 const LandingHero = ({ landingContent }) => {
   const [carouselHeight, setCarouselHeight] = useState(300);
+  console.log(landingContent);
 
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
       if (screenWidth < 600) {
-        setCarouselHeight(280);
+        setCarouselHeight(260);
       } else if (screenWidth < 980) {
         setCarouselHeight(400);
       } else {
@@ -37,13 +37,13 @@ const LandingHero = ({ landingContent }) => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
   return (
     <Carousel
       animation="fade"
       interval={8000}
-      indicators={false}
-      height={carouselHeight}
       navButtonsAlwaysVisible={true}
+      height={carouselHeight}
       NextIcon={<ArrowForwardIosIcon sx={{ fontSize: "1.5rem" }} />}
       PrevIcon={<ArrowBackIosIcon sx={{ fontSize: "1.5rem" }} />}
       navButtonsProps={{
@@ -56,12 +56,23 @@ const LandingHero = ({ landingContent }) => {
           },
         },
       }}
+      indicatorContainerProps={{
+        style: {
+          marginTop: -30,
+          zIndex: 10,
+          position: "absolute",
+        },
+      }}
     >
       {landingContent?.reverse().map(({ frontmatter, html, image }, index) => (
-        <HeroSlide variant="outlined" key={frontmatter?.position || index}>
+        <HeroSlide
+          height={carouselHeight}
+          variant="outlined"
+          key={frontmatter?.position || index}
+        >
           <HeroImage
             image={getImage(image?.childImageSharp?.gatsbyImageData)}
-            alt="Landing Hero Image"
+            alt={frontmatter?.headline}
             loading="eager"
           />
 
@@ -72,7 +83,6 @@ const LandingHero = ({ landingContent }) => {
             {html && (
               <HeroBodyText dangerouslySetInnerHTML={{ __html: html }} />
             )}
-            <ExpandMore />
           </SlideContent>
         </HeroSlide>
       ))}

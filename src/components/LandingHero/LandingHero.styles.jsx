@@ -1,26 +1,12 @@
 import styled from "@mui/material/styles/styled";
 import { Box, CardContent } from "@mui/material";
 import { GatsbyImage } from "gatsby-plugin-image";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { keyframes } from "@mui/material";
 
-const danceAnimation = keyframes`
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-`;
-
-const HeroSlide = styled(Box)(({ theme }) => ({
+const HeroSlide = styled(Box)(({ theme, height }) => ({
   display: "flex",
   flexDirection: "column",
   width: "100%",
-  height: "100%",
+  height: height,
 }));
 
 const HeroImage = styled(GatsbyImage)(({ theme }) => ({}));
@@ -44,12 +30,16 @@ const HeroHeaderText = styled(Box)(({ theme }) => ({
 
 const HeroBodyText = styled(Box)(({ theme }) => ({
   color: theme.palette.text.secondary,
+  display: "block",
   fontSize: "1.5rem",
   textAlign: "center",
   fontWeight: theme.typography.body1.fontWeight,
   lineHeight: theme.typography.body1.lineHeight,
-  [theme.breakpoints.down("md")]: {
+  [theme.breakpoints.down("sm")]: {
+    maxHeight: 100,
     fontSize: theme.typography.body2.fontSize,
+    overflow: "hidden",
+    textOverflow: "ellipsis",
   },
 }));
 
@@ -63,28 +53,9 @@ const SlideContent = styled(CardContent)(({ theme }) => ({
   backgroundColor: "rgba(0, 0, 0, 0.4)",
   position: "absolute",
   padding: theme.spacing(0, 10, 0, 10),
-}));
-
-const ExpandMore = styled(ExpandMoreIcon)(({ theme }) => ({
-  color: theme.palette.text.secondary,
-  fontSize: "5rem",
-  position: "absolute",
-  margin: "0 auto",
-  animation: `${danceAnimation} 1.5s infinite`,
-  bottom: theme.spacing(1),
   [theme.breakpoints.down("md")]: {
-    fontSize: "3rem",
-  },
-  [theme.breakpoints.down("sm")]: {
-    fontSize: "2rem",
+    padding: theme.spacing(0, 5, 0, 5),
   },
 }));
 
-export {
-  HeroSlide,
-  HeroImage,
-  HeroHeaderText,
-  HeroBodyText,
-  SlideContent,
-  ExpandMore,
-};
+export { HeroSlide, HeroImage, HeroHeaderText, HeroBodyText, SlideContent };
