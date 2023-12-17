@@ -26,7 +26,7 @@ const StyledDivider = styled(Divider)(({ theme }) => ({
   flex: 1,
   width: "100%",
   height: 3,
-  backgroundColor: theme.palette.link.hover,
+  backgroundColor: theme.palette.divider.main,
 }));
 
 export { SectionDividerContainer, SectionHeadline, StyledDivider };

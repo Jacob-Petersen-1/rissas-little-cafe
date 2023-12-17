@@ -11,10 +11,12 @@ import {
 } from "../components";
 
 const HomePage = ({ data }) => {
-  const { carouselData, aboutData, site } = data || {};
+  const { aboutData, carouselData, eventData, site } = data || {};
   const { siteMetadata } = site || {};
   const { title, description, siteUrl, image } = siteMetadata || {};
   const carouselContent = carouselData?.edges?.map((edge) => edge.node) || [];
+  const eventContent =
+    eventData?.edges?.map((edge) => edge.node.frontmatter) || [];
   const aboutContent = aboutData?.edges?.[0]?.node || {};
   const { frontmatter: aboutFrontmatter, image: aboutImage } =
     aboutContent || {};
@@ -49,7 +51,7 @@ const HomePage = ({ data }) => {
             facebookLink={facebookLink}
           />
           <SectionDivider headline="upcoming events" />
-          <EventCalendar />
+          <EventCalendar events={eventContent} />
         </Container>
       </MainLayout>
     </>
@@ -114,6 +116,22 @@ export const query = graphql`
                 quality: 80
               )
             }
+          }
+        }
+      }
+    }
+    eventData: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/content/events/" } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            location
+            start
+            end
+            description
+            allDay
           }
         }
       }

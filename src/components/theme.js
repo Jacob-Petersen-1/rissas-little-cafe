@@ -23,6 +23,9 @@ const theme = createTheme({
     link: {
       hover: "#b6d4cf", // Light blue on hover
     },
+    divider: {
+      main: "#b6d4cf", // Light blue divider
+    },
   },
   typography: {
     fontFamily: [
@@ -52,7 +55,7 @@ const theme = createTheme({
     },
     body2: {
       fontFamily: "Raleway",
-      fontSize: "0.669rem",
+      fontSize: "0.755rem",
     },
   },
   shape: {
