@@ -62,3 +62,13 @@ collections:
       - { label: "FacebookLink", name: "facebookLink", widget: "string" }
       - { label: "About", name: "about", widget: "markdown" }
       - { label: "Image", name: "image", widget: "image" }
+- name: services
+    preview: false
+    label: Services
+    folder: content/services
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "description", name: "description", widget: "markdown" }

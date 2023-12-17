@@ -53,8 +53,6 @@ const HomePage = ({ data }) => {
             facebookHandle={facebook}
             facebookLink={facebookLink}
           />
-          <SectionDivider headline="CUSTOMER REVIEWS" />
-          <SectionDivider headline="CONTACT" />
         </Container>
       </MainLayout>
     </>
