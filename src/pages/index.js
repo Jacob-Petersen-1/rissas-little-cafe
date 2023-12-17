@@ -40,7 +40,10 @@ const HomePage = ({ data }) => {
       <MainLayout>
         <LandingHero landingContent={carouselContent} />
         <Container maxWidth="xl">
-          <SectionDivider headline="about us" />
+          <SectionDivider headline="SERVICES WE OFFER" />
+          <SectionDivider headline="UPCOMING EVENTS" />
+          <EventCalendar events={eventContent} />
+          <SectionDivider headline="ABOUT US" />
           <AboutSection
             headline={aboutTitle}
             aboutImage={aboutImage}
@@ -50,8 +53,8 @@ const HomePage = ({ data }) => {
             facebookHandle={facebook}
             facebookLink={facebookLink}
           />
-          <SectionDivider headline="upcoming events" />
-          <EventCalendar events={eventContent} />
+          <SectionDivider headline="CUSTOMER REVIEWS" />
+          <SectionDivider headline="CONTACT" />
         </Container>
       </MainLayout>
     </>
