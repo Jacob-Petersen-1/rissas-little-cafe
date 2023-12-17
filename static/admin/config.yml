@@ -62,7 +62,7 @@ collections:
       - { label: "FacebookLink", name: "facebookLink", widget: "string" }
       - { label: "About", name: "about", widget: "markdown" }
       - { label: "Image", name: "image", widget: "image" }
-- name: services
+  - name: services
     preview: false
     label: Services
     folder: content/services
