@@ -7,14 +7,16 @@ import {
   LandingHero,
   MainLayout,
   SectionDivider,
+  ServicesSection,
   Seo,
 } from "../components";
 
 const HomePage = ({ data }) => {
-  const { aboutData, carouselData, eventData, site } = data || {};
+  const { aboutData, carouselData, eventData, serviceData, site } = data || {};
   const { siteMetadata } = site || {};
   const { title, description, siteUrl, image } = siteMetadata || {};
   const carouselContent = carouselData?.edges?.map((edge) => edge.node) || [];
+  const serviceContent = serviceData?.edges?.map((edge) => edge.node) || [];
   const eventContent =
     eventData?.edges?.map((edge) => edge.node.frontmatter) || [];
   const aboutContent = aboutData?.edges?.[0]?.node || {};
@@ -41,6 +43,7 @@ const HomePage = ({ data }) => {
         <LandingHero landingContent={carouselContent} />
         <Container maxWidth="xl">
           <SectionDivider headline="SERVICES WE OFFER" />
+          <ServicesSection services={serviceContent} />
           <SectionDivider headline="UPCOMING EVENTS" />
           <EventCalendar events={eventContent} />
           <SectionDivider headline="ABOUT US" />
@@ -88,6 +91,7 @@ export const query = graphql`
                 placeholder: BLURRED
                 quality: 80
                 aspectRatio: 1.5
+                formats: WEBP
               )
             }
           }
@@ -115,6 +119,7 @@ export const query = graphql`
                 layout: FULL_WIDTH
                 placeholder: BLURRED
                 quality: 80
+                formats: WEBP
               )
             }
           }
@@ -133,6 +138,29 @@ export const query = graphql`
             end
             description
             allDay
+          }
+        }
+      }
+    }
+    serviceData: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/content/services/" } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            description
+          }
+          image {
+            childImageSharp {
+              gatsbyImageData(
+                layout: FULL_WIDTH
+                formats: WEBP
+                quality: 50
+                placeholder: BLURRED
+                aspectRatio: 1.5
+              )
+            }
           }
         }
       }

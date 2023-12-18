@@ -7,7 +7,20 @@ const ServicesSection = ({ services }) => {
   return (
     <>
       <ServicesSectionContainer>
-        {/* Your component content goes here */}
+        {services?.map((service) => {
+          const {
+            frontmatter: { title, description },
+            image: { childImageSharp: gatsbyImageData },
+          } = service || {};
+          return (
+            <ServiceCard
+              key={title}
+              image={gatsbyImageData}
+              title={title}
+              description={description}
+            />
+          );
+        })}
       </ServicesSectionContainer>
     </>
   );

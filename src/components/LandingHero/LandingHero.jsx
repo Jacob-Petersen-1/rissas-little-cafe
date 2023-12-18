@@ -22,7 +22,7 @@ const LandingHero = ({ landingContent }) => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
       if (screenWidth < 600) {
-        setCarouselHeight(260);
+        setCarouselHeight(250);
       } else if (screenWidth < 980) {
         setCarouselHeight(400);
       } else {
@@ -68,11 +68,7 @@ const LandingHero = ({ landingContent }) => {
         {landingContent
           ?.reverse()
           .map(({ frontmatter, html, image }, index) => (
-            <HeroSlide
-              height={carouselHeight}
-              variant="outlined"
-              key={frontmatter?.position || index}
-            >
+            <HeroSlide key={frontmatter?.position || index}>
               <HeroImage
                 image={getImage(image?.childImageSharp?.gatsbyImageData)}
                 alt={frontmatter?.headline}

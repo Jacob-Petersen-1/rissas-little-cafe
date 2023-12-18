@@ -6,10 +6,21 @@ const HeroSlide = styled(Box)(({ theme, height }) => ({
   display: "flex",
   flexDirection: "column",
   width: "100%",
-  height: height,
 }));
 
-const HeroImage = styled(GatsbyImage)(({ theme }) => ({}));
+const HeroImage = styled(GatsbyImage)(({ theme }) => ({
+  height: "100%",
+  width: "100%",
+  "&::after": {
+    content: '""',
+    position: "absolute",
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    backgroundColor: "rgba(0, 0, 0, 0.1)",
+  },
+}));
 
 const HeroHeaderText = styled(Box)(({ theme }) => ({
   color: theme.palette.text.secondary,
