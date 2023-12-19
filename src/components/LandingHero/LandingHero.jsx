@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { getImage } from "gatsby-plugin-image";
 import PropTypes from "prop-types";
 import { useMediaQuery } from "@mui/material";
@@ -16,11 +16,30 @@ import {
 // TODO: Make Component More Reusable
 
 const LandingHero = ({ landingContent }) => {
+  const [height, setHeight] = useState(300);
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+
+  useEffect(() => {
+    const handleImageLoad = () => {
+      const image = new Image();
+      image.src = getImage(
+        landingContent[0]?.image?.childImageSharp[
+          isMobile ? "mobile" : "desktop"
+        ]
+      ).src;
+      image.onload = () => {
+        setHeight(image.height);
+      };
+    };
+
+    handleImageLoad();
+  }, [landingContent, isMobile]);
+
   return (
     <Carousel
       animation="fade"
       interval={8000}
+      height={height}
       navButtonsAlwaysVisible={true}
       NextIcon={<ArrowForwardIosIcon sx={{ fontSize: "1.5rem" }} />}
       PrevIcon={<ArrowBackIosIcon sx={{ fontSize: "1.5rem" }} />}

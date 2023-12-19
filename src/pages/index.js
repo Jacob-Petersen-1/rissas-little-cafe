@@ -90,7 +90,7 @@ export const query = graphql`
                 layout: CONSTRAINED
                 placeholder: BLURRED
                 quality: 80
-                aspectRatio: 1.3
+                aspectRatio: 1.5
                 formats: [AUTO, WEBP]
               )
               desktop: gatsbyImageData(
