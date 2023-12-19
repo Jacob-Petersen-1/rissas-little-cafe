@@ -102,6 +102,15 @@ export const query = graphql`
                 quality: 80
                 aspectRatio: 1.5
                 formats: [AUTO, WEBP]
+                height: 300
+              )
+              tablet: gatsbyImageData(
+                layout: CONSTRAINED
+                placeholder: BLURRED
+                quality: 80
+                aspectRatio: 1.75
+                formats: [AUTO, WEBP]
+                height: 500
               )
               desktop: gatsbyImageData(
                 layout: CONSTRAINED
@@ -109,6 +118,7 @@ export const query = graphql`
                 quality: 80
                 aspectRatio: 2
                 formats: [AUTO, WEBP]
+                height: 700
               )
             }
           }

@@ -18,22 +18,20 @@ import {
 const LandingHero = ({ landingContent }) => {
   const [height, setHeight] = useState(300);
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const isTablet = useMediaQuery((theme) => theme.breakpoints.down("md"));
 
   useEffect(() => {
     const handleImageLoad = () => {
-      const image = new Image();
-      image.src = getImage(
+      const imageData = getImage(
         landingContent[0]?.image?.childImageSharp[
-          isMobile ? "mobile" : "desktop"
+          isMobile ? "mobile" : isTablet ? "tablet" : "desktop"
         ]
-      ).src;
-      image.onload = () => {
-        setHeight(image.height);
-      };
+      );
+      setHeight(imageData?.height);
     };
 
     handleImageLoad();
-  }, [landingContent, isMobile]);
+  }, [landingContent, isMobile, isTablet]);
 
   return (
     <Carousel
@@ -67,7 +65,9 @@ const LandingHero = ({ landingContent }) => {
           <HeroSlide key={frontmatter?.position || index}>
             <HeroImage
               image={getImage(
-                carouselImage?.childImageSharp[isMobile ? "mobile" : "desktop"]
+                carouselImage?.childImageSharp[
+                  isMobile ? "mobile" : isTablet ? "tablet" : "desktop"
+                ]
               )}
               alt={frontmatter?.headline}
               loading="eager"

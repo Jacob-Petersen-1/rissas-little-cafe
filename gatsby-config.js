@@ -99,7 +99,7 @@ module.exports = {
         // https://css-tricks.com/meta-theme-color-and-trickery/
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `static/images/logo.svg`,
+        icon: `static/images/food-cart.svg`,
       },
     },
   ],
