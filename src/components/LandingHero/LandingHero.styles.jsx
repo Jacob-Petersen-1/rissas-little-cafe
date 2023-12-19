@@ -2,13 +2,13 @@ import styled from "@mui/material/styles/styled";
 import { Box, CardContent } from "@mui/material";
 import { GatsbyImage } from "gatsby-plugin-image";
 
-const HeroSlide = styled(Box)(({ theme, height }) => ({
+const HeroSlide = styled(Box)(() => ({
   display: "flex",
   flexDirection: "column",
   width: "100%",
 }));
 
-const HeroImage = styled(GatsbyImage)(({ theme }) => ({
+const HeroImage = styled(GatsbyImage)(() => ({
   height: "100%",
   width: "100%",
   "&::after": {
@@ -63,6 +63,7 @@ const SlideContent = styled(CardContent)(({ theme }) => ({
   alignItems: "center",
   backgroundColor: "rgba(0, 0, 0, 0.4)",
   position: "absolute",
+  overflow: "hidden",
   padding: theme.spacing(0, 10, 0, 10),
   [theme.breakpoints.down("md")]: {
     padding: theme.spacing(0, 5, 0, 5),

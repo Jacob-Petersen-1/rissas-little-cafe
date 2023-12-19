@@ -86,12 +86,19 @@ export const query = graphql`
           }
           image {
             childImageSharp {
-              gatsbyImageData(
-                layout: FULL_WIDTH
+              mobile: gatsbyImageData(
+                layout: CONSTRAINED
                 placeholder: BLURRED
                 quality: 80
-                aspectRatio: 1.5
-                formats: WEBP
+                aspectRatio: 1.3
+                formats: [AUTO, WEBP]
+              )
+              desktop: gatsbyImageData(
+                layout: CONSTRAINED
+                placeholder: BLURRED
+                quality: 80
+                aspectRatio: 2
+                formats: [AUTO, WEBP]
               )
             }
           }
@@ -119,7 +126,7 @@ export const query = graphql`
                 layout: FULL_WIDTH
                 placeholder: BLURRED
                 quality: 80
-                formats: WEBP
+                formats: [AUTO, WEBP]
               )
             }
           }
@@ -155,7 +162,7 @@ export const query = graphql`
             childImageSharp {
               gatsbyImageData(
                 layout: FULL_WIDTH
-                formats: WEBP
+                formats: [AUTO, WEBP]
                 quality: 50
                 placeholder: BLURRED
                 aspectRatio: 1.5

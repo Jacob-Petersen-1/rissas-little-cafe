@@ -24,6 +24,7 @@ const AboutSectionSocials = styled(Box)(({ theme }) => ({
 const AboutSectionImage = styled(GatsbyImage)(({ theme }) => ({
   borderRadius: "50%",
   marginRight: theme.spacing(2),
+  border: `2px solid ${theme.palette.gold.main}`,
   height: 500,
   width: 500,
   [theme.breakpoints.down("sm")]: {
@@ -56,6 +57,7 @@ const Link = styled("a")(({ theme }) => ({
   alignItems: "center",
   color: theme.palette.link.main,
   textDecoration: "none",
+  lineHeight: 1.5,
 }));
 
 const Handle = styled(Box)(({ theme }) => ({

@@ -26,6 +26,9 @@ const theme = createTheme({
     divider: {
       main: "#b6d4cf", // Light blue divider
     },
+    gold: {
+      main: "#f5d061", // Gold
+    },
   },
   typography: {
     fontFamily: [

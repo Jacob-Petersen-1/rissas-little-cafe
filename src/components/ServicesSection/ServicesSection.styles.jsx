@@ -1,6 +1,6 @@
 import styled from "@mui/material/styles/styled";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { Box, Card, CardContent } from "@mui/material";
+import { Box, CardContent } from "@mui/material";
 
 const ServicesSectionContainer = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -26,9 +26,10 @@ const ServiceCardContainer = styled(Box)(({ theme }) => ({
   },
 }));
 
-const ServiceCardImage = styled(GatsbyImage)(({ theme }) => ({
+const ServiceCardImage = styled(GatsbyImage)(() => ({
   height: "100%",
   width: "100%",
+  maxHeight: 400,
   "&::after": {
     content: '""',
     position: "absolute",
@@ -40,7 +41,7 @@ const ServiceCardImage = styled(GatsbyImage)(({ theme }) => ({
   },
 }));
 
-const ServiceCardFront = styled(Box)(({ theme }) => ({
+const ServiceCardFront = styled(Box)(() => ({
   position: "relative",
   display: "flex",
   justifyContent: "center",
@@ -49,7 +50,7 @@ const ServiceCardFront = styled(Box)(({ theme }) => ({
   width: "100%",
 }));
 
-const ServiceCardBack = styled(Box)(({ theme }) => ({
+const ServiceCardBack = styled(Box)(() => ({
   position: "relative",
   display: "flex",
   justifyContent: "center",
@@ -57,14 +58,14 @@ const ServiceCardBack = styled(Box)(({ theme }) => ({
   flexDirection: "column",
   height: "100%",
   width: "100%",
-  backgroundColor: "rgba(128, 128, 128, 0.1)",
+  backgroundColor: "rgba(128, 128, 128, 0.05)",
 }));
 
 const ServiceCardTitle = styled(Box)(({ theme }) => ({
   position: "absolute",
   zIndex: 5,
   color: theme.palette.text.secondary,
-  fontSize: "2.5rem",
+  fontSize: "2.3rem",
   textAlign: "center",
   fontFamily: theme.typography.h3.fontFamily,
 }));
@@ -79,7 +80,7 @@ const ServiceContent = styled(CardContent)(({ theme }) => ({
 }));
 
 const ServiceContentTitle = styled(Box)(({ theme }) => ({
-  fontSize: "2.5rem",
+  fontSize: "2rem",
   textAlign: "center",
   textDecoration: "underline",
   fontFamily: theme.typography.h3.fontFamily,
