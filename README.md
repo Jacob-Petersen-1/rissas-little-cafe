@@ -1,6 +1,8 @@
 
 # Rissa's Little Cafe Project
-Welcome to Rissa's Little Cafe, a delightful Gatsby project designed to bring the charm of Rissa's Cafe to the digital world. This project leverages Cloudinary for efficient management of images and assets. With a focus on simplicity and ease of use, we've included environment variables for seamless Cloudinary integration. Additionally, we've incorporated Yarn for efficient package management. Utilizing Netlify for the CMS
+Welcome to Rissa's Little Cafe, a delightful Gatsby project designed to bring the charm of Rissa's Cafe to the digital world. This project leverages Cloudinary for efficient management of images and assets. With a focus on simplicity and ease of use, we've included environment variables for seamless Cloudinary integration. Additionally, we've incorporated Yarn for efficient package management. Utilizing Netlify CMS for the CMS
+
+[Live Developement Site](https://rissaslittlecafecatering.netlify.app)
 
 ## Getting Started
 Follow these steps to get the project up and running on your local machine:
