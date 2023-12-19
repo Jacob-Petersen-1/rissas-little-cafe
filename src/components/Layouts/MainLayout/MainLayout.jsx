@@ -14,7 +14,7 @@ const pageLinks = [
   { to: "/", label: "logo", isImage: true },
   { to: "/orders", label: "orders" },
   { to: "/events", label: "events" },
-  { t0: "/contact", label: "contact" },
+  { to: "/contact", label: "contact" },
 ];
 
 const MainLayout = ({ children }) => {
