@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import { Container } from "@mui/material";
 import {
   AboutSection,
+  ContactForm,
   EventCalendar,
   LandingHero,
   MainLayout,
@@ -55,6 +56,15 @@ const HomePage = ({ data }) => {
             instagramLink={instagramLink}
             facebookHandle={facebook}
             facebookLink={facebookLink}
+          />
+          <SectionDivider headline="CONTACT US" />
+          <ContactForm
+            instagramHandle={instagram}
+            instagramLink={instagramLink}
+            facebookHandle={facebook}
+            facebookLink={facebookLink}
+            title="Get in touch today!"
+            showImage
           />
         </Container>
       </MainLayout>
