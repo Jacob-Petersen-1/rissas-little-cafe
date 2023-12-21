@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { StaticImage } from "gatsby-plugin-image";
-import { Button, RadioGroup, FormLabel, FormControlLabel } from "@mui/material";
+import {
+  Button,
+  RadioGroup,
+  FormLabel,
+  FormControlLabel,
+  Snackbar,
+} from "@mui/material";
 import {
   ContactFormContainer,
   ContactFormBody,
@@ -10,8 +16,21 @@ import {
   StyledRadio,
 } from "./ContactForm.styles";
 
+// TODO: Add a form validation library like Formik or React Hook Form
+
 const ContactForm = ({ title, showImage }) => {
+  const [open, setOpen] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [phone, setPhone] = useState("");
+  const [contactMethod, setContactMethod] = useState("email");
   const contactMethods = ["Email", "Call", "Text"];
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setAlertMessage("Message Sent!");
+    setOpen(true);
+  };
+
   return (
     <>
       <ContactFormContainer>
@@ -27,12 +46,15 @@ const ContactForm = ({ title, showImage }) => {
         ) : null}
 
         <ContactFormBody
-          name="contact"
           component="form"
+          name="contact"
           method="post"
           data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={handleSubmit}
         >
           <ContactFormHeader>{title}</ContactFormHeader>
+          <input type="hidden" name="contact" value="contact" />
           <StyledInput
             id="name"
             name="name"
@@ -52,12 +74,20 @@ const ContactForm = ({ title, showImage }) => {
             required
           />
           <StyledInput
+            error={
+              (contactMethod === "call" || contactMethod === "text") &&
+              (!phone || phone.length < 14 || !/^[\d()-]+$/.test(phone))
+            }
             id="phone"
             name="phone"
             label="Phone"
             variant="outlined"
             margin="normal"
+            onChange={(e) => setPhone(e.target.value)}
             fullWidth
+            required={contactMethod === "call" || contactMethod === "text"}
+            helperText="Please enter a phone number if you selected 'Call' or 'Text"
+            value={phone}
           />
           <FormLabel sx={{ color: "black", textAlign: "left", width: "100%" }}>
             Preferred Contact Method
@@ -68,6 +98,7 @@ const ContactForm = ({ title, showImage }) => {
             name="contact-method"
             row
             sx={{ width: "100%" }}
+            onChange={(e) => setContactMethod(e.target.value)}
           >
             {contactMethods.map((method) => (
               <FormControlLabel
@@ -102,6 +133,13 @@ const ContactForm = ({ title, showImage }) => {
           </Button>
         </ContactFormBody>
       </ContactFormContainer>
+      <Snackbar
+        open={open}
+        autoHideDuration={3000}
+        onClose={() => setOpen(false)}
+        message={alertMessage}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      />
     </>
   );
 };

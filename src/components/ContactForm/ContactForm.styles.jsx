@@ -30,6 +30,7 @@ const ContactFormHeader = styled(Box)(({ theme }) => ({
   fontSize: theme.typography.h2.fontSize,
   fontWeight: theme.typography.h2.fontWeight,
   fontFamily: theme.typography.h2.fontFamily,
+  marginBottom: theme.spacing(2),
 }));
 
 const StyledInput = styled(TextField)(({ theme }) => ({
