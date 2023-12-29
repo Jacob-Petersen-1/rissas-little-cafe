@@ -6,6 +6,7 @@ export { LandingHero } from "./LandingHero";
 export { NavBar } from "./NavBar";
 export { SectionDivider } from "./SectionDivider";
 export { ServicesSection } from "./ServicesSection";
+export { SocialMediaGrid } from "./SocialMediaGrid";
 export { Seo } from "./Seo";
 
 // Layouts

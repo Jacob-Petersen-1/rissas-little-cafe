@@ -13,13 +13,22 @@ import {
 } from "../components";
 
 const HomePage = ({ data }) => {
-  const { aboutData, carouselData, eventData, serviceData, site } = data || {};
+  const {
+    aboutData,
+    carouselData,
+    eventData,
+    serviceData,
+    socialMediaImages,
+    site,
+  } = data || {};
   const { siteMetadata } = site || {};
   const { title, description, siteUrl, image } = siteMetadata || {};
   const carouselContent = carouselData?.edges?.map((edge) => edge.node) || [];
   const serviceContent = serviceData?.edges?.map((edge) => edge.node) || [];
   const eventContent =
     eventData?.edges?.map((edge) => edge.node.frontmatter) || [];
+  const socialMediaImagesContent =
+    socialMediaImages?.edges?.map((edge) => edge.node) || [];
   const aboutContent = aboutData?.edges?.[0]?.node || {};
   const { frontmatter: aboutFrontmatter, image: aboutImage } =
     aboutContent || {};
@@ -186,6 +195,28 @@ export const query = graphql`
                 quality: 50
                 placeholder: BLURRED
                 aspectRatio: 1.5
+              )
+            }
+          }
+        }
+      }
+    }
+    socialMediaImages: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/content/media/" } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            link
+          }
+          image {
+            childImageSharp {
+              gatsbyImageData(
+                layout: CONSTRAINED
+                formats: WEBP
+                quality: 80
+                placeholder: BLURRED
               )
             }
           }
