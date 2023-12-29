@@ -9,6 +9,7 @@ import {
   MainLayout,
   SectionDivider,
   ServicesSection,
+  SocialMediaGrid,
   Seo,
 } from "../components";
 
@@ -65,6 +66,11 @@ const HomePage = ({ data }) => {
             instagramLink={instagramLink}
             facebookHandle={facebook}
             facebookLink={facebookLink}
+          />
+          <SectionDivider headline="FOLLOW US" />
+          <SocialMediaGrid
+            images={socialMediaImagesContent}
+            socialHeadline="Stay up to date with the latest from Rissa's Little Cafe"
           />
           <SectionDivider headline="CONTACT US" />
           <ContactForm

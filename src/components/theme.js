@@ -52,6 +52,21 @@ const theme = createTheme({
       fontSize: "1.2rem",
       fontWeight: 600,
     },
+    h4: {
+      fontFamily: "Agbalumo",
+      fontSize: "1.2rem",
+      fontWeight: 600,
+    },
+    h5: {
+      fontFamily: "Agbalumo",
+      fontSize: "1rem",
+      fontWeight: 600,
+    },
+    h6: {
+      fontFamily: "Agbalumo",
+      fontSize: "0.875rem",
+      fontWeight: 600,
+    },
     body1: {
       fontFamily: "Raleway",
       fontSize: ".889rem",
