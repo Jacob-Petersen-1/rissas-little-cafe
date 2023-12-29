@@ -4,7 +4,7 @@ const theme = createTheme({
   breakpoints: {
     values: {
       sm: 600, // Small devices (mobile)
-      md: 980, // Medium devices (tablets)
+      md: 1025, // Medium devices (tablets)
       lg: 1280, // Large devices (desktops)
       xl: 1920, // Extra-large devices (large desktops)
     },

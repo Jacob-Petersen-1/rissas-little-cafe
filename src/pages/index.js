@@ -62,15 +62,17 @@ const HomePage = ({ data }) => {
             headline={aboutTitle}
             aboutImage={aboutImage}
             aboutText={about}
-            instagramHandle={instagram}
-            instagramLink={instagramLink}
-            facebookHandle={facebook}
-            facebookLink={facebookLink}
           />
           <SectionDivider headline="FOLLOW US" />
+          {
+            // TODO: Get social headline and description from CMS
+          }
           <SocialMediaGrid
             images={socialMediaImagesContent}
-            socialHeadline="Stay up to date with the latest from Rissa's Little Cafe"
+            socialHeadline="Stay up to date with the latest from Rissa's Little Cafe!"
+            socialDescription="We share daily updates on our social media accounts. Whether you're interested in discovering a new menu item or simply want to stay informed about what we're up to, we invite you to follow us on social media for the latest updates and insights!"
+            facebookLink={facebookLink}
+            instagramLink={instagramLink}
           />
           <SectionDivider headline="CONTACT US" />
           <ContactForm
@@ -115,8 +117,8 @@ export const query = graphql`
                 layout: CONSTRAINED
                 placeholder: BLURRED
                 quality: 80
-                aspectRatio: 1.5
                 formats: [AUTO, WEBP]
+                aspectRatio: 2
                 height: 300
               )
               tablet: gatsbyImageData(
@@ -219,10 +221,12 @@ export const query = graphql`
           image {
             childImageSharp {
               gatsbyImageData(
-                layout: CONSTRAINED
-                formats: WEBP
+                layout: FIXED
+                formats: [AUTO, WEBP]
                 quality: 80
                 placeholder: BLURRED
+                width: 250
+                height: 250
               )
             }
           }

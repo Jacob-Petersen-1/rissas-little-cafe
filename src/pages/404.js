@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button, Typography, Box, Container } from "@mui/material";
+import { Button, Typography, Container } from "@mui/material";
 import { Seo, MainLayout } from "../components";
 
 const NotFoundPage = () => {
