@@ -80,18 +80,17 @@ const EventCalendarList = styled(Box)(({ theme }) => ({
   },
 }));
 
-const EventListTitle = styled(Box)(({ theme }) => ({
+const EventListTitle = styled(Box)(({ theme, noEvents }) => ({
   fontFamily: theme.typography.h3.fontFamily,
   fontSize: theme.typography.h3.fontSize,
   fontWeight: theme.typography.h3.fontWeight,
-  textDecoration: "underline",
+  textDecoration: noEvents ? "none" : "underline",
 }));
 
 // Card Styles
 
 const EventCard = styled(Card)(({ theme }) => ({
   flex: 1,
-  minHeight: 200,
   width: "100%",
   margin: theme.spacing(1, 0, 1, 0),
   boxShadow: `1px 2px 4px ${theme.palette.grey[500]}`,

@@ -18,34 +18,48 @@ const EventCalendarCard = ({
   allDay,
 }) => {
   const [openSnackBar, setOpenSnackBar] = useState(false);
-  const startDate = !allDay ? new Date(start).toLocaleString() : "All Day";
-  const endDate = !allDay ? new Date(end).toLocaleString() : "All Day";
+  const startDate =
+    !allDay && start ? new Date(start).toLocaleString() : "All Day";
+  const endDate = !allDay && end ? new Date(end).toLocaleString() : "All Day";
   const handleCopyLocation = () => {
     setOpenSnackBar(true);
     navigator.clipboard.writeText(location);
   };
+
   return (
     <>
       <EventCard>
         <CardContent>
-          <EventTitle>{title}</EventTitle>
-          <EventDescription>
-            <EventLabel>Start:</EventLabel> {startDate}
-          </EventDescription>
-          <EventDescription>
-            <EventLabel>End:</EventLabel> {endDate}
-          </EventDescription>
-          <EventDescription>
-            <EventLabel>Location:</EventLabel> {location}
-            <span>
-              <IconButton aria-label="Copy" onClick={handleCopyLocation}>
-                <ContentCopy />
-              </IconButton>
-            </span>
-          </EventDescription>
-          <EventDescription>
-            <EventLabel>Description:</EventLabel> {description}
-          </EventDescription>
+          {title && <EventTitle>{title}</EventTitle>}
+
+          {startDate && start && (
+            <EventDescription>
+              <EventLabel>Start:</EventLabel> {startDate}
+            </EventDescription>
+          )}
+
+          {endDate && end && (
+            <EventDescription>
+              <EventLabel>End:</EventLabel> {endDate}
+            </EventDescription>
+          )}
+
+          {location && (
+            <EventDescription>
+              <EventLabel>Location:</EventLabel> {location}
+              <span>
+                <IconButton aria-label="Copy" onClick={handleCopyLocation}>
+                  <ContentCopy />
+                </IconButton>
+              </span>
+            </EventDescription>
+          )}
+
+          {description && (
+            <EventDescription>
+              <EventLabel>Description:</EventLabel> {description}
+            </EventDescription>
+          )}
         </CardContent>
       </EventCard>
       <Snackbar

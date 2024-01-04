@@ -29,11 +29,11 @@ const EventCalendar = ({ events }) => {
   const handleEventClick = (info) => {
     setOpen(true);
     setSelectedEvent({
-      title: info.event.title,
-      start: info.event.start,
-      end: info.event.end,
-      location: info.event.extendedProps.location,
-      description: info.event.extendedProps.description,
+      title: info?.event?.title,
+      start: info?.event?.start,
+      end: info?.event?.end,
+      location: info?.event?.extendedProps?.location,
+      description: info?.event?.extendedProps?.description,
     });
   };
   return (
@@ -50,9 +50,16 @@ const EventCalendar = ({ events }) => {
         <EventListContainer>
           <EventListTitle>Events in {currentMonth}</EventListTitle>
           <EventCalendarList>
-            {matchingMonthEvents?.map((event) => (
-              <EventCalendarCard key={event?.title} {...event} />
-            ))}
+            {matchingMonthEvents?.length !== 0 ? (
+              matchingMonthEvents.map((event) => (
+                <EventCalendarCard key={event?.title} {...event} />
+              ))
+            ) : (
+              <EventCalendarCard
+                title="No events this month"
+                description="Follow our social media for more updates! We will be posting more events soon."
+              />
+            )}
           </EventCalendarList>
         </EventListContainer>
       </EventCalendarContainer>
