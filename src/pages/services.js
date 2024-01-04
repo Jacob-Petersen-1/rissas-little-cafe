@@ -1,7 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Container } from "@mui/material";
-import { ServicesSection, ContactForm, MainLayout, Seo } from "../components";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Markdown from "react-markdown";
+import { Container, Box, Typography } from "@mui/material";
+import { SectionDivider, ContactForm, MainLayout, Seo } from "../components";
 
 const ServicesPage = ({ data }) => {
   const { serviceData, site } = data || {};
@@ -19,7 +21,25 @@ const ServicesPage = ({ data }) => {
       />
       <MainLayout>
         <Container style={{ paddingTop: 20 }} maxWidth="lg">
-          <ServicesSection services={servicesContent} />
+          {servicesContent?.map((service) => (
+            <Box>
+              <SectionDivider
+                key={service?.frontmatter?.title}
+                headline={service?.frontmatter?.title}
+              />
+              <GatsbyImage
+                image={getImage(service?.image)}
+                alt={service?.frontmatter?.title}
+              />
+              <Typography
+                variant="body1"
+                style={{ marginTop: 20, marginBottom: 20 }}
+              >
+                <Markdown>{service?.frontmatter?.description}</Markdown>
+              </Typography>
+            </Box>
+          ))}
+          <SectionDivider headline="CONTACT US" />
           <ContactForm
             title="For more in depth information about services offered, please contact us via this form."
             showImage

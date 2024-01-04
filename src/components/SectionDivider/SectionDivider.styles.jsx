@@ -6,7 +6,7 @@ const SectionDividerContainer = styled(Box)(({ theme }) => ({
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "center",
-  margin: theme.spacing(3, 0, 3, 0),
+  margin: theme.spacing(2, 0, 2, 0),
 }));
 
 const SectionHeadline = styled(Box)(({ theme }) => ({

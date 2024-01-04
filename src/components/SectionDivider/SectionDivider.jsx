@@ -9,7 +9,7 @@ import {
 const SectionDivider = ({ headline }) => {
   return (
     <>
-      <SectionDividerContainer>
+      <SectionDividerContainer id={headline?.toLowerCase() || null}>
         <StyledDivider />
         <SectionHeadline>{headline}</SectionHeadline>
         <StyledDivider />
