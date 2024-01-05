@@ -4,7 +4,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import theme from "../../theme";
 import { NavBar } from "../../NavBar";
-import { ContentContainer } from "./MainLayout.styles";
+import { Offset } from "./MainLayout.styles";
 
 //TODO: Add pageLinks to CMS system
 const pageLinks = [
@@ -23,7 +23,8 @@ const MainLayout = ({ children }) => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <NavBar pageLinks={pageLinks} />
-        <ContentContainer>{children}</ContentContainer>
+        <Offset />
+        {children}
       </ThemeProvider>
     </>
   );

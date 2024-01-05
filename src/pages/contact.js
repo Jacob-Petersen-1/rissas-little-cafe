@@ -17,7 +17,7 @@ const ContactPage = ({ data }) => {
         image={image}
       />
       <MainLayout>
-        <Container style={{ paddingTop: 20 }} maxWidth="lg">
+        <Container style={{ marginTop: 100 }} maxWidth="lg">
           <ContactForm
             title="We will message you within 2 to 5 business days!"
             showImage

@@ -23,7 +23,6 @@ const ImageGrid = styled(Grid)(({ theme }) => ({
   height: "100%",
   maxWidth: 900,
   [theme.breakpoints.down("sm")]: {
-    width: "100%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -35,12 +34,8 @@ const ImageItem = styled(Grid)(({ theme }) => ({
   width: 250,
   height: 180,
   [theme.breakpoints.down("sm")]: {
-    width: 400,
     height: 350,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
+    width: 375,
     marginBottom: theme.spacing(1),
   },
 }));
@@ -54,13 +49,16 @@ const Image = styled(GatsbyImage)(() => ({
   },
 }));
 
-const SocialContainer = styled(Box)(() => ({
+const SocialContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   justifyContent: "flex-start",
   alignItems: "center",
   maxWidth: 600,
   textAlign: "center",
+  [theme.breakpoints.down("md")]: {
+    textAlign: "left",
+  },
 }));
 
 const SocialText = styled(Box)(({ theme }) => ({

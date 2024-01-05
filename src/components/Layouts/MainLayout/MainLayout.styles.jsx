@@ -1,14 +1,5 @@
 import styled from "@mui/material/styles/styled";
-import { Box } from "@mui/material";
 
-const ContentContainer = styled(Box)(({ theme }) => ({
-  marginTop: theme.spacing(18),
-  [theme.breakpoints.down("md")]: {
-    marginTop: theme.spacing(14),
-  },
-  [theme.breakpoints.down("sm")]: {
-    marginTop: theme.spacing(13),
-  },
-}));
+const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
 
-export { ContentContainer };
+export { Offset };

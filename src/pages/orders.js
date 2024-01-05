@@ -17,7 +17,7 @@ const OrdersPage = ({ data }) => {
         image={image}
       />
       <MainLayout>
-        <Container style={{ paddingTop: 20 }} maxWidth="lg">
+        <Container style={{ marginTop: 100 }} maxWidth="lg">
           <ContactForm
             title="An integrated ordering sytem will be here soon! In The meantime, please contact us via this form."
             showImage

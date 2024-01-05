@@ -36,8 +36,8 @@ const NavBar = ({ pageLinks }) => {
                   alt="logo"
                   layout="fixed"
                   loading="eager"
-                  width={125}
-                  height={110}
+                  width={100}
+                  height={100}
                   quality={80}
                 />
               </Link>
@@ -47,9 +47,8 @@ const NavBar = ({ pageLinks }) => {
                   aria-haspopup="true"
                   style={{
                     color: theme.palette.text.primary,
-                    height: 30,
-                    width: 30,
-                    marginRight: 10,
+                    height: 25,
+                    width: 25,
                   }}
                 />
               </IconButton>

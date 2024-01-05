@@ -18,7 +18,7 @@ const EventPage = ({ data }) => {
         image={image}
       />
       <MainLayout>
-        <Container sx={{ paddingTop: 2 }} maxWidth="xl">
+        <Container style={{ marginTop: 100 }} maxWidth="xl">
           <SectionDivider headline="UPCOMING EVENTS" />
           <EventCalendar events={eventContent} />
         </Container>
