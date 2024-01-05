@@ -41,6 +41,7 @@ const ImageItem = styled(Grid)(({ theme }) => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    marginBottom: theme.spacing(1),
   },
 }));
 
