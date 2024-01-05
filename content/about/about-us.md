@@ -38,5 +38,5 @@ about: >-
 
 
   Excited to have Rissa's Cafe Catering be part of your next celebration! Got questions, wanna make a booking, or just want to chat about food and delicious beverages? Book a [consultation](https://rissaslittlecafecatering.netlify.app/contact/) today!
-image: https://res.cloudinary.com/dielbqrvv/image/upload/v1702503920/cafe/instagram/selfie_f0qifw.jpg
+image: https://res.cloudinary.com/dielbqrvv/image/upload/v1704413107/cafe/FacebookSelfie_j81isy.jpg
 ---
