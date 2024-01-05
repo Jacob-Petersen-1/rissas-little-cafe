@@ -21,7 +21,7 @@ const SocialMediaGridContainer = styled(Box)(({ theme }) => ({
 const ImageGrid = styled(Grid)(({ theme }) => ({
   width: "100%",
   height: "100%",
-  maxWidth: 750,
+  maxWidth: 900,
   [theme.breakpoints.down("sm")]: {
     width: "100%",
     display: "flex",
@@ -32,9 +32,15 @@ const ImageGrid = styled(Grid)(({ theme }) => ({
 }));
 
 const ImageItem = styled(Grid)(({ theme }) => ({
+  width: 250,
+  height: 180,
   [theme.breakpoints.down("sm")]: {
-    width: "100%",
-    marginBottom: theme.spacing(2),
+    width: 400,
+    height: 350,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
   },
 }));
 
@@ -42,7 +48,8 @@ const Image = styled(GatsbyImage)(() => ({
   width: "100%",
   height: "100%",
   "&:hover": {
-    border: "1px solid #000",
+    transform: "scale(1.01)",
+    transition: "all 0.3s ease-in-out",
   },
 }));
 
