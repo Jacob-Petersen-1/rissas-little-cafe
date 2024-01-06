@@ -2,11 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
 import theme from "../../theme";
 import { NavBar } from "../../NavBar";
+import { Footer } from "../../Footer";
 import { Offset } from "./MainLayout.styles";
 
-//TODO: Add pageLinks to CMS system
+//TODO: Add pageLinks & footerLinks to CMS system/GraphQL
 const pageLinks = [
   { to: "/", label: "home" },
   { to: "/about", label: "about" },
@@ -17,6 +20,30 @@ const pageLinks = [
   { to: "/contact", label: "contact" },
 ];
 
+const footerLinks = [
+  {
+    to: "https://www.instagram.com/rissaslittlecafe/",
+    label: "instagram",
+    title: "@rissaslittlecafe",
+    internal: false,
+    logo: <InstagramIcon sx={{ color: "#FFFFF" }} />,
+  },
+  {
+    to: "https://www.facebook.com/rissaslittlecafe/",
+    label: "facebook",
+    title: "@Rissa's Little Cafe",
+    internal: false,
+    logo: <FacebookIcon sx={{ color: "#FFFFF" }} />,
+  },
+  {
+    to: "/contact",
+    label: "contact",
+    title: "Contact Us",
+    internal: true,
+    logo: null,
+  },
+];
+
 const MainLayout = ({ children }) => {
   return (
     <>
@@ -25,6 +52,7 @@ const MainLayout = ({ children }) => {
         <NavBar pageLinks={pageLinks} />
         <Offset />
         {children}
+        <Footer footerLinks={footerLinks} />
       </ThemeProvider>
     </>
   );

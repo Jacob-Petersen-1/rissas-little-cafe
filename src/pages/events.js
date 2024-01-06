@@ -1,7 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Container } from "@mui/material";
-import { EventCalendar, SectionDivider, MainLayout, Seo } from "../components";
+import {
+  EventCalendar,
+  SectionDivider,
+  MainLayout,
+  Seo,
+  PageLayout,
+} from "../components";
 
 const EventPage = ({ data }) => {
   const { eventData, site } = data || {};
@@ -18,10 +23,10 @@ const EventPage = ({ data }) => {
         image={image}
       />
       <MainLayout>
-        <Container style={{ marginTop: 100 }} maxWidth="xl">
+        <PageLayout maxWidth="xl">
           <SectionDivider headline="UPCOMING EVENTS" />
           <EventCalendar events={eventContent} />
-        </Container>
+        </PageLayout>
       </MainLayout>
     </>
   );

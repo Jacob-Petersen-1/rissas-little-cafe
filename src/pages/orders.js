@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { Container } from "@mui/material";
-import { ContactForm, MainLayout, Seo } from "../components";
+import { ContactForm, MainLayout, PageLayout, Seo } from "../components";
 
 const OrdersPage = ({ data }) => {
   const { site } = data || {};
@@ -17,12 +17,12 @@ const OrdersPage = ({ data }) => {
         image={image}
       />
       <MainLayout>
-        <Container style={{ marginTop: 100 }} maxWidth="lg">
+        <PageLayout maxWidth="lg" topMargin={150}>
           <ContactForm
             title="An integrated ordering sytem will be here soon! In The meantime, please contact us via this form."
             showImage
           />
-        </Container>
+        </PageLayout>
       </MainLayout>
     </>
   );

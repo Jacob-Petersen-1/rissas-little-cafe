@@ -1,13 +1,15 @@
 import * as React from "react";
 import { Button, Typography, Container } from "@mui/material";
-import { Seo, MainLayout } from "../components";
+import { Seo, MainLayout, PageLayout } from "../components";
 
 const NotFoundPage = () => {
   return (
     <>
       <Seo title="404: Not found" />
       <MainLayout>
-        <Container
+        <PageLayout
+          maxWidth="lg"
+          topMargin={150}
           sx={{
             display: "flex",
             flexDirection: "column",
@@ -26,7 +28,7 @@ const NotFoundPage = () => {
           <Button variant="contained" color="primary" href="/">
             Go Home
           </Button>
-        </Container>
+        </PageLayout>
       </MainLayout>
     </>
   );

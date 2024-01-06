@@ -3,7 +3,13 @@ import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Markdown from "react-markdown";
 import { Container, Box, Typography } from "@mui/material";
-import { SectionDivider, ContactForm, MainLayout, Seo } from "../components";
+import {
+  SectionDivider,
+  ContactForm,
+  MainLayout,
+  Seo,
+  PageLayout,
+} from "../components";
 
 const ServicesPage = ({ data }) => {
   const { serviceData, site } = data || {};
@@ -20,7 +26,7 @@ const ServicesPage = ({ data }) => {
         image={image}
       />
       <MainLayout>
-        <Container style={{ marginTop: 100 }} maxWidth="lg">
+        <PageLayout maxWidth="lg" topMargin={100}>
           {servicesContent?.map((service) => (
             <Box>
               <SectionDivider
@@ -44,7 +50,7 @@ const ServicesPage = ({ data }) => {
             title="For more in depth information about services offered, please contact us via this form."
             showImage
           />
-        </Container>
+        </PageLayout>
       </MainLayout>
     </>
   );
