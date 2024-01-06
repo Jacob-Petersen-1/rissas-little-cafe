@@ -59,10 +59,9 @@ const LandingHero = ({ landingContent }) => {
         },
       }}
     >
-      {landingContent
-        ?.reverse()
-        .map(({ frontmatter, html, image: carouselImage }, index) => (
-          <HeroSlide key={frontmatter?.position || index}>
+      {landingContent?.map(
+        ({ frontmatter, html, image: carouselImage }, index) => (
+          <HeroSlide key={frontmatter?.headline || index}>
             <HeroImage
               image={getImage(
                 carouselImage?.childImageSharp[
@@ -82,7 +81,8 @@ const LandingHero = ({ landingContent }) => {
               )}
             </SlideContent>
           </HeroSlide>
-        ))}
+        )
+      )}
     </Carousel>
   );
 };
