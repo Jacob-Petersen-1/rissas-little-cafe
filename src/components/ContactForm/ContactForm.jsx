@@ -7,6 +7,8 @@ import {
   FormLabel,
   FormControlLabel,
   Snackbar,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import {
   ContactFormContainer,
@@ -18,12 +20,43 @@ import {
 
 // TODO: Add a form validation library like Formik or React Hook Form
 
+const FormImage = ({ showImage, isMobile }) => {
+  if (showImage) {
+    return (
+      <>
+        {isMobile ? (
+          <StaticImage
+            src="../../../static/images/logo.svg"
+            alt="logo"
+            placeholder="blurred"
+            layout="fixed"
+            width={300}
+            height={300}
+          />
+        ) : (
+          <StaticImage
+            src="../../../static/images/logo.svg"
+            alt="logo"
+            placeholder="blurred"
+            layout="fixed"
+            width={400}
+            height={400}
+          />
+        )}
+      </>
+    );
+  }
+  return null;
+};
+
 const ContactForm = ({ title, showImage }) => {
   const [open, setOpen] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [phone, setPhone] = useState("");
   const [contactMethod, setContactMethod] = useState("email");
   const contactMethods = ["Email", "Call", "Text"];
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,17 +67,7 @@ const ContactForm = ({ title, showImage }) => {
   return (
     <>
       <ContactFormContainer>
-        {showImage ? (
-          <StaticImage
-            src="../../../static/images/logo.svg"
-            alt="logo"
-            placeholder="blurred"
-            layout="fixed"
-            width={400}
-            height={400}
-          />
-        ) : null}
-
+        <FormImage showImage={showImage} isMobile={isMobile} />
         <ContactFormBody
           component="form"
           name="contact"

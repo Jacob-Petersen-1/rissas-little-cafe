@@ -34,9 +34,9 @@ const ImageItem = styled(Grid)(({ theme }) => ({
   width: 250,
   height: 180,
   [theme.breakpoints.down("sm")]: {
-    height: 350,
-    width: 375,
-    marginBottom: theme.spacing(1),
+    height: 290,
+    width: 343,
+    padding: theme.spacing(1),
   },
 }));
 
