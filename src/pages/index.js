@@ -1,5 +1,6 @@
 import * as React from "react";
 import { graphql } from "gatsby";
+import Slide from "react-reveal/Slide";
 import {
   AboutSection,
   ContactForm,
@@ -60,28 +61,34 @@ const HomePage = ({ data }) => {
         <PageLayout maxWidth="xl" topMargin={0}>
           <SectionHeadline headline="SERVICES WE OFFER" />
           <ServicesSection services={serviceContent} />
-          <SectionHeadline headline="UPCOMING EVENTS" />
-          <EventCalendar events={eventContent} />
-          <SectionHeadline headline="ABOUT US" />
-          <AboutSection
-            headline={aboutTitle}
-            aboutImage={aboutImage}
-            aboutText={about}
-          />
-          <SectionHeadline headline="FOLLOW US" />
-          <SocialMediaGrid
-            images={socialMediaImagesContent}
-            socialHeadline="Stay up to date with the latest from Rissa's Little Cafe!"
-            socialDescription="We share daily updates on our social media accounts. Whether you're interested in discovering a new menu item or simply want to stay informed about what we're up to, we invite you to follow us on social media for the latest updates and insights!"
-            facebookLink={facebookLink}
-            instagramLink={instagramLink}
-            children={
-              <YouTubeVideo
-                videoUrl={videoContent?.src}
-                title={videoContent?.title}
-              />
-            }
-          />
+          <Slide left>
+            <SectionHeadline headline="UPCOMING EVENTS" />
+            <EventCalendar events={eventContent} />
+          </Slide>
+          <Slide right>
+            <SectionHeadline headline="ABOUT US" />
+            <AboutSection
+              headline={aboutTitle}
+              aboutImage={aboutImage}
+              aboutText={about}
+            />
+          </Slide>
+          <Slide left>
+            <SectionHeadline headline="FOLLOW US" />
+            <SocialMediaGrid
+              images={socialMediaImagesContent}
+              socialHeadline="Stay up to date with the latest from Rissa's Little Cafe!"
+              socialDescription="We share daily updates on our social media accounts. Whether you're interested in discovering a new menu item or simply want to stay informed about what we're up to, we invite you to follow us on social media for the latest updates and insights!"
+              facebookLink={facebookLink}
+              instagramLink={instagramLink}
+              children={
+                <YouTubeVideo
+                  videoUrl={videoContent?.src}
+                  title={videoContent?.title}
+                />
+              }
+            />
+          </Slide>
           <SectionHeadline headline="CONTACT US" />
           <ContactForm
             instagramHandle={instagram}
