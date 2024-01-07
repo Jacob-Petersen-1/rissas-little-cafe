@@ -11,5 +11,5 @@ export { SocialMediaGrid } from "./SocialMediaGrid";
 export { Seo } from "./Seo";
 
 // Layouts
-export { MainLayout } from "./Layouts/MainLayout";
+export { Navigation } from "./Layouts/Navigation";
 export { PageLayout } from "./Layouts/PageLayout";

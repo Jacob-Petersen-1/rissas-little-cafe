@@ -1,12 +1,12 @@
 import * as React from "react";
 import { graphql } from "gatsby";
-import { Container } from "@mui/material";
 import {
   AboutSection,
   ContactForm,
   EventCalendar,
   LandingHero,
-  MainLayout,
+  Navigation,
+  PageLayout,
   SectionDivider,
   ServicesSection,
   SocialMediaGrid,
@@ -50,9 +50,9 @@ const HomePage = ({ data }) => {
         siteUrl={siteUrl}
         image={image}
       />
-      <MainLayout>
+      <Navigation>
         <LandingHero landingContent={carouselContent} />
-        <Container maxWidth="xl">
+        <PageLayout maxWidth="xl" topMargin={0}>
           <SectionDivider headline="SERVICES WE OFFER" />
           <ServicesSection services={serviceContent} />
           <SectionDivider headline="UPCOMING EVENTS" />
@@ -83,8 +83,8 @@ const HomePage = ({ data }) => {
             title="Get in touch today!"
             showImage
           />
-        </Container>
-      </MainLayout>
+        </PageLayout>
+      </Navigation>
     </>
   );
 };

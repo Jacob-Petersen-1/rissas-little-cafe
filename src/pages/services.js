@@ -2,11 +2,11 @@ import React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Markdown from "react-markdown";
-import { Container, Box, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import {
   SectionDivider,
   ContactForm,
-  MainLayout,
+  Navigation,
   Seo,
   PageLayout,
 } from "../components";
@@ -25,10 +25,10 @@ const ServicesPage = ({ data }) => {
         siteUrl={siteUrl}
         image={image}
       />
-      <MainLayout>
+      <Navigation>
         <PageLayout maxWidth="lg" topMargin={100}>
-          {servicesContent?.map((service) => (
-            <Box>
+          {servicesContent?.map((service, index) => (
+            <Box key={service?.frontmatter?.title || index}>
               <SectionDivider
                 key={service?.frontmatter?.title}
                 headline={service?.frontmatter?.title}
@@ -51,7 +51,7 @@ const ServicesPage = ({ data }) => {
             showImage
           />
         </PageLayout>
-      </MainLayout>
+      </Navigation>
     </>
   );
 };

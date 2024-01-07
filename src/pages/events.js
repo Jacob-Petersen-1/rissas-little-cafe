@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import {
   EventCalendar,
   SectionDivider,
-  MainLayout,
+  Navigation,
   Seo,
   PageLayout,
 } from "../components";
@@ -22,12 +22,12 @@ const EventPage = ({ data }) => {
         siteUrl={siteUrl}
         image={image}
       />
-      <MainLayout>
+      <Navigation>
         <PageLayout maxWidth="xl">
           <SectionDivider headline="UPCOMING EVENTS" />
           <EventCalendar events={eventContent} />
         </PageLayout>
-      </MainLayout>
+      </Navigation>
     </>
   );
 };

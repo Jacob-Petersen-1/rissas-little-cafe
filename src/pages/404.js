@@ -1,12 +1,12 @@
 import * as React from "react";
-import { Button, Typography, Container } from "@mui/material";
-import { Seo, MainLayout, PageLayout } from "../components";
+import { Button, Typography } from "@mui/material";
+import { Seo, Navigation, PageLayout } from "../components";
 
 const NotFoundPage = () => {
   return (
     <>
       <Seo title="404: Not found" />
-      <MainLayout>
+      <Navigation>
         <PageLayout
           maxWidth="lg"
           topMargin={150}
@@ -29,7 +29,7 @@ const NotFoundPage = () => {
             Go Home
           </Button>
         </PageLayout>
-      </MainLayout>
+      </Navigation>
     </>
   );
 };

@@ -7,7 +7,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import theme from "../../theme";
 import { NavBar } from "../../NavBar";
 import { Footer } from "../../Footer";
-import { Offset } from "./MainLayout.styles";
+import { Offset } from "./Navigation.styles";
 
 //TODO: Add pageLinks & footerLinks to CMS system/GraphQL
 const pageLinks = [
@@ -44,7 +44,7 @@ const footerLinks = [
   },
 ];
 
-const MainLayout = ({ children }) => {
+const Navigation = ({ children }) => {
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -58,12 +58,12 @@ const MainLayout = ({ children }) => {
   );
 };
 
-MainLayout.defaultProps = {
+Navigation.defaultProps = {
   children: null,
 };
 
-MainLayout.propTypes = {
+Navigation.propTypes = {
   children: PropTypes.node,
 };
 
-export default MainLayout;
+export default Navigation;

@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Container } from "@mui/material";
-import { AboutSection, MainLayout, Seo, PageLayout } from "../components";
+import { AboutSection, Navigation, Seo, PageLayout } from "../components";
 
 const AboutPage = ({ data }) => {
   const { aboutData, site } = data || {};
@@ -27,8 +26,8 @@ const AboutPage = ({ data }) => {
         siteUrl={siteUrl}
         image={image}
       />
-      <MainLayout>
-        <PageLayout maxWidth="lg">
+      <Navigation>
+        <PageLayout maxWidth="lg" topMargin={100}>
           <AboutSection
             headline={aboutTitle}
             aboutImage={aboutImage}
@@ -39,7 +38,7 @@ const AboutPage = ({ data }) => {
             facebookLink={facebookLink}
           />
         </PageLayout>
-      </MainLayout>
+      </Navigation>
     </>
   );
 };
