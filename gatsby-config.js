@@ -60,15 +60,22 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `events`,
+        name: `services`,
         path: `${__dirname}/content/services`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `events`,
+        name: `media`,
         path: `${__dirname}/content/media`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `videos`,
+        path: `${__dirname}/content/videos`,
       },
     },
     {

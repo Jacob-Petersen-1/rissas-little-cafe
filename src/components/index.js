@@ -9,6 +9,7 @@ export { SectionDivider } from "./SectionDivider";
 export { ServicesSection } from "./ServicesSection";
 export { SocialMediaGrid } from "./SocialMediaGrid";
 export { Seo } from "./Seo";
+export { YouTubeVideo } from "./YouTubeVideo";
 
 // Layouts
 export { Navigation } from "./Layouts/Navigation";

@@ -35,6 +35,7 @@ const SocialMediaGrid = ({
   socialDescription,
   instagramLink,
   facebookLink,
+  children,
 }) => {
   return (
     <>
@@ -42,6 +43,7 @@ const SocialMediaGrid = ({
         <SocialContainer>
           <SocialText>{socialHeadline}</SocialText>
           <SocialDescription>{socialDescription}</SocialDescription>
+          {children ? children : null}
         </SocialContainer>
         <Box
           sx={{
@@ -103,6 +105,10 @@ SocialMediaGrid.propTypes = {
     })
   ),
   socialHeadline: PropTypes.string.isRequired,
+  socialDescription: PropTypes.string.isRequired,
+  instagramLink: PropTypes.string,
+  facebookLink: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default SocialMediaGrid;

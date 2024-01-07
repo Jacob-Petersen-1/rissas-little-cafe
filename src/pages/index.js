@@ -10,6 +10,7 @@ import {
   SectionDivider,
   ServicesSection,
   SocialMediaGrid,
+  YouTubeVideo,
   Seo,
 } from "../components";
 
@@ -21,6 +22,7 @@ const HomePage = ({ data }) => {
     serviceData,
     socialMediaImages,
     site,
+    videoData,
   } = data || {};
   const { siteMetadata } = site || {};
   const { title, description, siteUrl, image } = siteMetadata || {};
@@ -41,6 +43,8 @@ const HomePage = ({ data }) => {
     facebookLink,
     about,
   } = aboutFrontmatter || {};
+  const videoContent = videoData?.edges?.[0]?.node?.frontmatter || {};
+  console.log(videoContent);
 
   return (
     <>
@@ -73,6 +77,12 @@ const HomePage = ({ data }) => {
             socialDescription="We share daily updates on our social media accounts. Whether you're interested in discovering a new menu item or simply want to stay informed about what we're up to, we invite you to follow us on social media for the latest updates and insights!"
             facebookLink={facebookLink}
             instagramLink={instagramLink}
+            children={
+              <YouTubeVideo
+                videoUrl={videoContent?.src}
+                title={videoContent?.title}
+              />
+            }
           />
           <SectionDivider headline="CONTACT US" />
           <ContactForm
@@ -227,6 +237,19 @@ export const query = graphql`
                 aspectRatio: 1.33
               )
             }
+          }
+        }
+      }
+    }
+    videoData: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/content/video/" } }
+      limit: 1
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            src
           }
         }
       }
