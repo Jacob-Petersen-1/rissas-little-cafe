@@ -27,14 +27,13 @@ const Seo = ({ title, description, image, siteUrl }) => (
 
 Seo.propTypes = {
   title: PropTypes.string.isRequired,
-  description: PropTypes.string,
-  image: PropTypes.string,
+  description: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
   siteUrl: PropTypes.string.isRequired,
 };
 
 Seo.defaultProps = {
   description: "Rissa's Little Cafe",
-  image: "/default-image.jpg",
 };
 
 export default Seo;

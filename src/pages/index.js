@@ -44,7 +44,6 @@ const HomePage = ({ data }) => {
     about,
   } = aboutFrontmatter || {};
   const videoContent = videoData?.edges?.[0]?.node?.frontmatter || {};
-  console.log(videoContent);
 
   return (
     <>
