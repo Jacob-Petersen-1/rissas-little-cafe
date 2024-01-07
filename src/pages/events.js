@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import {
   EventCalendar,
-  SectionDivider,
+  SectionHeadline,
   Navigation,
   Seo,
   PageLayout,
@@ -24,7 +24,7 @@ const EventPage = ({ data }) => {
       />
       <Navigation>
         <PageLayout maxWidth="xl">
-          <SectionDivider headline="UPCOMING EVENTS" />
+          <SectionHeadline headline="UPCOMING EVENTS" />
           <EventCalendar events={eventContent} />
         </PageLayout>
       </Navigation>

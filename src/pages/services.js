@@ -4,7 +4,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Markdown from "react-markdown";
 import { Box, Typography } from "@mui/material";
 import {
-  SectionDivider,
+  SectionHeadline,
   ContactForm,
   Navigation,
   Seo,
@@ -29,7 +29,7 @@ const ServicesPage = ({ data }) => {
         <PageLayout maxWidth="lg" topMargin={100}>
           {servicesContent?.map((service, index) => (
             <Box key={service?.frontmatter?.title || index}>
-              <SectionDivider
+              <SectionHeadline
                 key={service?.frontmatter?.title}
                 headline={service?.frontmatter?.title}
               />
@@ -45,7 +45,7 @@ const ServicesPage = ({ data }) => {
               </Typography>
             </Box>
           ))}
-          <SectionDivider headline="CONTACT US" />
+          <SectionHeadline headline="CONTACT US" />
           <ContactForm
             title="For more in depth information about services offered, please contact us via this form."
             showImage

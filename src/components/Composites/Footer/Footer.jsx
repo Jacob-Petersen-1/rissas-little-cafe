@@ -41,7 +41,7 @@ const Footer = ({ footerLinks }) => {
     <>
       <FooterContainer>
         <StaticImage
-          src="../../../static/images/logowhite.svg"
+          src="../../../../static/images/logowhite.svg"
           alt="logo"
           placeholder="blurred"
           layout="fixed"

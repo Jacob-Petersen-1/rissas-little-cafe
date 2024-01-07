@@ -5,8 +5,8 @@ import { CssBaseline } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import theme from "../../theme";
-import { NavBar } from "../../NavBar";
-import { Footer } from "../../Footer";
+import { NavBar } from "../../Composites/NavBar";
+import { Footer } from "../../Composites/Footer";
 import { Offset } from "./Navigation.styles";
 
 //TODO: Add pageLinks & footerLinks to CMS system/GraphQL

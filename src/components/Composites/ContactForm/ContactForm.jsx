@@ -26,7 +26,7 @@ const FormImage = ({ showImage, isMobile }) => {
       <>
         {isMobile ? (
           <StaticImage
-            src="../../../static/images/logo.svg"
+            src="../../../../static/images/logo.svg"
             alt="logo"
             placeholder="blurred"
             layout="fixed"
@@ -35,7 +35,7 @@ const FormImage = ({ showImage, isMobile }) => {
           />
         ) : (
           <StaticImage
-            src="../../../static/images/logo.svg"
+            src="../../../../static/images/logo.svg"
             alt="logo"
             placeholder="blurred"
             layout="fixed"

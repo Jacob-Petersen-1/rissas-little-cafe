@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import YouTube from "react-youtube";
-import { extractVideoId } from "../../../utils/extractVideoId";
+import { extractVideoId } from "../../../../utils/extractVideoId";
 import { useMediaQuery, useTheme } from "@mui/material";
 import { YouTubeVideoContainer } from "./YouTubeVideo.styles";
 

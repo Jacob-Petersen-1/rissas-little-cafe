@@ -32,7 +32,7 @@ const NavBar = ({ pageLinks }) => {
             <>
               <Link to="/" label="home">
                 <StaticImage
-                  src="../../../static/images/logo.svg"
+                  src="../../../../static/images/logo.svg"
                   alt="logo"
                   layout="fixed"
                   loading="eager"
@@ -89,7 +89,7 @@ const NavBar = ({ pageLinks }) => {
                       label={link?.label}
                     >
                       <StaticImage
-                        src="../../../static/images/logo.svg"
+                        src="../../../../static/images/logo.svg"
                         alt="logo"
                         layout="fixed"
                         loading="eager"

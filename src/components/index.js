@@ -1,15 +1,17 @@
-// Components
-export { AboutSection } from "./AboutSection";
-export { ContactForm } from "./ContactForm";
-export { EventCalendar } from "./EventCalendar";
-export { LandingHero } from "./LandingHero";
-export { Footer } from "./Footer";
-export { NavBar } from "./NavBar";
-export { SectionDivider } from "./SectionDivider";
-export { ServicesSection } from "./ServicesSection";
-export { SocialMediaGrid } from "./SocialMediaGrid";
+// Composite components
+export { ContactForm } from "./Composites/ContactForm";
+export { EventCalendar } from "./Composites/EventCalendar";
+export { LandingHero } from "./Composites/LandingHero";
+export { Footer } from "./Composites/Footer";
+export { NavBar } from "./Composites/NavBar";
+export { SectionHeadline } from "./Composites/SectionHeadline";
+export { YouTubeVideo } from "./Composites/YouTubeVideo";
 export { Seo } from "./Seo";
-export { YouTubeVideo } from "./YouTubeVideo";
+
+// Sections
+export { AboutSection } from "./Sections/AboutSection";
+export { ServicesSection } from "./Sections/ServicesSection";
+export { SocialMediaGrid } from "./Sections/SocialMediaGrid";
 
 // Layouts
 export { Navigation } from "./Layouts/Navigation";

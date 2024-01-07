@@ -7,21 +7,31 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-// Function to create the component files
-function createComponentFiles(componentName) {
-  const componentsFolder = path.join("src", "components");
-  const componentFolder = path.join(componentsFolder, componentName);
-  const indexPath = path.join(componentFolder, "index.js");
-  const componentPath = path.join(componentFolder, `${componentName}.jsx`);
-  const stylesPath = path.join(componentFolder, `${componentName}.styles.jsx`);
+function createComponentFiles(componentName, componentType) {
+  const directoryMap = {
+    1: "Layouts",
+    2: "Sections",
+    3: "Composites",
+  };
 
-  // Create the components folder if it doesn't exist
-  if (!fs.existsSync(componentsFolder)) {
-    fs.mkdirSync(componentsFolder, { recursive: true });
+  const selectedDirectory = directoryMap[componentType];
+  if (!selectedDirectory) {
+    console.log("Invalid component type");
+    return;
   }
 
-  // Create the component folder
-  fs.mkdirSync(componentFolder);
+  const directory = path.join(
+    "src",
+    "components",
+    selectedDirectory,
+    componentName
+  );
+  const indexPath = path.join(directory, "index.js");
+  const componentPath = path.join(directory, `${componentName}.js`);
+  const stylesPath = path.join(directory, `${componentName}.styles.js`);
+
+  // Create the directory and parent directories if they don't exist
+  fs.mkdirSync(directory, { recursive: true });
 
   // Create the index.js file
   fs.writeFileSync(
@@ -38,17 +48,24 @@ function createComponentFiles(componentName) {
   // Create the styles file
   fs.writeFileSync(
     stylesPath,
-    `import styled from "@mui/material/styles/styled";\n import {Box} from '@mui/material' \n\nconst ${componentName}Container = styled(Box)(({ theme }) => ({ \n display: "flex", \n}));\n\nexport { ${componentName}Container };`
+    `import styled from "@mui/material/styles/styled";\n import { Box } from '@mui/material' \n\nconst ${componentName}Container = styled(Box)(({ theme }) => ({ \n display: "flex", \n}));\n\nexport { ${componentName}Container };`
   );
 
-  console.log(`Component "${componentName}" created successfully.`);
+  console.log(
+    `Component "${componentName}" created successfully in ${directory}.`
+  );
 }
 
-// Prompt the user for the component name
+// Prompt the user for the component name and type
 rl.question("Enter the name of the component: ", (componentName) => {
-  // Call the function to create the component files
-  createComponentFiles(componentName);
+  rl.question(
+    "Enter the type of the component \n(1) Layout\n(2) Section\n(3) Composite\n",
+    (componentType) => {
+      // Call the function to create the component files
+      createComponentFiles(componentName, componentType);
 
-  // Close the readline interface
-  rl.close();
+      // Close the readline interface
+      rl.close();
+    }
+  );
 });

@@ -7,7 +7,7 @@ import {
   LandingHero,
   Navigation,
   PageLayout,
-  SectionDivider,
+  SectionHeadline,
   ServicesSection,
   SocialMediaGrid,
   YouTubeVideo,
@@ -58,17 +58,17 @@ const HomePage = ({ data }) => {
       <Navigation>
         <LandingHero landingContent={carouselContent} />
         <PageLayout maxWidth="xl" topMargin={0}>
-          <SectionDivider headline="SERVICES WE OFFER" />
+          <SectionHeadline headline="SERVICES WE OFFER" />
           <ServicesSection services={serviceContent} />
-          <SectionDivider headline="UPCOMING EVENTS" />
+          <SectionHeadline headline="UPCOMING EVENTS" />
           <EventCalendar events={eventContent} />
-          <SectionDivider headline="ABOUT US" />
+          <SectionHeadline headline="ABOUT US" />
           <AboutSection
             headline={aboutTitle}
             aboutImage={aboutImage}
             aboutText={about}
           />
-          <SectionDivider headline="FOLLOW US" />
+          <SectionHeadline headline="FOLLOW US" />
           <SocialMediaGrid
             images={socialMediaImagesContent}
             socialHeadline="Stay up to date with the latest from Rissa's Little Cafe!"
@@ -82,7 +82,7 @@ const HomePage = ({ data }) => {
               />
             }
           />
-          <SectionDivider headline="CONTACT US" />
+          <SectionHeadline headline="CONTACT US" />
           <ContactForm
             instagramHandle={instagram}
             instagramLink={instagramLink}

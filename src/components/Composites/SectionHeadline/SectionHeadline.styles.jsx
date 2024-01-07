@@ -10,7 +10,7 @@ const SectionDividerContainer = styled(Box)(({ theme }) => ({
   width: "100%",
 }));
 
-const SectionHeadline = styled(Box)(({ theme }) => ({
+const SectionHeadlineText = styled(Box)(({ theme }) => ({
   textAlign: "center",
   padding: theme.spacing(0, 3, 0, 3),
   fontSize: "2.5rem",
@@ -31,4 +31,4 @@ const StyledDivider = styled(Divider)(({ theme }) => ({
   borderStyle: "none",
 }));
 
-export { SectionDividerContainer, SectionHeadline, StyledDivider };
+export { SectionDividerContainer, SectionHeadlineText, StyledDivider };
