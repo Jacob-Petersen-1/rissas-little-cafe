@@ -13,14 +13,12 @@ const Seo = ({ title, description, image, siteUrl }) => (
     <meta property="og:image" content={withPrefix(image)} />
     <meta property="og:url" content={siteUrl} />
     <meta property="og:type" content="website" />
-
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={withPrefix(image)} />
     <meta name="twitter:site" content="@JacobPetersen" />
     <meta name="twitter:creator" content="@JacobPetersen" />
-
     <link rel="canonical" href={siteUrl} />
   </Helmet>
 );

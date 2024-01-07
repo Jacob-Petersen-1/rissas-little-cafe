@@ -14,6 +14,8 @@ import {
   Seo,
 } from "../components";
 
+// TODO: Get social headline and description from CMS
+
 const HomePage = ({ data }) => {
   const {
     aboutData,
@@ -67,9 +69,6 @@ const HomePage = ({ data }) => {
             aboutText={about}
           />
           <SectionDivider headline="FOLLOW US" />
-          {
-            // TODO: Get social headline and description from CMS
-          }
           <SocialMediaGrid
             images={socialMediaImagesContent}
             socialHeadline="Stay up to date with the latest from Rissa's Little Cafe!"
