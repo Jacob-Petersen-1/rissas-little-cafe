@@ -9,7 +9,7 @@ import {
   Navigation,
   PageLayout,
   SectionHeadline,
-  ServicesSection,
+  ServicesCards,
   SocialMediaGrid,
   YouTubeVideo,
   Seo,
@@ -60,7 +60,7 @@ const HomePage = ({ data }) => {
         <LandingHero landingContent={carouselContent} />
         <PageLayout maxWidth="xl" topMargin={0}>
           <SectionHeadline headline="SERVICES WE OFFER" />
-          <ServicesSection services={serviceContent} />
+          <ServicesCards services={serviceContent} />
           <Slide left>
             <SectionHeadline headline="UPCOMING EVENTS" />
             <EventCalendar events={eventContent} />
@@ -75,20 +75,20 @@ const HomePage = ({ data }) => {
           </Slide>
           <Slide left>
             <SectionHeadline headline="FOLLOW US" />
-            <SocialMediaGrid
-              images={socialMediaImagesContent}
-              socialHeadline="Stay up to date with the latest from Rissa's Little Cafe!"
-              socialDescription="We share daily updates on our social media accounts. Whether you're interested in discovering a new menu item or simply want to stay informed about what we're up to, we invite you to follow us on social media for the latest updates and insights!"
-              facebookLink={facebookLink}
-              instagramLink={instagramLink}
-              children={
-                <YouTubeVideo
-                  videoUrl={videoContent?.src}
-                  title={videoContent?.title}
-                />
-              }
-            />
           </Slide>
+          <SocialMediaGrid
+            images={socialMediaImagesContent}
+            socialHeadline="Stay up to date with the latest from Rissa's Little Cafe!"
+            socialDescription="We share daily updates on our social media accounts. Whether you're interested in discovering a new menu item or simply want to stay informed about what we're up to, we invite you to follow us on social media for the latest updates and insights!"
+            facebookLink={facebookLink}
+            instagramLink={instagramLink}
+            children={
+              <YouTubeVideo
+                videoUrl={videoContent?.src}
+                title={videoContent?.title}
+              />
+            }
+          />
           <SectionHeadline headline="CONTACT US" />
           <ContactForm
             instagramHandle={instagram}

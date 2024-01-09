@@ -8,7 +8,7 @@ import {
   ServiceCardImage,
   ServiceCardTitle,
   ServiceCardWrapper,
-} from "./ServicesSection.styles";
+} from "./ServicesCards.styles";
 
 const ServiceCard = ({ image, title }) => {
   return (

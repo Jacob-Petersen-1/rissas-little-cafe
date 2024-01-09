@@ -1,14 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import Markdown from "react-markdown";
-import { Box, Typography } from "@mui/material";
 import {
   SectionHeadline,
   ContactForm,
   Navigation,
   Seo,
   PageLayout,
+  ServiceSection,
 } from "../components";
 
 const ServicesPage = ({ data }) => {
@@ -27,23 +25,14 @@ const ServicesPage = ({ data }) => {
       />
       <Navigation>
         <PageLayout maxWidth="lg" topMargin={100}>
+          <SectionHeadline headline="SERVICES WE OFFER" showLines={false} />
           {servicesContent?.map((service, index) => (
-            <Box key={service?.frontmatter?.title || index}>
-              <SectionHeadline
-                key={service?.frontmatter?.title}
-                headline={service?.frontmatter?.title}
-              />
-              <GatsbyImage
-                image={getImage(service?.image)}
-                alt={service?.frontmatter?.title}
-              />
-              <Typography
-                variant="body1"
-                style={{ marginTop: 20, marginBottom: 20 }}
-              >
-                <Markdown>{service?.frontmatter?.description}</Markdown>
-              </Typography>
-            </Box>
+            <ServiceSection
+              key={service?.frontmatter?.title || index}
+              serviceTitle={service?.frontmatter?.title}
+              serviceImage={service?.image?.childImageSharp?.gatsbyImageData}
+              serviceDescription={service?.frontmatter?.description}
+            />
           ))}
           <SectionHeadline headline="CONTACT US" />
           <ContactForm
@@ -83,7 +72,7 @@ export const query = graphql`
                 formats: [AUTO, WEBP]
                 quality: 50
                 placeholder: BLURRED
-                aspectRatio: 1.5
+                aspectRatio: 2
               )
             }
           }

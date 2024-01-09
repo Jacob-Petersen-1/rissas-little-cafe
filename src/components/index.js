@@ -5,12 +5,13 @@ export { LandingHero } from "./Composites/LandingHero";
 export { Footer } from "./Composites/Footer";
 export { NavBar } from "./Composites/NavBar";
 export { SectionHeadline } from "./Composites/SectionHeadline";
-export { YouTubeVideo } from "./Composites/YouTubeVideo";
+export { ServicesCards } from "./Composites/ServicesCards";
 export { Seo } from "./Seo";
+export { YouTubeVideo } from "./Composites/YouTubeVideo";
 
 // Sections
 export { AboutSection } from "./Sections/AboutSection";
-export { ServicesSection } from "./Sections/ServicesSection";
+export { ServiceSection } from "./Sections/ServiceSection";
 export { SocialMediaGrid } from "./Sections/SocialMediaGrid";
 
 // Layouts

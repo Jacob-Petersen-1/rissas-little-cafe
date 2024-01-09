@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ServiceCard from "./ServiceCard";
-import { ServicesSectionContainer } from "./ServicesSection.styles";
+import { ServicesSectionContainer } from "./ServicesCards.styles";
 
-const ServicesSection = ({ services }) => {
+const ServicesCards = ({ services }) => {
   return (
     <>
       <ServicesSectionContainer>
@@ -26,8 +26,8 @@ const ServicesSection = ({ services }) => {
   );
 };
 
-ServicesSection.propTypes = {
+ServicesCards.propTypes = {
   services: PropTypes.array,
 };
 
-export default ServicesSection;
+export default ServicesCards;
