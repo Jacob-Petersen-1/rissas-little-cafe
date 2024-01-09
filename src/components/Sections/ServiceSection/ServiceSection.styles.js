@@ -53,11 +53,8 @@ const ServiceSectionDescription = styled(Box)(({ theme }) => ({
   "& p": {
     fontSize: theme.typography.body1.fontSize,
     fontFamily: theme.typography.body1.fontFamily,
-    lineHeight: "1.5",
+    lineHeight: "1.75",
     textAlign: "left",
-    [theme.breakpoints.down("md")]: {
-      fontSize: theme.typography.body2.fontSize,
-    },
   },
 
   "& img": {
@@ -78,6 +75,7 @@ const ServiceSectionDescription = styled(Box)(({ theme }) => ({
   "& iframe": {
     maxWidth: "100%",
     margin: "auto",
+    marginBottom: theme.spacing(2),
   },
 }));
 
