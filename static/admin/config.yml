@@ -91,3 +91,18 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Video URL", name: "src", widget: "string" }
+  - name: menu
+    preview: false
+    label: Menu Items
+    folder: content/menu
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Description", name: "image", widget: "image" }
+      - { label: "Price", name: "image", widget: "image" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["Beverages", "Food", "Treats"]
