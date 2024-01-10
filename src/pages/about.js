@@ -1,11 +1,20 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { AboutSection, Navigation, Seo, PageLayout } from "../components";
+import {
+  AboutSection,
+  SocialMediaGrid,
+  Navigation,
+  SectionHeadline,
+  Seo,
+  PageLayout,
+} from "../components";
 
 const AboutPage = ({ data }) => {
-  const { aboutData, site } = data || {};
+  const { aboutData, socialMediaImages, site } = data || {};
   const { siteMetadata } = site || {};
   const { description, siteUrl, image } = siteMetadata || {};
+  const socialMediaImagesContent =
+    socialMediaImages?.edges?.map((edge) => edge.node) || [];
   const aboutContent = aboutData?.edges?.[0]?.node || {};
   const { frontmatter: aboutFrontmatter, image: aboutImage } =
     aboutContent || {};
@@ -27,7 +36,8 @@ const AboutPage = ({ data }) => {
         image={image}
       />
       <Navigation>
-        <PageLayout maxWidth="lg" topMargin={100}>
+        <PageLayout maxWidth="xl" topMargin={100}>
+          <SectionHeadline headline="About Us" showLines={false} />
           <AboutSection
             headline={aboutTitle}
             aboutImage={aboutImage}
@@ -37,6 +47,7 @@ const AboutPage = ({ data }) => {
             facebookHandle={facebook}
             facebookLink={facebookLink}
           />
+          <SocialMediaGrid images={socialMediaImagesContent} />
         </PageLayout>
       </Navigation>
     </>
@@ -75,6 +86,29 @@ export const query = graphql`
                 placeholder: BLURRED
                 quality: 80
                 formats: [AUTO, WEBP]
+              )
+            }
+          }
+        }
+      }
+    }
+    socialMediaImages: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/content/media/" } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            link
+          }
+          image {
+            childImageSharp {
+              gatsbyImageData(
+                layout: FULL_WIDTH
+                formats: [AUTO, WEBP]
+                quality: 80
+                placeholder: BLURRED
+                aspectRatio: 1.33
               )
             }
           }

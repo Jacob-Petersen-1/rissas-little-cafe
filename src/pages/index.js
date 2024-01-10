@@ -78,8 +78,6 @@ const HomePage = ({ data }) => {
           </Slide>
           <SocialMediaGrid
             images={socialMediaImagesContent}
-            socialHeadline="Stay up to date with the latest from Rissa's Little Cafe!"
-            socialDescription="We share daily updates on our social media accounts. Whether you're interested in discovering a new menu item or simply want to stay informed about what we're up to, we invite you to follow us on social media for the latest updates and insights!"
             facebookLink={facebookLink}
             instagramLink={instagramLink}
             children={

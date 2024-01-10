@@ -94,6 +94,12 @@ const SocialMediaGrid = ({
   );
 };
 
+SocialMediaGrid.defaultProps = {
+  socialHeadline: "Follow Us On Social Media",
+  socialDescription:
+    "We share daily updates on our social media accounts. Whether you're interested in discovering a new menu item or simply want to stay informed about what we're up to, we invite you to follow us on social media for the latest updates and insights!",
+};
+
 SocialMediaGrid.propTypes = {
   images: PropTypes.arrayOf(
     PropTypes.shape({
@@ -104,8 +110,8 @@ SocialMediaGrid.propTypes = {
       image: PropTypes.object.isRequired,
     })
   ),
-  socialHeadline: PropTypes.string.isRequired,
-  socialDescription: PropTypes.string.isRequired,
+  socialHeadline: PropTypes.string,
+  socialDescription: PropTypes.string,
   instagramLink: PropTypes.string,
   facebookLink: PropTypes.string,
   children: PropTypes.node,
