@@ -23,8 +23,8 @@ const EventPage = ({ data }) => {
         image={image}
       />
       <Navigation>
-        <PageLayout maxWidth="xl">
-          <SectionHeadline headline="UPCOMING EVENTS" />
+        <PageLayout topMargin={100} maxWidth="xl">
+          <SectionHeadline headline="UPCOMING EVENTS" showLines={false} />
           <EventCalendar events={eventContent} />
         </PageLayout>
       </Navigation>
