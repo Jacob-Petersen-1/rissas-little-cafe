@@ -2,6 +2,7 @@
 export { ContactForm } from "./Composites/ContactForm";
 export { EventCalendar } from "./Composites/EventCalendar";
 export { LandingHero } from "./Composites/LandingHero";
+export { MenuItemCard } from "./Composites/MenuItemCard";
 export { Footer } from "./Composites/Footer";
 export { NavBar } from "./Composites/NavBar";
 export { SectionHeadline } from "./Composites/SectionHeadline";
