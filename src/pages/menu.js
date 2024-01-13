@@ -27,9 +27,9 @@ const MenuPage = ({ data }) => {
         <PageLayout topMargin={100} maxWidth="xl">
           <SectionHeadline headline="Our Menu" />
           <CardLayout>
-            {menu?.map((item) => (
+            {menu?.map((item, index) => (
               <MenuItemCard
-                key={item.id}
+                key={`${item?.category}-${index}`}
                 title={item?.frontmatter?.title}
                 category={item?.frontmatter?.category}
                 description={item?.frontmatter?.description}
@@ -78,7 +78,7 @@ export const query = graphql`
                 quality: 80
                 placeholder: BLURRED
                 aspectRatio: 1
-                width: 350
+                width: 340
                 height: 350
               )
             }

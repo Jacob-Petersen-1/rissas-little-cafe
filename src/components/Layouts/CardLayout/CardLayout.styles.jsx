@@ -3,7 +3,7 @@ import { Grid } from "@mui/material";
 
 const CardLayoutContainer = styled(Grid)(({ theme }) => ({
   display: "flex",
-  marginBottom: theme.spacing(3),
+  marginBottom: theme.spacing(2),
 }));
 
 export { CardLayoutContainer };

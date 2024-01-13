@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { InputLabel, MenuItem, Box } from "@mui/material";
+import { MenuItem, Box, CardContent } from "@mui/material";
 import {
   MenuItemCardContainer,
   MenuItemCardImage,
-  MenuItemCardContent,
   MenuItemCardText,
   MenuItemCardDescription,
   MenuItemCardSelect,
@@ -29,7 +28,7 @@ const MenuItemCard = ({ title, image, description, category, prices }) => {
     <>
       <MenuItemCardContainer>
         <MenuItemCardImage image={image} alt={title} />
-        <MenuItemCardContent>
+        <CardContent>
           <MenuItemCardHeadline>
             <MenuItemCardText>{title}</MenuItemCardText>
             {prices?.length > 1 ? (
@@ -60,10 +59,18 @@ const MenuItemCard = ({ title, image, description, category, prices }) => {
             )}
           </MenuItemCardHeadline>
           <MenuItemCardDescription>{description}</MenuItemCardDescription>
-        </MenuItemCardContent>
+        </CardContent>
       </MenuItemCardContainer>
     </>
   );
+};
+
+MenuItemCard.defaultProps = {
+  title: "",
+  image: {},
+  description: "",
+  category: "",
+  prices: [],
 };
 
 MenuItemCard.propTypes = {

@@ -1,16 +1,14 @@
 import styled from "@mui/material/styles/styled";
-import { Box, Card, CardContent, Select } from "@mui/material";
+import { Box, Card, Select } from "@mui/material";
 import { GatsbyImage } from "gatsby-plugin-image";
 
 const MenuItemCardContainer = styled(Card)(({ theme }) => ({
-  maxWidth: 350,
-  margin: "auto",
+  maxWidth: 340,
   height: 500,
+  margin: "0 auto",
 }));
 
 const MenuItemCardImage = styled(GatsbyImage)(({ theme }) => ({}));
-
-const MenuItemCardContent = styled(CardContent)(({ theme }) => ({}));
 
 const MenuItemCardHeadline = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -53,7 +51,6 @@ const MenuItemCardSelect = styled(Select)(({ theme }) => ({
 export {
   MenuItemCardContainer,
   MenuItemCardImage,
-  MenuItemCardContent,
   MenuItemCardText,
   MenuItemCardDescription,
   MenuItemCardSelect,
