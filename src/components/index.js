@@ -18,3 +18,4 @@ export { SocialMediaGrid } from "./Sections/SocialMediaGrid";
 // Layouts
 export { Navigation } from "./Layouts/Navigation";
 export { PageLayout } from "./Layouts/PageLayout";
+export { CardLayout } from "./Layouts/CardLayout";

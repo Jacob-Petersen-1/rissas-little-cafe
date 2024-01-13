@@ -1,11 +1,19 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Navigation, PageLayout, SectionHeadline, Seo } from "../components";
+import {
+  Navigation,
+  PageLayout,
+  SectionHeadline,
+  Seo,
+  CardLayout,
+  MenuItemCard,
+} from "../components";
 
 const MenuPage = ({ data }) => {
-  const { site } = data || {};
+  const { site, menuData } = data || {};
   const { siteMetadata } = site || {};
   const { description, siteUrl, image } = siteMetadata || {};
+  const menu = menuData.edges.map((item) => item.node) || [];
 
   return (
     <>
@@ -18,6 +26,18 @@ const MenuPage = ({ data }) => {
       <Navigation>
         <PageLayout topMargin={100} maxWidth="xl">
           <SectionHeadline headline="Our Menu" />
+          <CardLayout>
+            {menu?.map((item) => (
+              <MenuItemCard
+                key={item.id}
+                title={item?.frontmatter?.title}
+                category={item?.frontmatter?.category}
+                description={item?.frontmatter?.description}
+                image={item?.image?.childImageSharp?.gatsbyImageData}
+                prices={item?.frontmatter?.prices}
+              />
+            ))}
+          </CardLayout>
         </PageLayout>
       </Navigation>
     </>
@@ -33,6 +53,37 @@ export const query = graphql`
         description
         siteUrl
         image
+      }
+    }
+    menuData: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/content/menu/" } }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            description
+            title
+            category
+            prices {
+              size
+              price
+            }
+          }
+          image {
+            childImageSharp {
+              gatsbyImageData(
+                layout: FIXED
+                formats: [AUTO, WEBP]
+                quality: 80
+                placeholder: BLURRED
+                aspectRatio: 1
+                width: 350
+                height: 350
+              )
+            }
+          }
+        }
       }
     }
   }

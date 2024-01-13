@@ -15,7 +15,7 @@ const pageLinks = [
   { to: "/about", label: "about" },
   { to: "/services", label: "services" },
   { to: "/", label: "logo", isImage: true },
-  { to: "/orders", label: "orders" },
+  { to: "/menu", label: "menu" },
   { to: "/events", label: "events" },
   { to: "/contact", label: "contact" },
 ];

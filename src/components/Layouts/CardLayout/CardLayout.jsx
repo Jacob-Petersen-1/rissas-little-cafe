@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Box, Grid } from "@mui/material";
 import { CardLayoutContainer } from "./CardLayout.styles";
 
 const CardLayout = ({ children }) => {
