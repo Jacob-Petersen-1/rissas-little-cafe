@@ -5,5 +5,7 @@ description: Cookies ready to eat!
 prices:
   - size: "12"
     price: "5.99"
+  - size: "6"
+    price: "3.00"
 category: Treats
 ---
