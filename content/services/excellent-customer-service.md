@@ -39,6 +39,9 @@ description: >-
   As a testament to our commitment to excellence, we present a section dedicated to customer reviews. Here, you'll find stories of delight, shared experiences, and the unique ways in which Rissa's Little Cafe has become a cherished part of our customers' lives. We invite you to explore these reviews and discover the moments that define our cafe's legacy.
 
 
+  <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Flynn.dahle.79%2Fposts%2F2639516709529756&show_text=true&width=500" width="500" height="186" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+
+
   <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fdanielle.draper.984%2Fposts%2F2414942355314232&show_text=true&width=500" width="500" height="696" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
 
 
