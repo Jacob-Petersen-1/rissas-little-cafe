@@ -6,7 +6,6 @@ import {
   RadioGroup,
   FormLabel,
   FormControlLabel,
-  Snackbar,
   useTheme,
   useMediaQuery,
 } from "@mui/material";
@@ -50,7 +49,6 @@ const FormImage = ({ showImage, isMobile }) => {
 };
 
 const ContactForm = ({ title, showImage }) => {
-  const [open, setOpen] = useState(false);
   const [phone, setPhone] = useState("");
   const [contactMethod, setContactMethod] = useState("email");
   const contactMethods = ["Email", "Call", "Text"];
@@ -148,13 +146,6 @@ const ContactForm = ({ title, showImage }) => {
           </Button>
         </ContactFormBody>
       </ContactFormContainer>
-      <Snackbar
-        open={open}
-        autoHideDuration={3000}
-        onClose={() => setOpen(false)}
-        message={alertMessage}
-        anchorOrigin={{ vertical: "top", horizontal: "center" }}
-      />
     </>
   );
 };
