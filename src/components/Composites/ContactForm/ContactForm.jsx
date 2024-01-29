@@ -51,18 +51,11 @@ const FormImage = ({ showImage, isMobile }) => {
 
 const ContactForm = ({ title, showImage }) => {
   const [open, setOpen] = useState(false);
-  const [alertMessage, setAlertMessage] = useState("");
   const [phone, setPhone] = useState("");
   const [contactMethod, setContactMethod] = useState("email");
   const contactMethods = ["Email", "Call", "Text"];
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setAlertMessage("Message Sent!");
-    setOpen(true);
-  };
 
   return (
     <>
@@ -74,7 +67,6 @@ const ContactForm = ({ title, showImage }) => {
           method="post"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
-          onSubmit={handleSubmit}
         >
           <ContactFormHeader>{title}</ContactFormHeader>
           <input type="hidden" name="contact" value="contact" />
